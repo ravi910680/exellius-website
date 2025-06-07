@@ -36,6 +36,19 @@
   }
 }
 
+.variant4-exit {
+  animation: variant4FadeOut 1s linear forwards;
+}
+
+@keyframes variant4FadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* Variant6: Enter (reveal from center out) */
 /* Variant6: enter with scale from center */

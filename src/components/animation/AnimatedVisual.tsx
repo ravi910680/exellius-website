@@ -13,7 +13,7 @@ import variant6 from "../../animations/Variant6.png";
 const frames = [frame1, frame2,frame3,frame4,frame5, variant3, variant4, variant6];
 
 // Match delays: 1ms between frames, 2000ms pause before looping
-const delays = [500, 500,500,500,1000, 1000, 6000, 5000]; // last = 2s delay + 1s animation
+const delays = [500, 500,500,500,1000, 1000, 4000, 4000]; // last = 2s delay + 1s animation
 
 export default function FigmaSmartLoopedAnimation() {
   const [index, setIndex] = useState(0);
@@ -45,12 +45,14 @@ export default function FigmaSmartLoopedAnimation() {
             key={i}
             src={typeof src === "string" ? src : src.src}
             alt={`frame-${i}`}
-           className={`frame 
+          className={`frame 
   ${isActive ? "active" : ""}
   ${i === 6 && isActive ? "reveal-down" : ""}
+  ${i === 6 && !isActive ? "variant4-exit" : ""}
   ${i === 7 && isActive ? "variant6-enter" : ""}
   ${i === 7 && !isActive ? "variant6-exit" : ""}
 `}
+
 
           />
         );
