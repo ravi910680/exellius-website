@@ -1,0 +1,73 @@
+.frame-wrapper {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s linear;
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.frame.active {
+  opacity: 1;
+}
+
+/* Variant4 only: reveal from top to bottom */
+.reveal-down {
+  animation: revealTopDown 3s linear forwards;
+}
+
+@keyframes revealTopDown {
+  0% {
+    clip-path: inset(0% 0% 100% 0%); /* Only top is visible */
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);   /* Fully revealed */
+    opacity: 1;
+  }
+}
+
+
+/* Variant6: Enter (reveal from center out) */
+/* Variant6: enter with scale from center */
+.variant6-enter {
+  transform-origin: center;
+  animation: variant6ScaleIn 1s linear forwards;
+}
+
+@keyframes variant6ScaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Variant6: Exit (hide bottom to top) */
+.variant6-exit {
+  animation: variant6Exit 1s linear forwards;
+}
+
+@keyframes variant6Exit {
+  0% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(100% 0% 0% 0%);
+    opacity: 0;
+  }
+}

@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import AnimatedVisual from "./animation/AnimatedVisual"
+import "./animation/FigmaSmartLoopedAnimation.css";
 
 export default function Hero() {
   return (
@@ -68,20 +70,11 @@ export default function Hero() {
        
 
         {/* Search Field (moved out of image box) */}
-        <div className="flex w-full max-w-md rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-          <input
-            type="text"
-            placeholder="exellius"
-            className="flex-1 px-3 py-2 text-sm outline-none bg-white"
-          />
-          <div className="flex items-center px-3 bg-white">
-            <span className="text-gray-500">@</span>
-          </div>
-          <div className="flex items-center px-3 text-sm text-gray-500">
-            exellius.com
-          </div>
-          <Button className="rounded-none rounded-r-md">Find</Button>
-        </div>
+       {/* Right Content */}
+<div className="mt-10 lg:mt-0 lg:ml-12">
+  <AnimatedVisual />
+</div>
+
       </div>
     </section>
   )
