@@ -8,7 +8,6 @@ import frame4 from "../../animations/Frame4.png";
 import frame5 from "../../animations/Frame5.png";
 import variant3 from "../../animations/Variant3.png";
 import variant4 from "../../animations/Variant4.png";
-import variant5 from "../../animations/Variant5.png";
 import variant6 from "../../animations/Variant6.png";
 
 const frames = [frame1, frame2,frame3,frame4,frame5, variant3, variant4, variant6];
@@ -40,7 +39,7 @@ export default function FigmaSmartLoopedAnimation() {
    <div className="frame-wrapper">
       {frames.map((src, i) => {
         const isActive = i === index;
-        const isEnteringVariant4 = i === 3 && isActive;
+       
         return (
           <img
             key={i}
