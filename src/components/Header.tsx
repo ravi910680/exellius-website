@@ -44,7 +44,7 @@ const menuData: Record<"Resources" | "Company" | "Legal", { label: string; href:
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
+  
 
   const toggleDropdown = (menu: string) => {
     setActiveDropdown(prev => (prev === menu ? null : menu))
@@ -126,6 +126,55 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      {mobileOpen && (
+        <div className="fixed inset-0 bg-white z-[9999] p-4 pt-6 flex flex-col justify-between overflow-y-auto">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <Link href="/">
+                <Image src="/logo.png" alt="Exellius Logo" width={100} height={36} />
+              </Link>
+              <X size={24} className="text-gray-700 cursor-pointer" onClick={() => setMobileOpen(false)} />
+            </div>
+
+            <div className="mb-4">
+              <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Features</p>
+              {[...featuresMenuPrimary, ...featuresMenuSecondary].map(item => (
+                <Link key={item.href} href={item.href} className="block text-sm text-gray-800 hover:text-purple-600 mb-3">
+                  <div className="font-medium">{item.label}</div>
+                  {item.desc && <div className="text-sm text-gray-500">{item.desc}</div>}
+                </Link>
+              ))}
+            </div>
+
+            {["Pricing Page", "Support", ...Object.keys(menuData)].map(label => (
+              <div key={label} className="mb-2">
+                {label === "Pricing Page" ? (
+                  <Link href="/pricing" className="block text-gray-800 py-2">Pricing</Link>
+                ) : label === "Support" ? (
+                  <Link href="/contact-us" className="block text-gray-800 py-2">Support</Link>
+                ) : (
+                  <>
+                    <div className="text-sm font-medium text-gray-700 mb-1">{label}</div>
+                    <div className="pl-4 border-l border-gray-200">
+                      {(menuData[label as keyof typeof menuData] || []).map(item => (
+                        <Link key={item.href} href={item.href} className="block text-sm text-gray-700 py-1 hover:text-purple-600">
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3">
+            <Button variant="outline" className="w-full">Book a Demo</Button>
+            <Button className="w-full">Create Account</Button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

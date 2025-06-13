@@ -13,7 +13,8 @@ export default function Footer() {
 
         {/* Brand and Social */}
         <div className="md:col-span-2">
-          <p className="text-sm text-gray-300 mb-4">
+          <img src="/logo-white.png" alt="Exellius Logo" className="w-32 mb-4" />
+          <p className="text-sm text-gray-300 mb-10">
             Your daily stream of fresh data on companies and professionals
           </p>
           <div className="flex gap-4 mt-4">
