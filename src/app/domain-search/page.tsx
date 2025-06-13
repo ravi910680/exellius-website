@@ -9,6 +9,9 @@ import LeadDiscoveryStep2 from "./LeadDiscoveryStep2";
 import LeadDiscoveryStep3 from "./LeadDiscoveryStep3";
 import LeadDiscoveryStep4 from "./LeadDiscoveryStep4";
 import CallToAction from "@/components/CallToAction"
+import HowItWorksInfographic from "./HowItWorksInfographic";
+import UseCasesSplitSection from "./UseCasesSplitSection";
+import FAQSection from "./FAQs";
 
 export default function EmailFinderPage() {
   return (
@@ -20,7 +23,12 @@ export default function EmailFinderPage() {
       <LeadDiscoveryStep2 />
       <LeadDiscoveryStep3 />
       <LeadDiscoveryStep4 />
+      <HowItWorksInfographic />
+       <UseCasesSplitSection />
+      <FAQSection />
       <CallToAction />
+
+     
       {/* Add any additional components or sec
       tions as needed */}
      

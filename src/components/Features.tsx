@@ -25,27 +25,27 @@ export default function Features() {
         {/* Right Column */}
         {/* Right Column */}
 <div className="bg-[#ecf4fc] px-6 sm:px-10 md:px-10 py-12 sm:py-16 md:py-24 flex flex-col justify-center h-full">
+  {/* Image at the top/left */}
+ 
 
-          <h3 className="text-3xl font-semibold text-gray-900">
-            Technical Trust Builders
-          </h3>
-          <div className="w-20 h-1 bg-[#9856F2] rounded mt-3 mb-6" /> {/* Divider after title */}
-          
-          {/* Image */}
-          <div className="relative h-24 w-full max-w-[400px] mb-6 mx-auto">
-  <Image
-    src="/trust.png"
-    alt="Technical trust icons"
-    fill
-    className="object-contain"
-  />
+  <h3 className="text-3xl font-semibold text-gray-900">
+    Technical Trust Builders
+  </h3>
+  <div className="w-20 h-1 bg-[#9856F2] rounded mt-3 mb-6" /> {/* Divider after title */}
+
+   <div className="relative h-24 w-full max-w-[400px] mb-6 mx-auto md:mx-0 md:mb-8">
+    <Image
+      src="/trust.png"
+      alt="Technical trust icons"
+      fill
+      className="object-contain"
+    />
+  </div>
+  
+  <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit">
+    Avail Free Trial
+  </Button>
 </div>
-
-
-          <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit">
-            Avail Free Trial
-          </Button>
-        </div>
       </div>
     </section>
   )

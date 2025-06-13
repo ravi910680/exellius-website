@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 export default function EmailVerifyFeature() {
   return (
     <section className="w-full py-20 px-4">
-      <div className="max-w-7xl mx-auto rounded-xl bg-[#fbedc8] overflow-hidden grid grid-cols-1 md:grid-cols-2 shadow-sm">
+      <div className="max-w-7xl mx-auto rounded-xl bg-[#FEF0EC] overflow-hidden grid grid-cols-1 md:grid-cols-2 shadow-sm">
         
         {/* Left: Image on background grid */}
         <div className="relative ">
@@ -15,7 +15,7 @@ export default function EmailVerifyFeature() {
             src="/left-back.png"
             alt="Background grid"
             fill
-            className="object-cover "
+            className="object-cover opacity-30"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image

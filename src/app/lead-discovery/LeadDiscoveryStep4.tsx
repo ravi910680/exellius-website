@@ -11,7 +11,7 @@ export default function LeadDiscoveryStep4() {
         <div className="relative rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden bg-[#FEF0EC]">
           
           {/* Left-side background image */}
-          <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-10 hidden md:block z-0">
+          <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-40 hidden md:block z-0">
             <Image
               src="/grp-large-left.png"
               alt="Section Background"

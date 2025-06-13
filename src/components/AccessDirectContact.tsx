@@ -55,7 +55,7 @@ export default function EmailFinderFeature() {
             src="/right-back.png"
             alt="Grid background"
             fill
-            className="object-cover object-left"
+            className="object-cover object-left opacity-30" // Optional: make it lighter to blend with bg
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
