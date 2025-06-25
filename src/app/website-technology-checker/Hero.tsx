@@ -46,8 +46,8 @@ export default function TechCheckerHero() {
 
           <p className="mt-6 text-base text-gray-900">
             Curious about what tools, platforms, or stacks your competitors are using?
-            With our Website Technology Checker, you can uncover any site's backend & frontend tools—fast.
-            Whether you're a developer, marketer, or founder, understanding tech choices gives you a strategic edge.
+            With our Website Technology Checker, you can uncover any site&apos;s backend & frontend tools—fast.
+            Whether you&apos;re a developer, marketer, or founder, understanding tech choices gives you a strategic edge.
           </p>
 
           <p className="mt-4 text-base text-gray-900">

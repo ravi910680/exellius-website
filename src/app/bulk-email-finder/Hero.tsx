@@ -51,7 +51,7 @@ export default function BulkTaskHero() {
           </p>
 
           <p className="mt-4 text-base text-gray-900">
-            Whether you're handling 1,000 or 100,000 contacts, scale your efforts with confidence and precision.
+            Whether you&apos;re handling 1,000 or 100,000 contacts, scale your efforts with confidence and precision.
           </p>
 
           <ul className="mt-6 space-y-2">

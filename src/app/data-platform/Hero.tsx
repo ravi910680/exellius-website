@@ -49,7 +49,7 @@ export default function DataPlatformHero() {
           </p>
 
           <p className="mt-4 text-base text-gray-900">
-            Whether you're prospecting, enriching leads, or building ABM campaigns — our platform fuels it all with unmatched precision and reach.
+            Whether you&apos;re prospecting, enriching leads, or building ABM campaigns — our platform fuels it all with unmatched precision and reach.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
