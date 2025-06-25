@@ -24,7 +24,7 @@ const tabs = [
 ]
 
 export default function EmailFinderHero({ slugPath }: { slugPath: string }) {
-  const [activeTab, setActiveTab] = useState("Domain Email Search")
+  const [activeTab, setActiveTab] = useState("Professional Email Finder")
   const router = useRouter()
 
 

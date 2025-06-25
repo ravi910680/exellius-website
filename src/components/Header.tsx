@@ -23,7 +23,7 @@ const featuresMenuSecondary = [
   { label: "Amazon Seller Data", desc: "", href: "/amazon-seller-data" },
 ]
 
-const menuData: Record<"Resources" | "Company" | "Legal", { label: string; href: string }[]> = {
+const menuData: Record<"Resources" | "Company" , { label: string; href: string }[]> = {
   Resources: [
     { label: "Blogs", href: "/blogs" },
     { label: "Customer Stories", href: "/customer-stories" },
@@ -34,11 +34,7 @@ const menuData: Record<"Resources" | "Company" | "Legal", { label: string; href:
     { label: "About Us", href: "/about-us" },
     { label: "Our Data", href: "/our-data" },
     { label: "Careers", href: "/careers" },
-  ],
-  Legal: [
-    { label: "Terms & Conditions", href: "/terms-and-conditions" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-  ],
+  ]
 }
 
 export default function Header() {
