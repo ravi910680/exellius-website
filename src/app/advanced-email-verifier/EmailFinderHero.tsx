@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { useRouter } from "next/navigation"
 import clsx from "clsx"
 import Image from "next/image"
@@ -11,19 +11,13 @@ const tabToSlug: Record<string, string> = {
   "Email Verifier": "advanced-email-verifier",
 }
 
-const slugToTab: Record<string, string> = {
-  "/domain-search": "Domain Email Search",
-  "/professional-email-finder": "Professional Email Finder",
-  "/advanced-email-verifier": "Email Verifier",
-}
-
 const tabs = [
   "Domain Email Search",
   "Professional Email Finder",
   "Email Verifier",
 ]
 
-export default function EmailFinderHero({ slugPath }: { slugPath: string }) {
+export default function EmailFinderHero() {
   const [activeTab, setActiveTab] = useState("Email Verifier")
   const router = useRouter()
 
