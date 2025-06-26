@@ -13,7 +13,7 @@ export default function CustomerTestimonials() {
           {/* Testimonial 1 */}
           <div className="bg-[#EAF2FD] rounded-lg p-12 border text-left shadow-sm">
             <p className="text-sm sm:text-base text-gray-800 mb-4">
-              "Exellius’ phone number finder saved us hours of manual research. The data quality is unmatched, and the API integrates perfectly with our CRM."
+              &quot;Exellius phone number finder saved us hours of manual research. The data quality is unmatched, and the API integrates perfectly with our CRM.&quot;
             </p>
             <p className="font-semibold text-gray-900">Mark T., Sales Director</p>
           </div>
@@ -21,7 +21,7 @@ export default function CustomerTestimonials() {
           {/* Testimonial 2 */}
           <div className="bg-[#FEF0EC] rounded-lg p-12 border text-left shadow-sm">
             <p className="text-sm sm:text-base text-gray-800 mb-4">
-              "Compared to other providers, Exellius delivers higher accuracy at a fraction of the cost."
+              &quot;Compared to other providers, Exellius delivers higher accuracy at a fraction of the cost.&quot;
             </p>
             <p className="font-semibold text-gray-900">Sarah L., Growth Marketer</p>
           </div>
