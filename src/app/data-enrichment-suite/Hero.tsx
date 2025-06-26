@@ -6,8 +6,8 @@ import { CheckCircle } from "lucide-react"
 
 export default function DataEnrichmentHero() {
   return (
-    <section className="relative w-full bg-[#F9F5FF] pt-44 pb-20 px-6 overflow-hidden">
-      {/* Top Background */}
+    <section className="relative w-full bg-[#FFF5FD] pt-44 pb-20 px-6 overflow-hidden">
+      {/* Backgrounds */}
       <Image
         src="/bg_top.png"
         alt="Top Background"
@@ -15,8 +15,6 @@ export default function DataEnrichmentHero() {
         height={400}
         className="absolute top-0 left-0 w-full object-cover z-0"
       />
-
-      {/* Bottom Background */}
       <Image
         src="/bg_bottom.png"
         alt="Bottom Background"
@@ -25,58 +23,57 @@ export default function DataEnrichmentHero() {
         className="absolute bottom-0 left-0 w-full object-cover z-0"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-        
-        {/* Left: Image */}
-        <div className="w-full max-w-md">
-          <Image
-            src="/data-enrichment.png" // Replace with actual enrichment visual
-            alt="Data Enrichment Visual"
-            width={600}
-            height={600}
-            className="w-full h-auto"
-          />
-        </div>
-
-        {/* Right: Content */}
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold leading-snug">
-            <span className="text-[#6c3cbe]">Data Enrichment Suite</span> to{" "}
-            <span className="text-[#6c3cbe]">Enhance & Complete</span> Your Lead Data
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+        {/* Left: Text Content */}
+        <div className="max-w-2xl text-left">
+          <h1 className="text-5xl font-bold leading-snug">
+            Boost Business Growth with{" "}
+            <span className="text-[#9856F2]">Advanced</span> Data Enrichment
           </h1>
 
           <p className="mt-6 text-base text-gray-900">
-            Incomplete lead data is costing your sales team time, accuracy, and opportunities.
-            With Exellius, enrich your contacts with verified emails, phone numbers, job titles,
-            firmographics, technographics, and more—all in one platform.
+            Data enrichment is the process of enhancing raw data with additional insights, ensuring your business has the most up-to-date and actionable information. 
+            At Exellius, we provide cutting-edge data enrichment tools and services to help businesses refine their customer databases, improve lead generation, and drive growth.
           </p>
 
-          <p className="mt-4 text-base text-gray-900">
-            Empower your CRM with clean, actionable data. Whether you’re uploading a list or enriching in real-time, 
-            our AI-powered enrichment ensures every lead is sales-ready.
+          <h2 className="mt-8 font-semibold text-lg text-black">Why Data Enrichment Matters</h2>
+          <p className="mt-2 text-gray-900">
+            <strong>Data enrichment platforms</strong> like Exellius enable businesses to:
           </p>
 
-          <ul className="mt-6 space-y-2">
+          <ul className="mt-4 space-y-3">
             {[
-              "Fill in missing fields like phone, email, or company size",
-              "Update outdated job titles and company info",
-              "Append firmographic and technographic tags"
+              "Improve lead quality with contact data enrichment",
+              "Enhance CRM records with CRM data enrichment",
+              "Automate data updates with API-based data enrichment",
+              "Increase sales efficiency with lead enrichment and customer data enrichment"
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-2 font-medium">
-                <CheckCircle className="w-5 h-5 text-[#6c3cbe]" />
+                <CheckCircle className="w-5 h-5 text-[#9856F2]" />
                 <span>{point}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex gap-4">
             <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Try Data Enrichment
+              Get Started
             </Button>
             <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              View Use Cases
+              Learn More
             </Button>
           </div>
+        </div>
+
+        {/* Right: Image */}
+        <div className="w-full max-w-lg">
+          <Image
+            src="/email-verifier.png" // Ensure this path exists
+            alt="Data Enrichment Visual"
+            width={800}
+            height={800}
+            className="w-full h-auto"
+          />
         </div>
       </div>
     </section>

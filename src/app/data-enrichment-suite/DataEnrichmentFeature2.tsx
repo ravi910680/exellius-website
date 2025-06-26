@@ -24,10 +24,10 @@ export default function DataEnrichmentFeature2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
               <Image
-                src="/crm-sync.png" // Replace with real visual
+                src="/data-enrich-1.png" // Replace with real visual
                 alt="CRM Enrichment Visual"
-                width={520}
-                height={360}
+                width={420}
+                height={320}
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -35,25 +35,26 @@ export default function DataEnrichmentFeature2() {
 
           {/* Right: Text Content */}
           <div className="w-full lg:w-1/2 text-left relative z-10">
-            <h4 className="text-2xl font-bold text-gray-900 mb-3">Real-Time CRM Enrichment</h4>
-            <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
+            <h4 className="text-3xl font-semibold mb-1">
+              <span className="text-[#9856F2]">02.</span> Automatic Enrichment
+            </h4>
+            <div className="h-0.5 w-20 bg-[#9856F2] mb-4 mt-5"></div>
 
-            <p className="text-base text-gray-800 mb-6">
-              Keep your pipeline clean and accurate—automatically. Exellius integrates directly with your CRM to enrich leads as they arrive and maintain data hygiene over time:
-            </p>
+            <p className="text-sm text-gray-800 mb-5 ">We append:</p>
 
             <ul className="space-y-3 text-sm text-gray-900">
-              {[
-                <><strong>Auto-fill lead data</strong> inside HubSpot, Salesforce & others</>,
-                <><strong>Enrich in real-time</strong> when a form is submitted or lead is added</>,
-                <><strong>Daily syncs</strong> to update job titles, company info & more</>,
-                <><strong>Trigger workflows</strong> based on enriched fields like revenue or role</>
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 mt-0.5 text-[#6c3cbe]" />
-                  <span className="font-semibold">{item}</span>
-                </li>
-              ))}
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>B2B contact data (Direct dials, verified emails)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>Company insights (Funding, employee count, technographics)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>Intent signals (Recent web activity, content downloads)</span>
+              </li>
             </ul>
           </div>
         </div>

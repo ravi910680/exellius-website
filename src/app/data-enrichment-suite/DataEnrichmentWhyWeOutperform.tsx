@@ -2,75 +2,117 @@
 
 import { CheckCircle } from "lucide-react"
 
-
-const outperformCards = [
+const timelineSteps = [
   {
-    title: "Enrichment Built for Scale",
-    points: [
-      "1000+ leads enriched in under a minute",
-      "Bulk import via CSV or CRM",
-      "Parallel processing engine"
+    id: "1",
+    number: "01",
+    title: "",
+    side: "left",
+    points: [],
+    buttons: [
+      { label: "Sign up free", variant: "primary" },
+      { label: "No credit card", variant: "secondary" },
     ],
-    cta: "See Bulk Enrichment"
+    bg: "bg-[#fbf8fe]",
   },
   {
-    title: "Accuracy You Can Rely On",
-    points: [
-      "95%+ verified email accuracy",
-      "Real-time LinkedIn & domain verification",
-      "Human-in-the-loop data checks"
-    ],
-    cta: "Our Accuracy Promise"
+    id: "2",
+    number: "02",
+    title: "Upload your first free 25 contacts",
+    side: "right",
+    points: [],
+    buttons: [],
+    bg: "bg-[#fff2ec]",
   },
   {
-    title: "Smarter Context, Not Just Contacts",
-    points: [
-      "Enrich with tech stack, revenue & funding data",
-      "Auto-detect job seniority & buyer roles",
-      "Contextual firmographics & segmentation fields"
-    ],
-    cta: "See Smart Enrichment"
-  }
+    id: "3",
+    number: "03",
+    title: "See the Exellius difference",
+    side: "left",
+    points: [],
+    buttons: [],
+    bg: "bg-[#edf4ff]",
+  },
 ]
 
-export default function DataEnrichmentWhyWeOutperform() {
+export default function GetStartedTimeline() {
   return (
-    <section className="bg-white py-24 px-6">
-      <div className="max-w-7xl mx-auto text-center">
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          Why Our <span className="text-[#6c3cbe]">Enrichment Suite</span> Outperforms the Rest
+          Get Started in <span className="text-[#6c3cbe]">3 Minutes</span>
         </h2>
-        <p className="mt-4 text-base text-gray-800">
-          Most tools enrich contacts. We go further—with speed, precision, and context that empowers your sales & marketing strategies.
-        </p>
+        <div className="h-1 w-20 bg-[#6c3cbe] mt-4 mb-16 mx-auto rounded" />
 
-        {/* Subheading */}
-        <h3 className="text-xl font-semibold mt-10 mb-6">What Sets Us Apart</h3>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full border-l-2 border-[#6c3cbe] z-0" />
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {outperformCards.map((card, i) => (
-            <div
-              key={i}
-              className="bg-[#fbf8fe] border border-gray-200 rounded-xl p-6 text-left shadow-sm hover:shadow-md transition"
-            >
-              <h4 className="text-base font-semibold text-gray-900 mb-4">{card.title}</h4>
+          <div className="flex flex-col gap-20 relative z-10">
+            {timelineSteps.map((step) => (
+              <div
+                key={step.id}
+                className={`relative flex items-center justify-between gap-6 ${
+                  step.side === "left" ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Card */}
+                <div
+                  className={`w-full max-w-sm rounded-xl shadow-sm border border-gray-200 p-6 text-left ${step.bg}`}
+                >
+                  <h4 className="font-semibold text-base text-gray-900">{step.title}</h4>
 
-              <ul className="space-y-2 text-sm text-gray-900 mb-6">
-                {card.points.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 mt-0.5 text-[#6c3cbe]" />
-                    <span className="font-medium">{point}</span>
-                  </li>
-                ))}
-              </ul>
+                  {/* Optional bullet points */}
+                  {step.points.length > 0 && (
+                    <ul className="space-y-2 text-sm text-gray-900">
+                      {step.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 mt-0.5 text-[#6c3cbe]" />
+                          <span className="font-medium">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-              <button className="bg-[#6c3cbe] hover:bg-[#4b239e] text-white text-sm font-semibold py-2 px-4 rounded-lg transition">
-                {card.cta}
-              </button>
-            </div>
-          ))}
+                  {/* Optional buttons */}
+                  {step.buttons.length > 0 && (
+                    <div className=" flex flex-col gap-2">
+                      {step.buttons.map((btn, i) => (
+                        <button
+                          key={i}
+                          className={`${
+                            btn.variant === "primary"
+                              ? "bg-[#6c3cbe] text-white"
+                              : "border border-[#6c3cbe] text-[#6c3cbe]"
+                          } rounded-md px-4 py-2 text-sm font-medium`}
+                        >
+                          {btn.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Centered Step Number */}
+                 <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white ">
+  <img
+    src={`/icons/${step.id}.png`}
+    alt={`Step ${step.id}`}
+    className="w-full h-full object-contain block"
+  />
+</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom CTA Button */}
+        <div className="mt-16 text-center">
+          <button className="bg-[#6c3cbe] hover:bg-[#582fa0] text-white px-6 py-3 rounded-lg text-sm font-semibold transition">
+            Start Enriching Data Now
+          </button>
         </div>
       </div>
     </section>

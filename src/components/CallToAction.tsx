@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function CallToAction() {
   return (
-    <div className="w-full bg-[url('/cta-back.png')] bg-cover bg-center px-4 sm:px-6">
+    <div className="w-full bg-[url('/cta-back.png')] bg-cover bg-center px-4 sm:px-6 pt-20">
       <div className="w-full max-w-[100%] sm:max-w-2xl md:max-w-7xl bg-gradient-to-r from-[#9856F2] to-[#58328C] text-white px-6 sm:px-10 py-14 rounded-2xl flex flex-col md:flex-row justify-between items-center mx-auto shadow-lg">
         <div className="text-center md:text-left w-full md:w-2/3">
           <h2 className="text-2xl sm:text-3xl font-bold mb-2">
