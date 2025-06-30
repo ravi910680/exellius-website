@@ -8,8 +8,7 @@ import HowItWorks from "./HowItWorks";
 import LeadDiscoveryStep2 from "./LeadDiscoveryStep2";
 import LeadDiscoveryStep3 from "./LeadDiscoveryStep3";
 import CallToAction from "@/components/CallToAction"
-import HowItWorksInfographic from "./HowItWorksInfographic";
-import UseCasesSplitSection from "./UseCasesSplitSection";
+
 import FAQSection from "./FAQs";
 import AccurateContactSection from "./AccurateContactSection";
 import EmailFinderSteps from "./EmailFinderSteps";
