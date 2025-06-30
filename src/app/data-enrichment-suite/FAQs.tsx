@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { Plus, Minus } from "lucide-react"
 
 const faqs = [
   {
@@ -55,44 +55,48 @@ export default function FaqSection() {
 
   return (
     <section className="bg-[#fcf4fc] py-24 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900">
-          FAQs
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-gray-900">
+          FAQ<span className="text-[#9856F2]">s</span>
         </h2>
-        <div className="w-10 h-1 bg-[#6c3cbe] rounded mx-auto mt-2 mb-10" />
+        <div className="w-20 h-1 bg-[#9856F2] rounded mx-auto mt-2 mb-10" />
+      </div>
 
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-             <div
-              key={i}
-              className={`bg-white rounded-xl border border-[#eee] px-6 py-4 transition-all shadow-sm ${
-                openIndex === i ? "ring-2 ring-[#6c3cbe]" : ""
+      <div className="max-w-5xl mx-auto space-y-4">
+        {faqs.map((faq, i) => (
+          <div
+            key={i}
+            className={`bg-gradient-to-br from-[#f5f5f5] to-[#edf2fb] border-b-2 border-[#9856F2] rounded-xl px-6 py-6 transition-all duration-300 ${
+              openIndex === i ? "shadow-md" : ""
+            }`}
+          >
+            <button
+              className="w-full flex justify-between items-center text-left font-semibold text-[18px] md:text-[20px] text-gray-900"
+              onClick={() => toggle(i)}
+            >
+              {faq.question}
+              {openIndex === i ? (
+                <Minus className="text-[#9856F2] w-5 h-5" />
+              ) : (
+                <Plus className="text-[#9856F2] w-5 h-5" />
+              )}
+            </button>
+
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${
+                openIndex === i
+                  ? "grid-rows-[1fr] opacity-100 mt-2"
+                  : "grid-rows-[0fr] opacity-0"
               }`}
             >
-              <button
-                onClick={() => toggle(i)}
-                className={`w-full flex items-center justify-between px-6 py-4 text-left font-semibold transition-colors ${
-                  openIndex === i
-                    ? "text-[#6c3cbe]"
-                    : "text-gray-800 hover:text-[#6c3cbe]"
-                }`}
-              >
-                {faq.question}
-                {openIndex === i ? (
-                  <ChevronUp className="text-[#6c3cbe]" />
-                ) : (
-                  <ChevronDown className="text-[#6c3cbe]" />
-                )}
-              </button>
-
-              {openIndex === i && (
-                <div className="px-6 pb-5 pt-0 text-sm text-gray-700">
+              <div className="overflow-hidden">
+                <p className="text-sm md:text-base text-gray-800 leading-relaxed">
                   {faq.answer}
-                </div>
-              )}
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   )

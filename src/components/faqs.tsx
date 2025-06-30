@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const faqs = [
   {
@@ -72,9 +73,19 @@ export default function FAQSection() {
               )}
             </button>
 
-            {openIndex === i && (
-              <p className="mt-4 text-md text-gray-900">{faq.answer}</p>
-            )}
+            <AnimatePresence initial={false}>
+              {openIndex === i && (
+                <motion.div
+                  key="answer"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="mt-4 text-md text-gray-900">{faq.answer}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

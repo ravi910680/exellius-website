@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep3() {
   return (
@@ -12,7 +13,7 @@ export default function LeadDiscoveryStep3() {
           {/* Right-side background image */}
           <div className="absolute inset-y-0 right-0 w-1/2 opacity-60 pointer-events-none hidden md:block z-0">
             <Image
-              src="/grp-large.png" // light background pattern if needed
+              src="/grp-large.png" // light background pattern
               alt="Grid background"
               fill
               className="object-cover object-right"
@@ -22,15 +23,28 @@ export default function LeadDiscoveryStep3() {
           {/* Left Text Section */}
           <div className="w-full lg:w-1/2 relative z-10 text-left">
             <h3 className="text-3xl font-semibold mb-2">
-              <span className="text-[#9856F2]">03.</span> Email Verifier API for Seamless Integration
+              <span className="text-[#9856F2]">03.</span> Enterprise-Ready Data Governance
             </h3>
             <div className="h-0.5 w-10 bg-[#9856F2] mb-4"></div>
 
             <p className="text-md sm:text-base text-gray-800 mb-4 max-w-xl">
-              Automate email validation within your CRM, marketing tools, or custom applications using
-              Exellius’ <strong>Email Verifier API</strong>. Ensure every new contact added to your system
-              is verified instantly.
+              Built with privacy by design:
             </p>
+
+            <ul className="space-y-3 text-md text-gray-900">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>GDPR-compliant data sourcing</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>Enterprise-grade security</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
+                <span>Regular auditing of our verification systems</span>
+              </li>
+            </ul>
           </div>
 
           {/* Right Screenshot Image */}

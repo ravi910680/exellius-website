@@ -5,8 +5,14 @@ import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep1() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white px-6 text-center">
       <div className="max-w-7xl mx-auto">
+
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          How <span className="text-[#9856F2]">Exellius</span> Helps You Find Email <br />
+          Addresses by Domain
+        </h2>
+        <div className="w-16 h-[4px] bg-[#9856F2] mx-auto mb-12" />
         {/* Card Container */}
         <div className="relative bg-[#FBF8FE] border border-gray-200 rounded-xl shadow-sm overflow-hidden px-6 md:px-12 py-12 flex flex-col lg:flex-row items-center gap-10">
           
@@ -33,9 +39,7 @@ export default function LeadDiscoveryStep1() {
               professional email addresses.
             </p>
 
-            <p className="text-md text-[#9856F2] underline cursor-pointer mb-5">
-              Add a Screenshot of the tool that shows how it is done
-            </p>
+            
 
             <p className="text-md font-bold mb-2 text-gray-900">Key Benefits:</p>
             <ul className="space-y-3 text-md text-gray-900">

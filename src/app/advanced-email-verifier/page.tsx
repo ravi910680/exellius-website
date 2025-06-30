@@ -12,19 +12,25 @@ import CallToAction from "@/components/CallToAction"
 import HowItWorksInfographic from "./HowItWorksInfographic";
 import UseCasesSplitSection from "./UseCasesSplitSection";
 import FAQSection from "./FAQs";
+import EmailValidationWarning from "./EmailValidationWarning";
+import EmailVerificationBenefits from "./EmailVerificationBenefits";
+import EmailVerificationSteps from "./EmailVerificationSteps";
+import CallToAction2 from "./CallToAction";
 
 export default function EmailFinderPage() {
   return (
     <>
       <Header />
       <EmailFinderHero />
-      <DomainEmailFeature />
+      <EmailValidationWarning />
+      <EmailVerificationBenefits />
+      
       <HowItWorks />
       <LeadDiscoveryStep2 />
       <LeadDiscoveryStep3 />
       <LeadDiscoveryStep4 />
-      <HowItWorksInfographic />
-       <UseCasesSplitSection />
+     <EmailVerificationSteps />
+       <CallToAction2 />
       <FAQSection />
       <CallToAction />
 

@@ -14,8 +14,8 @@ const features = [
       "Verified Corporate emails",
       "Firmographics & technographics"
     ],
-    description: `Not all lead databases are created equal. Many platforms offer outdated or unverified contacts, leading to wasted efforts. Exellius helps you find professional email addresses and verified B2B leads.`,
-    emphasis: "With accurate B2B data, your sales team can engage with the right prospects at the right time."
+    description: `Not all lead databases are created equal. Many platforms offer outdated or unverified contacts, leading to wasted efforts. Exellius helps you find professional email addresses and verified B2B leads.`
+    
   },
   {
     id: "02",
@@ -122,9 +122,7 @@ function FeatureCard({ feature }: { feature: typeof features[0] }) {
 )}
 
 
-        {feature.emphasis && (
-          <p className="text-md text-gray-600 ">{feature.emphasis}</p>
-        )}
+        
       </div>
     </div>
   )

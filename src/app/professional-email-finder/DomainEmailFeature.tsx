@@ -8,7 +8,7 @@ export default function DomainEmailFeature() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Side - Image */}
         <div className="w-full lg:w-1/2 relative">
-          <div className="rounded-xl overflow-hidden ">
+          <div className="rounded-xl overflow-hidden">
             <Image
               src="/domain-finder-img.png" // replace with your actual UI asset
               alt="Domain Search UI"
@@ -22,33 +22,35 @@ export default function DomainEmailFeature() {
         {/* Right Side - Text */}
         <div className="w-full lg:w-1/2">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Why Use a <span className="text-[#9856F2]">Domain Email</span> Search Tool?
+            Why Use <span className="text-[#9856F2]">Exellius’</span> Email Finder Tool?
           </h2>
 
           <div className="w-16 h-1 bg-[#9856F2] mb-6" />
 
           <p className="text-gray-700 mb-6 text-base leading-relaxed">
-            Manually searching for business email addresses is time-consuming and unreliable.
-            With Exellius, you can:
+            Our <strong>email search</strong> tool combines advanced algorithms with a vast database of professional emails to deliver accurate results. Here’s why businesses trust Exellius:
           </p>
 
           <ul className="space-y-4 text-sm sm:text-base">
-            {[
-              "Find emails by domain at scale with 95%+ accuracy.",
-              "Access a verified email address database to reduce bounce rates.",
-              "Speed up lead generation with bulk domain search capabilities.",
-              "Integrate seamlessly using our Domain Search API for automated workflows.",
-            ].map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <CheckCircle className="text-[#9856F2] w-5 h-5 mt-1" />
-                <span className="text-gray-800">{point}</span>
-              </li>
-            ))}
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-[#9856F2] w-5 h-5 mt-1" />
+              <span><strong>High Accuracy</strong> — Every email is verified for deliverability.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-[#9856F2] w-5 h-5 mt-1" />
+              <span><strong>Instant Results</strong> — Find emails in seconds, not hours.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-[#9856F2] w-5 h-5 mt-1" />
+              <span><strong>Seamless Integration</strong> — Use our Email Finder API to embed email search into your workflow.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-[#9856F2] w-5 h-5 mt-1" />
+              <span><strong>Bulk Processing</strong> — Need multiple contacts? Use our Bulk Email Extraction Tool for large-scale searches.</span>
+            </li>
           </ul>
 
-          <Button className="mt-8 bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
-            Find Verified Emails Now
-          </Button>
+         
         </div>
       </div>
     </section>

@@ -7,24 +7,32 @@ import DomainEmailFeature from "./DomainEmailFeature";
 import HowItWorks from "./HowItWorks";
 import LeadDiscoveryStep2 from "./LeadDiscoveryStep2";
 import LeadDiscoveryStep3 from "./LeadDiscoveryStep3";
-import LeadDiscoveryStep4 from "./LeadDiscoveryStep4";
+
 import CallToAction from "@/components/CallToAction"
 import HowItWorksInfographic from "./HowItWorksInfographic";
 import UseCasesSplitSection from "./UseCasesSplitSection";
 import FAQSection from "./FAQs";
+import DomainHelpSection from "./DomainHelpSection";
+import ProspectingHighlight from "./ProspectingHighlight";
+import ExploreMoreTools from "./ExploreMoreTools";
 
 export default function EmailFinderPage() {
   return (
     <>
       <Header />
       <EmailFinderHero />
+      <DomainHelpSection />
       <DomainEmailFeature />
       <HowItWorks />
       <LeadDiscoveryStep2 />
       <LeadDiscoveryStep3 />
-      <LeadDiscoveryStep4 />
+      
       <HowItWorksInfographic />
        <UseCasesSplitSection />
+      <ProspectingHighlight />
+      <ExploreMoreTools />
+      
+  
       <FAQSection />
       <CallToAction />
 

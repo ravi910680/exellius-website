@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function LeadDiscoveryStep2() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white  px-6">
       <div className="max-w-7xl mx-auto">
         <div className="relative bg-[#FEF0EC] border border-gray-200 rounded-2xl overflow-hidden shadow-sm px-6 md:px-12 py-12 flex flex-col lg:flex-row items-center gap-10">
           
@@ -44,9 +44,9 @@ export default function LeadDiscoveryStep2() {
 
             {/* Paragraph */}
             <p className="text-md sm:text-base text-gray-800 leading-relaxed max-w-xl">
-              Need to verify thousands of emails? Our <strong>bulk email checker</strong> allows you to upload entire lists
-              in CSV or Excel formats and receive verification results in minutes. Perfect for marketers, sales teams,
-              and recruiters managing large databases.
+              Need to verify thousands of emails? Our <strong>bulk email checker</strong> allows you
+              to upload entire lists in CSV or Excel formats and receive verification results in minutes.
+              Perfect for marketers, sales teams, and recruiters managing large databases.
             </p>
           </div>
         </div>

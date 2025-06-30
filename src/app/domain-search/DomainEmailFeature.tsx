@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 export default function DomainEmailFeature() {
   return (
     <section className="py-20 bg-white px-6 md:px-10">
+      
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Side - Image */}
         <div className="w-full lg:w-1/2 relative">

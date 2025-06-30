@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const faqs = [
   {
@@ -56,7 +57,6 @@ const faqs = [
   },
 ]
 
-
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
@@ -82,7 +82,7 @@ export default function FaqSection() {
             >
               <button
                 onClick={() => toggle(i)}
-                className="w-full flex items-center justify-between font-semibold text-gray-900 text-left"
+                className="w-full flex items-center justify-between font-semibold text-gray-900 text-left text-lg"
               >
                 {faq.question}
                 {openIndex === i ? (
@@ -91,9 +91,22 @@ export default function FaqSection() {
                   <ChevronDown className="text-[#6c3cbe]" />
                 )}
               </button>
-              {openIndex === i && faq.answer && (
-                <div className="mt-4 text-sm text-gray-700">{faq.answer}</div>
-              )}
+
+              <AnimatePresence initial={false}>
+                {openIndex === i && (
+                  <motion.div
+                    key="answer"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="mt-4 text-md text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

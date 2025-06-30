@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
@@ -27,10 +27,10 @@ const faqs = [
 ]
 
 export default function FAQs() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const toggle = (i: number) => {
-    setActiveIndex(activeIndex === i ? -1 : i)
+    setActiveIndex(activeIndex === i ? null : i)
   }
 
   return (
@@ -45,10 +45,12 @@ export default function FAQs() {
       <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, i) => {
           const isOpen = activeIndex === i
+          const contentRef = useRef<HTMLDivElement>(null)
+
           return (
             <div
               key={i}
-              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all ${
+              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all duration-300 ${
                 isOpen ? "bg-white" : "bg-[#FAF6FF]"
               }`}
             >
@@ -64,11 +66,17 @@ export default function FAQs() {
                 )}
               </button>
 
-              {isOpen && (
-                <div className="px-6 pb-6 text-sm sm:text-base text-gray-700">
-                  {faq.answer}
-                </div>
-              )}
+              <div
+                ref={contentRef}
+                className="px-6 text-sm sm:text-base text-gray-700 transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight: isOpen ? contentRef.current?.scrollHeight : 0,
+                  opacity: isOpen ? 1 : 0,
+                  overflow: "hidden",
+                }}
+              >
+                <div className="pb-6 pt-1">{faq.answer}</div>
+              </div>
             </div>
           )
         })}

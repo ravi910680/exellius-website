@@ -23,29 +23,31 @@ export default function LeadDiscoveryStep1() {
           {/* ✅ Left Content */}
           <div className="w-full lg:w-1/2 relative z-10 text-left">
             <h3 className="text-3xl font-semibold mb-2">
-              <span className="text-[#9856F2]">01.</span> Instant Domain Search
+              <span className="text-[#9856F2]">01.</span> Accurate & Fast Email Checker
             </h3>
             <div className="h-0.5 w-10 bg-[#9856F2] mb-4"></div>
 
-            <p className="text-md sm:text-base text-gray-800 mb-4">
-              Enter a company’s domain (e.g., exellius.com), and our <strong>email finder tool</strong> helps you{" "}
-              <strong>find emails by domain</strong> by scanning publicly available sources to retrieve valid
-              professional email addresses.
+            <p className="text-md sm:text-base text-gray-800 mb-6">
+              Our <strong>email verification</strong> tool delivers instant results with 95% accuracy.
+              By validating emails in real-time, you can:
             </p>
 
-            <p className="text-md text-[#9856F2] underline cursor-pointer mb-5">
-              Add a Screenshot of the tool that shows how it is done
-            </p>
-
-            <p className="text-md font-bold mb-2 text-gray-900">Key Benefits:</p>
-            <ul className="space-y-3 text-md text-gray-900">
+            <ul className="space-y-4 text-md text-gray-900">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
-                <span>Real-time results with name, role, and department details.</span>
+                <CheckCircle className="w-5 h-5 mt-1 text-[#9856F2]" />
+                <span><strong>Reduce bounce rates</strong></span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 mt-0.5 text-[#9856F2]" />
-                <span>Filter by seniority (C-level, managers, etc.).</span>
+                <CheckCircle className="w-5 h-5 mt-1 text-[#9856F2]" />
+                <span><strong>Improve email deliverability</strong></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-1 text-[#9856F2]" />
+                <span><strong>Protect sender reputation</strong></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 mt-1 text-[#9856F2]" />
+                <span><strong>Save costs on failed campaigns</strong></span>
               </li>
             </ul>
           </div>
@@ -54,7 +56,7 @@ export default function LeadDiscoveryStep1() {
           <div className="w-full lg:w-1/2 relative z-10 flex justify-center">
             <div className="w-[420px]">
               <Image
-                src="/domain-finder-img-2.png"
+                src="/domain-finder-img-2.png" // Replace with actual screenshot if different
                 alt="Step visual"
                 width={420}
                 height={300}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Plus, Minus } from "lucide-react"
 
 const faqs = [
@@ -37,10 +37,10 @@ const faqs = [
 ]
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const toggle = (i: number) => {
-    setOpenIndex(openIndex === i ? -1 : i)
+    setOpenIndex(openIndex === i ? null : i)
   }
 
   return (
@@ -53,32 +53,41 @@ export default function FAQSection() {
       </div>
 
       <div className="max-w-5xl mx-auto space-y-4">
-        {faqs.map((faq, i) => (
-           <div
-            key={i}
-            className={`bg-gradient-to-br from-[#f5f5f5] to-[#edf2fb] border-b-2 border-[#9856F2] rounded-xl px-6 py-6 transition-all duration-300 ${
-              openIndex === i ? "shadow-md" : ""
-            }`}
-          >
-            <button
-              className="w-full flex justify-between items-center text-left font-semibold text-[18px] md:text-[20px] text-gray-900"
-              onClick={() => toggle(i)}
+        {faqs.map((faq, i) => {
+          const isOpen = openIndex === i
+          return (
+            <div
+              key={i}
+              className={`bg-gradient-to-br from-[#f5f5f5] to-[#edf2fb] border-b-2 border-[#9856F2] rounded-xl px-6 py-6 transition-shadow duration-300 ${
+                isOpen ? "shadow-md" : ""
+              }`}
             >
-              {faq.question}
-              {openIndex === i ? (
-                <Minus className="text-[#9856F2] w-5 h-5" />
-              ) : (
-                <Plus className="text-[#9856F2] w-5 h-5" />
-              )}
-            </button>
+              <button
+                className="w-full flex justify-between items-center text-left font-semibold text-[18px] md:text-[20px] text-gray-900"
+                onClick={() => toggle(i)}
+              >
+                {faq.question}
+                {isOpen ? (
+                  <Minus className="text-[#9856F2] w-5 h-5" />
+                ) : (
+                  <Plus className="text-[#9856F2] w-5 h-5" />
+                )}
+              </button>
 
-            {openIndex === i && (
-              <p className="mt-3 text-sm md:text-base text-gray-800 leading-relaxed">
-                {faq.answer}
-              </p>
-            )}
-          </div>
-        ))}
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="text-sm md:text-base text-gray-800 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )

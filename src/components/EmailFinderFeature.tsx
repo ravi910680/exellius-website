@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export default function EmailFinderFeature() {
   return (
-    <section className="w-full py-16 px-4 sm:px-6">
+    <section className="w-full  px-4 sm:px-6">
       <div className="max-w-7xl mx-auto rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white shadow-sm">
         {/* Left: Content */}
         <div className="bg-[#FBF8FE] p-6 sm:p-10 flex flex-col justify-center">

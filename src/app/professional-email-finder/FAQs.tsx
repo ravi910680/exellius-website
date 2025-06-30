@@ -1,36 +1,41 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "How accurate is Exellius’ email finder tool?",
+    question: "How does the Professional Email Finder work?",
     answer:
-      "Our tool sources data from public profiles, company websites, and verified databases, ensuring 95%+ accuracy.",
+      "Our email finder tool searches public databases and verifies results to provide accurate professional emails. Just enter a name and domain.",
   },
   {
-    question: "Can I find emails from multiple domains at once?",
+    question: "How accurate is Exellius’ Email Finder?",
     answer:
-      "Yes, you can search multiple domains via bulk search by uploading a CSV file or using our API.",
+      "We ensure high accuracy through real-time validation, domain verification, and email activity checks before results are shown.",
   },
   {
-    question: "Is there an API for domain email search?",
+    question: "Can I find emails in bulk?",
     answer:
-      "Absolutely. Exellius provides a robust Email Finder API for domain-based and name-based email discovery.",
+      "Yes, our Bulk Email Finder allows you to upload CSV files and retrieve verified results for hundreds or thousands of contacts instantly.",
   },
   {
-    question: "How does Exellius verify email addresses?",
+    question: "Is there a free version of the Email Finder?",
     answer:
-      "We verify using SMTP checks, domain validation, and reputation scoring to ensure high accuracy and low bounce rates.",
+      "Yes! You can start with limited free credits when you sign up, perfect for testing individual searches and understanding our results.",
+  },
+  {
+    question: "Why does the Email Finder sometimes return no results?",
+    answer:
+      "Some contacts may not have public or verifiable email data. In such cases, we prioritize privacy and only surface verified, legal data.",
   },
 ]
 
 export default function FAQs() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState<number | null>(0) // Open first item by default
 
   const toggle = (i: number) => {
-    setActiveIndex(activeIndex === i ? -1 : i)
+    setActiveIndex(activeIndex === i ? null : i)
   }
 
   return (
@@ -45,10 +50,12 @@ export default function FAQs() {
       <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, i) => {
           const isOpen = activeIndex === i
+          const contentRef = useRef<HTMLDivElement>(null)
+
           return (
             <div
               key={i}
-              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all ${
+              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all duration-300 ${
                 isOpen ? "bg-white" : "bg-[#FAF6FF]"
               }`}
             >
@@ -64,11 +71,17 @@ export default function FAQs() {
                 )}
               </button>
 
-              {isOpen && (
-                <div className="px-6 pb-6 text-sm sm:text-base text-gray-700">
-                  {faq.answer}
-                </div>
-              )}
+              <div
+                ref={contentRef}
+                className="px-6 text-sm sm:text-base text-gray-700 transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight: isOpen ? contentRef.current?.scrollHeight : 0,
+                  opacity: isOpen ? 1 : 0,
+                  overflow: "hidden",
+                }}
+              >
+                <div className="pb-6 pt-1">{faq.answer}</div>
+              </div>
             </div>
           )
         })}

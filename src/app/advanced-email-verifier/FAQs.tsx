@@ -5,39 +5,39 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "How accurate is Exellius’ email finder tool?",
+    question: "What’s the difference between an email verifier and an email lookup tool?",
     answer:
-      "Our tool sources data from public profiles, company websites, and verified databases, ensuring 95%+ accuracy.",
+      "An email checker validates whether an address exists, while an email lookup tool helps find verified email addresses associated with a person or domain. Exellius offers both solutions for complete email intelligence.",
   },
   {
-    question: "Can I find emails from multiple domains at once?",
+    question: "Can verified emails still bounce?",
     answer:
-      "Yes, you can search multiple domains via bulk search by uploading a CSV file or using our API.",
+      "Yes, while verification reduces the risk, some emails may still bounce due to temporary server issues or changes after verification.",
   },
   {
-    question: "Is there an API for domain email search?",
+    question: 'What does "Accept-All" mean in email verification?',
     answer:
-      "Absolutely. Exellius provides a robust Email Finder API for domain-based and name-based email discovery.",
+      'It means the domain is configured to accept all emails, even invalid ones—making it hard to confirm the recipient’s validity.',
   },
   {
-    question: "How does Exellius verify email addresses?",
+    question: "Is bulk email verification secure?",
     answer:
-      "We verify using SMTP checks, domain validation, and reputation scoring to ensure high accuracy and low bounce rates.",
+      "Absolutely. Exellius uses encrypted connections and strict data privacy policies to ensure your uploaded data stays secure.",
   },
 ]
 
 export default function FAQs() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState<number | null>(0)
 
   const toggle = (i: number) => {
-    setActiveIndex(activeIndex === i ? -1 : i)
+    setActiveIndex(activeIndex === i ? null : i)
   }
 
   return (
     <section className="bg-white py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-900 mb-2">
-          FAQ<span className="text-[#9856F2]">s</span>
+          Common Questions About <span className="text-[#9856F2]">Email Verification</span>
         </h2>
         <div className="h-1 w-16 bg-[#9856F2] mx-auto mb-10" />
       </div>
@@ -48,7 +48,7 @@ export default function FAQs() {
           return (
             <div
               key={i}
-              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all ${
+              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all duration-300 ease-in-out ${
                 isOpen ? "bg-white" : "bg-[#FAF6FF]"
               }`}
             >
@@ -64,11 +64,13 @@ export default function FAQs() {
                 )}
               </button>
 
-              {isOpen && (
-                <div className="px-6 pb-6 text-sm sm:text-base text-gray-700">
-                  {faq.answer}
-                </div>
-              )}
+              <div
+                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                  isOpen ? "max-h-[500px] opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+                }`}
+              >
+                <p className="text-sm sm:text-base text-gray-700">{faq.answer}</p>
+              </div>
             </div>
           )
         })}

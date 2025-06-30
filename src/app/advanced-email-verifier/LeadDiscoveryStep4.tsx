@@ -2,9 +2,9 @@
 
 import Image from "next/image"
 
-export default function LeadDiscoveryStep2() {
+export default function LeadDiscoveryStep4() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white  px-6">
       <div className="max-w-7xl mx-auto">
         <div className="relative bg-[#FEF0EC] border border-gray-200 rounded-2xl overflow-hidden shadow-sm px-6 md:px-12 py-12 flex flex-col lg:flex-row items-center gap-10">
           
@@ -33,9 +33,9 @@ export default function LeadDiscoveryStep2() {
           <div className="w-full lg:w-1/2 relative z-10 text-left">
             {/* Heading with step number */}
             <div className="flex items-baseline gap-3 mb-2">
-              <h3 className="text-3xl font-bold text-[#9856F2]">04.</h3>
-              <h4 className="text-3xl font-bold text-gray-900">
-               Free Email Checker with No Hidden Costs
+              
+              <h4 className="text-3xl font-bold text-gray-900"><span className="text-3xl font-bold text-[#9856F2]">04.</span>
+                Free Email Checker with No Hidden Costs
               </h4>
             </div>
 
@@ -44,9 +44,8 @@ export default function LeadDiscoveryStep2() {
 
             {/* Paragraph */}
             <p className="text-md sm:text-base text-gray-800 leading-relaxed max-w-xl">
-              Get started with our <strong>free email checker</strong>, offering 10 free verifications per month—no credit card required. Scale up with flexible pricing plans as your needs grow.
-
-
+              Get started with our <strong>free email checker</strong>, offering 10 free verifications per month—no credit card required. 
+              Scale up with flexible pricing plans as your needs grow.
             </p>
           </div>
         </div>
