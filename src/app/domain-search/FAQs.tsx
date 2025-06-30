@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
@@ -45,13 +45,11 @@ export default function FAQs() {
       <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, i) => {
           const isOpen = activeIndex === i
-          const contentRef = useRef<HTMLDivElement>(null)
-
           return (
             <div
               key={i}
-              className={`rounded-xl shadow-md border-b-2 border-[#9856F2] overflow-hidden transition-all duration-300 ${
-                isOpen ? "bg-white" : "bg-[#FAF6FF]"
+              className={`rounded-xl border-b-2 border-[#9856F2] transition-all duration-300 overflow-hidden ${
+                isOpen ? "bg-white shadow-md" : "bg-[#FAF6FF]"
               }`}
             >
               <button
@@ -67,15 +65,13 @@ export default function FAQs() {
               </button>
 
               <div
-                ref={contentRef}
-                className="px-6 text-sm sm:text-base text-gray-700 transition-all duration-300 ease-in-out"
-                style={{
-                  maxHeight: isOpen ? contentRef.current?.scrollHeight : 0,
-                  opacity: isOpen ? 1 : 0,
-                  overflow: "hidden",
-                }}
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
               >
-                <div className="pb-6 pt-1">{faq.answer}</div>
+                <div className="overflow-hidden px-6 pb-6 pt-1 text-sm sm:text-base text-gray-700">
+                  {faq.answer}
+                </div>
               </div>
             </div>
           )
