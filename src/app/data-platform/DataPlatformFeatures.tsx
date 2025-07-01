@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { CheckCircle } from "lucide-react"
 
 const features = [
   {
