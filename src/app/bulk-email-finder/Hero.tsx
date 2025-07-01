@@ -1,12 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { CheckCircle } from "lucide-react"
+import { Check } from "lucide-react"
 
 export default function BulkTaskHero() {
   return (
-    <section className="relative w-full bg-[#F9F5FF] pt-44 pb-20 px-6 overflow-hidden">
+    <section className="relative w-full bg-[#F9F5FF] pt-44 pb-24 px-6 overflow-hidden">
       {/* Top Background */}
       <Image
         src="/bg_top.png"
@@ -25,57 +24,75 @@ export default function BulkTaskHero() {
         className="absolute bottom-0 left-0 w-full object-cover z-0"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-        
-        {/* Left: Visual */}
-        <div className="w-full max-w-md">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+        {/* Left Content */}
+        <div className="max-w-2xl w-full">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-snug">
+            Bulk Tasks Made Easy With{" "}
+            <span className="text-[#9856F2]">Exellius</span>: Find, Verify & Enrich Bulk Data
+          </h1>
+
+          <p className="mt-6 text-base sm:text-lg text-gray-800">
+            At Exellius, we empower businesses with powerful bulk email finder, email verifier,
+            domain search, and phone finder tools to streamline prospecting, reduce bounce rates,
+            and enhance outreach efficiency.
+          </p>
+
+          <p className="mt-4 text-base sm:text-lg text-gray-800">
+            Whether you need a list of email addresses, a list of phone numbers, or a list of domains,
+            Exellius provides high-quality data in bulk, saving time and boosting productivity.
+          </p>
+        </div>
+
+        {/* Right Image */}
+        <div className="w-full ">
           <Image
-            src="/bulk-task.png" // Replace with actual bulk visual
+            src="/bulk-data-1.png"
             alt="Bulk Task Visual"
             width={600}
             height={600}
-            className="w-full h-auto"
+            className="w-full h-auto "
           />
         </div>
+      </div>
 
-        {/* Right: Text Content */}
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold leading-snug">
-            <span className="text-[#6c3cbe]">Bulk Task</span> –{" "}
-            <span className="text-[#6c3cbe]">Verify & Find Contacts</span> at Scale
-          </h1>
-
-          <p className="mt-6 text-base text-gray-900">
-            Upload large lists of leads and let Exellius do the work. Our Bulk Task engine verifies email addresses,
-            enriches missing data, and returns complete, accurate contact records—ready for outreach.
+      {/* Features Grid (inside same section) */}
+      <div className="relative z-10 max-w-7xl mx-auto mt-20">
+        <div className="text-center max-w-2xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+            Why Use Exellius for Bulk Data Tasks?
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-gray-700">
+            Manually searching for contact information is tedious and inefficient.
+            Exellius automates the process, allowing you to:
           </p>
-
-          <p className="mt-4 text-base text-gray-900">
-            Whether you&apos;re handling 1,000 or 100,000 contacts, scale your efforts with confidence and precision.
-          </p>
-
-          <ul className="mt-6 space-y-2">
-            {[
-              "Bulk verify emails and phone numbers",
-              "Append missing job titles, LinkedIn URLs, and firmographics",
-              "Upload CSV and download enriched data in minutes"
-            ].map((point, i) => (
-              <li key={i} className="flex items-start gap-2 font-medium">
-                <CheckCircle className="w-5 h-5 text-[#6c3cbe]" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Start Bulk Task
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Watch It in Action
-            </Button>
-          </div>
         </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          {[
+            "Find email addresses in bulk with precision",
+            "Verify email addresses in bulk to improve deliverability",
+            "Perform bulk domain search to uncover key decision-makers",
+            "Use bulk mobile number finder to expand your contact database",
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-xl shadow-sm border border-[#eee] p-6 flex items-start gap-4 text-left"
+            >
+              <div className="bg-[#9856F2] rounded-full p-2">
+                <Check className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-sm sm:text-base font-medium text-gray-800">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto">
+          With Exellius, you can process thousands of records in minutes, ensuring your campaigns
+          target the right prospects with validated data.
+        </p>
       </div>
     </section>
   )

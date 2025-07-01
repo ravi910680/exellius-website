@@ -9,6 +9,13 @@ import BulkTaskFeature4 from "./BulkTaskFeature4"
 import IndustriesWeServe from "../lead-discovery/IndustriesWeServe"
 import BulkTaskWhyWeOutperform from "./BulkTaskWhyWeOutperform"
 import BulkTaskFaqSection from "./BulkTaskFaqSection"
+import BulkEmailFinderSection from "./BulkEmailFinderSection"
+import BulkEmailVerifierSection from "./BulkEmailVerifierSection"
+import BulkDomainSearchSection from "./BulkDomainSearchSection"
+import BulkPhoneFinderSection from "./BulkPhoneFinderSection"
+import BulkToolBenefitsSection from "./BulkToolBenefitsSection"
+import WhyChooseExelliusSection from "./WhyChooseExelliusSection"
+import CallToAction from "@/components/CallToAction"
 
 
 
@@ -20,14 +27,16 @@ export default function LeadDiscoveryPage() {
       <main className="min-h-screen bg-[#f9f7fe] ">
         <Hero />
      
-     <BulkTaskFeatures />
-     <BulkTaskFeature1 />
-        <BulkTaskFeature2 />
-        <BulkTaskFeature3 />
-        <BulkTaskFeature4 />
-        <IndustriesWeServe />
-       <BulkTaskWhyWeOutperform />
+     <BulkEmailFinderSection />
+     <BulkEmailVerifierSection />
+        <BulkDomainSearchSection />
+        <BulkPhoneFinderSection />
+        <BulkToolBenefitsSection />
+        <WhyChooseExelliusSection />
+        
+    
        <BulkTaskFaqSection />
+       <CallToAction />
        
      
      

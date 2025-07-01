@@ -6,47 +6,40 @@ import { CheckCircle } from "lucide-react"
 const features = [
   {
     id: "01",
-    title: "Verified Global B2B Coverage",
+    title: "Bulk Email Finder – Scale Your Outreach Efficiently",
     bgColor: "bg-[#FBF8FE]",
-    points: [
-      "Millions of contacts across 100+ countries",
-      "C-level to mid-level professionals",
-      "Email, phone, LinkedIn & firmographics",
-      "Segment by role, location, or industry"
-    ],
-    description: `Our database includes decision-makers across every region and vertical. Whether you're targeting SaaS startups in Berlin or manufacturers in Texas, we’ve got you covered.`,
-    emphasis: "Fuel international campaigns with trusted and complete B2B contact data."
+    description: `Need a large B2B email list for your campaigns? Our `,
+    linkLabel: "Bulk Email Finder",
+    link: "#",
+    afterLink:
+      " tool lets you upload domains or company names and extract verified emails in seconds—perfect for marketing and sales teams.",
   },
   {
     id: "02",
-    title: "High Deliverability Standards",
-    bgColor: "bg-[#FEF0EC]",
-    points: [
-      "95%+ verified deliverable email addresses",
-      "Spam trap, disposable & catch-all detection",
-      "SMTP & domain verification built-in",
-      "Auto-removal of outdated records"
-    ],
-    description: `Stop wasting time on bounce backs. Every contact you get from Exellius is cleaned and validated through multiple layers of verification.`
+    title: "Professional Email Finder – Precision at Your Fingertips",
+    bgColor: "bg-[#EAF2FB]",
+    description: `Find the exact email formats of key decision-makers with our `,
+    linkLabel: "Professional Email Finder",
+    link: "#",
+    afterLink:
+      ". Just enter a name and company, and get accurate contact information instantly.",
   },
   {
     id: "03",
-    title: "Rich Company Intelligence",
-    bgColor: "bg-[#FFF6F7]",
-    description: `Pair every contact with deep firmographic and technographic context—like company size, revenue, tech stack, funding rounds, and recent changes.`
+    title: "Phone Number Finder – Connect Directly with Prospects",
+    bgColor: "bg-[#FEF0EC]",
+    description: `Boost your cold calling success with our `,
+    linkLabel: "Phone Number Finder",
+    link: "#",
+    afterLink:
+      ", providing direct lines to executives and managers.",
   },
   {
     id: "04",
-    title: "Built for Targeted Outreach",
-    bgColor: "bg-[#EAF2FB]",
-    description: `Precision-filter data by job function, company headcount, tools used, or buyer intent. Whether it's cold emails or ABM ads—target your exact ICP with confidence.`
-  },
-  {
-    id: "05",
-    title: "Flexible Delivery & Integration",
+    title: "Domain Search – Discover All Associated Emails",
     bgColor: "bg-[#FBF8FE]",
-    description: `Download lists instantly, connect via API, or sync with CRMs like HubSpot and Salesforce. Build your ideal pipeline your way—with zero manual work.`
-  }
+    description: `Our Domain Search feature helps you uncover every professional email linked to a company, ensuring no potential lead is missed.`,
+  },
 ]
 
 export default function DataPlatformFeatures() {
@@ -55,28 +48,16 @@ export default function DataPlatformFeatures() {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 inline-block">
-            Why Trust <span className="text-[#6c3cbe]">Exellius</span> as Your{" "}
-            <span className="whitespace-nowrap">
-              B2B Email
-              <br className="hidden md:block" />
-            </span>{" "}
-            Data Platform?
+          <h2 className="text-4xl font-bold text-gray-900">
+            Key Features of Our B2B <span className="text-[#6c3cbe]">Email Data</span> Platform
           </h2>
-          <div className="h-1 w-40 bg-[#6c3cbe] mt-8 rounded mx-auto"></div>
+          <div className="h-1 w-24 bg-[#6c3cbe] mt-4 mx-auto rounded" />
         </div>
 
-        {/* Top Row: 2 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {features.slice(0, 2).map((feature, idx) => (
+        {/* Feature Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((feature, idx) => (
             <FeatureCard key={idx} feature={feature} />
-          ))}
-        </div>
-
-        {/* Bottom Row: 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.slice(2).map((feature, idx) => (
-            <FeatureCard key={idx + 2} feature={feature} />
           ))}
         </div>
       </div>
@@ -84,45 +65,50 @@ export default function DataPlatformFeatures() {
   )
 }
 
-function FeatureCard({ feature }: { feature: typeof features[0] }) {
+function FeatureCard({
+  feature,
+}: {
+  feature: {
+    id: string
+    title: string
+    bgColor: string
+    description: string
+    linkLabel?: string
+    link?: string
+    afterLink?: string
+  }
+}) {
   return (
-    <div className={`relative overflow-hidden p-6 rounded-xl border border-gray-200 ${feature.bgColor}`}>
-      {/* Background Image */}
-      <div className="absolute inset-y-0 right-0 w-64">
+    <div
+      className={`relative overflow-hidden p-16 rounded-xl border border-gray-200 ${feature.bgColor}`}
+    >
+      {/* Background */}
+      <div className="absolute inset-0">
         <Image
           src="/grp-bg.png"
           alt=""
           fill
-          className="opacity-50"
+          className=" opacity-50 pointer-events-none"
         />
       </div>
 
-      {/* Text Content */}
-      <div className="relative z-10 text-left">
-        <h3 className="text-2xl font-bold text-black mb-7 flex items-baseline gap-2">
-          <span className="text-[#6c3cbe]">{feature.id}.</span>
-          <span>{feature.title}</span>
+      {/* Content */}
+      <div className="relative z-10">
+        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-900">
+          <span className="text-[#6c3cbe] font-bold">{feature.id}.</span>{" "}
+          {feature.title}
         </h3>
-        <div className="h-0.5 w-20 bg-[#6c3cbe] mb-5"></div>
+        <div className="h-0.5 w-20 bg-[#6c3cbe] mb-4"></div>
 
-        {feature.description && (
-          <p className="text-md text-gray-800 mb-5">{feature.description}</p>
-        )}
-
-        {feature.points && (
-          <ul className="text-md space-y-2 mb-5">
-            {feature.points.map((point, i) => (
-              <li key={i} className="flex items-start gap-2 text-gray-900">
-                <CheckCircle className="w-4 h-4 mt-0.5 text-[#6c3cbe]" />
-                <span className="font-semibold">{point}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {feature.emphasis && (
-          <p className="text-md text-gray-600">{feature.emphasis}</p>
-        )}
+        <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
+          {feature.description}
+          {feature.link && (
+            <a href={feature.link} className="text-[#6c3cbe] underline font-medium">
+              {feature.linkLabel}
+            </a>
+          )}
+          {feature.afterLink}
+        </p>
       </div>
     </div>
   )

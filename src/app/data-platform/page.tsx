@@ -10,6 +10,11 @@ import IndustriesWeServe from "../lead-discovery/IndustriesWeServe"
 import DataPlatformHowWeOutperform from "./DataPlatformHowWeOutperform"
 import FlexibleSolutions from "./FlexibleSolutions"
 import FaqSection from "./FaqSection"
+import WhyExelliusProvider from "./WhyExelliusProvider"
+import SalesMarketingBenefits from "./SalesMarketingBenefits"
+import BenefitCards from "./BenefitCards"
+import GetStartedSection from "./GetStartedSection"
+import CallToAction from "@/components/CallToAction"
 
 
 
@@ -23,15 +28,14 @@ export default function LeadDiscoveryPage() {
       <main className="min-h-screen bg-[#f9f7fe] ">
      
         <Hero />
+        <WhyExelliusProvider />
         <DataPlatformFeatures />
-        <DataPlatformFeature1 />
-        <DataPlatformFeature2 />
-        <DataPlatformFeature3 />
-        <DataPlatformFeature4 />
-        <IndustriesWeServe />
-        <DataPlatformHowWeOutperform />
-        <FlexibleSolutions />
+        <SalesMarketingBenefits />
+        <BenefitCards />
+        <GetStartedSection />
+       
         <FaqSection />
+        <CallToAction />
         
        
         
