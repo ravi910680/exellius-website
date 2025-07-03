@@ -51,7 +51,7 @@ export default function Header() {
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-white rounded-full shadow-md px-6 py-6">
         <div className="flex items-center justify-between w-full">
           <Link href="/">
-            <Image src="/logo.png" alt="Exellius Logo" width={120} height={40} priority />
+            <Image src="/logo.jpg" alt="Exellius Logo" width={120} height={40} priority />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-900">
@@ -65,7 +65,7 @@ export default function Header() {
                 {label === "Pricing Page" ? (
                   <Link href="/pricing" className="flex items-center gap-1 hover:text-purple-600 p-2">Pricing</Link>
                 ) : label === "Support" ? (
-                  <Link href="/contact-us" className="flex items-center gap-1 hover:text-purple-600 p-2">Support</Link>
+                  <Link href="/help-center" className="flex items-center gap-1 hover:text-purple-600 p-2">Support</Link>
                 ) : (
                   <span className="flex items-center gap-1 cursor-pointer hover:text-purple-600 p-2">
                     {label}
@@ -128,7 +128,7 @@ export default function Header() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <Link href="/">
-                <Image src="/logo.png" alt="Exellius Logo" width={100} height={36} />
+                <Image src="/logo.jpg" alt="Exellius Logo" width={100} height={36} />
               </Link>
               <X size={24} className="text-gray-700 cursor-pointer" onClick={() => setMobileOpen(false)} />
             </div>
@@ -148,7 +148,7 @@ export default function Header() {
                 {label === "Pricing Page" ? (
                   <Link href="/pricing" className="block text-gray-800 py-2">Pricing</Link>
                 ) : label === "Support" ? (
-                  <Link href="/contact-us" className="block text-gray-800 py-2">Support</Link>
+                  <Link href="/help-center" className="block text-gray-800 py-2">Support</Link>
                 ) : (
                   <>
                     <div className="text-sm font-medium text-gray-700 mb-1">{label}</div>

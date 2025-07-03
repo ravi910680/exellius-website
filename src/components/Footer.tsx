@@ -4,13 +4,8 @@ import Link from "next/link"
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
-
-      {/* Call to Action */}
-   
-
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10">
-
         {/* Brand and Social */}
         <div className="md:col-span-2">
           <img src="/logo-white.png" alt="Exellius Logo" className="w-32 mb-4" />
@@ -25,10 +20,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Links Grid */}
+        {/* Footer Links */}
         <div>
-          <h4 className="font-semibold mb-4  pb-1">Company</h4>
-          <div className="w-20 h-1 bg-[#ffffff] rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Company</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="#">About us</Link></li>
             <li><Link href="#">Data transparency</Link></li>
@@ -39,8 +34,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4  pb-1">Data</h4>
-          <div className="w-20 h-1 bg-[#ffffff] rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Data</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="#">Firmographic data</Link></li>
             <li><Link href="#">Employee data</Link></li>
@@ -52,8 +47,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-4  pb-1">Resources</h4>
-          <div className="w-20 h-1 bg-[#ffffff] rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Resources</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="#">Documentation</Link></li>
             <li><Link href="#">FAQ</Link></li>
@@ -65,7 +60,7 @@ export default function Footer() {
 
         <div>
           <h4 className="font-semibold mb-4 pb-1">Use cases</h4>
-          <div className="w-20 h-1 bg-[#ffffff] rounded mb-5 mt-5" />
+          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="#">Investment intelligence</Link></li>
             <li><Link href="#">Trend forecasting</Link></li>
@@ -77,9 +72,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-700 text-center py-6 text-sm text-gray-400">
-        ©2025 All Rights Reserved. Exellius®
+      {/* Bottom Bar with Flex Layout */}
+      <div className="border-t border-gray-700 px-6 py-6 text-sm text-gray-400">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>©2025 All Rights Reserved. Exellius®</div>
+          <div className="flex gap-6">
+            <Link href="/terms-and-condition" className="hover:text-white transition">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+          </div>
+        </div>
       </div>
     </footer>
   )
