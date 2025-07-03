@@ -8,9 +8,7 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900">
-            Privacy Policy
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-900">Privacy Policy</h1>
           <p className="text-sm text-gray-500 mt-2">Effective: July 1, 2025</p>
           <div className="h-1 w-20 bg-[#6c3cbe] mt-4 mx-auto rounded" />
         </div>
@@ -22,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">1. Introduction</h2>
             <p>
-              Exellius Systems, Inc. ("we," "our," or "us") respects your privacy. This policy explains how we collect, use, disclose, and protect your data when you use our B2B data platform ("Service"). By using our Service, you agree to the practices described in this policy.
+              Exellius Systems, Inc. (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy. This policy explains how we collect, use, disclose, and protect your data when you use our B2B data platform (&quot;Service&quot;). By using our Service, you agree to the practices described in this policy.
             </p>
           </section>
 
@@ -147,15 +145,15 @@ export default function PrivacyPolicyPage() {
                 </tr>
               </tbody>
             </table>
-            <p className="mt-2">Manage preferences anytime via the <strong>Cookie Settings</strong> link in our footer.</p>
+            <p className="mt-2">
+              Manage preferences anytime via the <strong>Cookie Settings</strong> link in our footer.
+            </p>
           </section>
 
           {/* 7. Data Subject Rights */}
           <section>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">7. Data Subject Rights</h2>
-            <p>
-              You have the right to:
-            </p>
+            <p>You have the right to:</p>
             <ul className="list-disc list-inside ml-4 mt-2">
               <li>Access your data</li>
               <li>Rectify inaccurate information</li>
@@ -180,9 +178,7 @@ export default function PrivacyPolicyPage() {
           {/* 9. Policy Updates */}
           <section>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">9. Policy Updates</h2>
-            <p>
-              We notify users of significant changes via:
-            </p>
+            <p>We notify users of significant changes via:</p>
             <ul className="list-disc list-inside ml-4 mt-2">
               <li>Email alerts (30 days before)</li>
               <li>In-app banners (visible for 14 days)</li>

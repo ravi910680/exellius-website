@@ -51,7 +51,9 @@ export default function OutreachTemplatesPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900">High-Converting Outreach Templates</h1>
+          <h1 className="text-4xl font-bold text-gray-900">
+            High-Converting Outreach Templates
+          </h1>
           <p className="mt-4 text-base text-gray-700 max-w-2xl mx-auto">
             Professionally crafted, data-backed templates designed for Exellius users
           </p>
@@ -62,7 +64,7 @@ export default function OutreachTemplatesPage() {
           <h2 className="text-xl font-semibold text-[#6c3cbe] mb-4">Why Our Templates Work</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>Built using insights from 2M+ successful campaigns</li>
-            <li>Pre-optimized for Exellius' 95% accurate email data</li>
+            <li>Pre-optimized for Exellius&apos; 95% accurate email data</li>
             <li>CRM-ready formats (Salesforce, HubSpot, Outreach)</li>
             <li>Proven to increase reply rates by 35-60%</li>
           </ul>
@@ -89,7 +91,9 @@ export default function OutreachTemplatesPage() {
                 </div>
               )}
 
-              <Button className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-sm">{template.cta}</Button>
+              <Button className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-sm">
+                {template.cta}
+              </Button>
             </div>
           ))}
         </div>
@@ -109,9 +113,10 @@ export default function OutreachTemplatesPage() {
 
         {/* Trusted Logos */}
         <div className="mt-20 text-center">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Trusted by Growth Teams At</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">
+            Trusted by Growth Teams At
+          </h3>
           <div className="flex flex-wrap justify-center gap-6">
-            {/* Placeholder logos */}
             <Image src="/logo1.png" alt="Client Logo" width={100} height={40} />
             <Image src="/logo2.png" alt="Client Logo" width={100} height={40} />
             <Image src="/logo3.png" alt="Client Logo" width={100} height={40} />
@@ -120,17 +125,19 @@ export default function OutreachTemplatesPage() {
 
         {/* Testimonials */}
         <div className="mt-20">
-          <h3 className="text-lg font-semibold text-gray-800 mb-6 text-center">What Our Users Say</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-6 text-center">
+            What Our Users Say
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#F9F5FF] p-6 rounded-xl shadow-sm">
               <p className="text-sm text-gray-700 italic">
-                "These templates helped our team book 20% more meetings instantly. The Exellius integration makes personalization effortless."
+                &quot;These templates helped our team book 20% more meetings instantly. The Exellius integration makes personalization effortless.&quot;
               </p>
               <p className="text-sm font-semibold mt-4 text-gray-900">– Jamie R., Sales Director</p>
             </div>
             <div className="bg-[#EDF2FB] p-6 rounded-xl shadow-sm">
               <p className="text-sm text-gray-700 italic">
-                "Finally templates that account for real email behavior patterns. The industry-specific versions are gold."
+                &quot;Finally templates that account for real email behavior patterns. The industry-specific versions are gold.&quot;
               </p>
               <p className="text-sm font-semibold mt-4 text-gray-900">– Taylor M., Demand Gen Lead</p>
             </div>

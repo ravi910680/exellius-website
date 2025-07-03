@@ -21,7 +21,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">1. Acceptance of Terms</h2>
             <p>
-              By accessing Exellius' data platform ("Service"), you agree to these legally binding terms. If you're using the Service on behalf of a company, you represent and warrant that you have the authority to bind that entity.
+              By accessing Exellius&apos; data platform (&quot;Service&quot;), you agree to these legally binding terms. If you are using the Service on behalf of a company, you represent and warrant that you have the authority to bind that entity.
             </p>
           </div>
 
@@ -54,12 +54,12 @@ export default function TermsPage() {
               <li>❌ Spam or unlawful communications</li>
               <li>❌ Reselling Exellius data without written consent</li>
               <li>❌ Reverse engineering our databases</li>
-              <li>❌ High-volume scraping (≥1000 queries/day without API)</li>
+              <li>❌ High-volume scraping (&ge;1000 queries/day without API)</li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">5. Payments & Renewals</h2>
+            <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">5. Payments &amp; Renewals</h2>
             <ul className="list-disc list-inside space-y-1">
               <li>All fees are non-refundable unless required by law</li>
               <li>Subscriptions renew automatically unless canceled 48h before cycle ends</li>
@@ -80,7 +80,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">7. Limitation of Liability</h2>
             <p>
-              Exellius’ total liability shall not exceed fees paid during the 6 months preceding any claim. We are not liable for:
+              Exellius&apos; total liability shall not exceed fees paid during the 6 months preceding any claim. We are not liable for:
             </p>
             <ul className="list-disc list-inside space-y-1 mt-1">
               <li>Indirect damages such as lost profits or revenue</li>
@@ -98,7 +98,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-semibold text-[#6c3cbe] mb-2">9. Changes to Terms</h2>
             <p>
-              We'll notify users of material changes to these terms via email at least 30 days before they take effect.
+              We&apos;ll notify users of material changes to these terms via email at least 30 days before they take effect.
             </p>
           </div>
 
