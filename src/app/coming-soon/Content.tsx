@@ -6,7 +6,7 @@ export default function ComingSoonPage() {
       <div className="text-center max-w-xl">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">🚀 Coming Soon</h1>
         <p className="text-gray-600 text-lg mb-6">
-          We're working hard to launch this feature. It’ll be worth the wait!
+          We&apos;re working hard to launch this feature. It&apos;ll be worth the wait!
         </p>
         <div className="h-1 w-24 bg-[#6c3cbe] mx-auto rounded mb-6" />
 
