@@ -43,9 +43,12 @@ export default function EnrichmentBenefits() {
             className="relative bg-[#fdf4db] p-6 rounded-lg overflow-hidden"
           >
             {/* Background Number */}
-            <div className=" text-[120px] font-bold text-[#f5dcca] top-4 right-6 z-0 opacity-30 select-none text-right">
-              {id}
-            </div>
+            <div
+  className="text-[120px] font-bold text-[#f5dcca] right-6 z-0 opacity-30 select-none text-right leading-none"
+>
+  {id}
+</div>
+
 
             {/* Foreground Content */}
             <div className="relative z-10">

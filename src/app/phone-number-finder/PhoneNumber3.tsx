@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep3() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white  px-6">
       <div className="max-w-7xl mx-auto">
         {/* Card */}
         <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">

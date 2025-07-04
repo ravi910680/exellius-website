@@ -27,7 +27,7 @@ const industries = [
 
 export default function IndustriesWeServe() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className=" px-6 bg-white">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
           Industries <span className="text-[#6c3cbe]">We Serve</span>

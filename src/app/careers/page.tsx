@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Content from "./Content";
+import CallToAction from "@/components/CallToAction";
 
 
 export default function EmailFinderPage() {
@@ -11,6 +12,7 @@ export default function EmailFinderPage() {
       <Header />
       
             <Content />
+      <CallToAction />
      
      
       <Footer />

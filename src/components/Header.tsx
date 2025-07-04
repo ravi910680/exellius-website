@@ -12,7 +12,7 @@ const featuresMenuPrimary = [
   { label: "Professional Email Finder /Email Lookup", desc: "Locate Any Work Email Instantly", href: "/professional-email-finder" },
   { label: "Advanced Email Verifier", desc: "Check the Validity of an Email Address", href: "/advanced-email-verifier" },
   { label: "Phone Number Finder", desc: "Find Any Professional/Company Phone", href: "/phone-number-finder" },
-  { label: "Website Technology Checker", desc: "Identify Technologies Used by Websites", href: "/website-technology-checker" },
+  { label: "Website Technology Checker", desc: "Identify Technologies Used by Websites", href: "/coming-soon" },
   { label: "Data Enrichment Suite", desc: "Enhance & Complete Your Lead Data", href: "/data-enrichment-suite" },
 ]
 
@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-900">
-            {["Features", "Pricing Page", "Support", ...Object.keys(menuData)].map(label => (
+            {["Features", "Pricing Page", ...Object.keys(menuData)].map(label => (
               <div
                 key={label}
                 className="relative"

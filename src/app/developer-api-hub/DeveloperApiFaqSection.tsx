@@ -64,7 +64,7 @@ export default function DeveloperApiFaqSection() {
   }
 
   return (
-    <section className="bg-[#fcf4fc] py-24 px-6">
+    <section className="bg-[#fcf4fc] py-24 px-6 ">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
           Developer FAQs for the <span className="text-[#6c3cbe]">Exellius API</span>

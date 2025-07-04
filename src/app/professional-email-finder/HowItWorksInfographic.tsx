@@ -34,20 +34,30 @@ export default function HowItWorksInfographic() {
       <div className="h-1 w-16 bg-[#9856F2] mx-auto mb-14" />
 
       {/* Steps */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {steps.map((step, i) => (
-          <div
-            key={i}
-            className={`rounded-xl p-8 text-left shadow-sm ${step.bg} transition hover:shadow-md`}
-          >
-            <div className="mb-6">
-              <Image src={step.image} alt={step.title} width={48} height={48} />
-            </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h4>
-            <p className="text-base text-gray-700">{step.desc}</p>
-          </div>
-        ))}
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  {steps.map((step, i) => (
+    <div
+      key={i}
+      className={`rounded-xl p-8 text-left shadow-sm ${step.bg} transition hover:shadow-md`}
+    >
+      {/* Icon + Index Row */}
+      <div className="mb-6 flex items-center justify-between">
+        {/* Icon */}
+        <Image src={step.image} alt={step.title} width={48} height={48} />
+
+        {/* Index Number */}
+        <span className="text-2xl font-bold text-[#E0C4FF]">
+          {String(i + 1).padStart(2, "0")}
+        </span>
       </div>
+
+      {/* Title and Description */}
+      <h4 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h4>
+      <p className="text-base text-gray-700">{step.desc}</p>
+    </div>
+  ))}
+</div>
+
 
       {/* CTA */}
       <div className="mt-12">

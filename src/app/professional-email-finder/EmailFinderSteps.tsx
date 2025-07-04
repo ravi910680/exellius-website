@@ -3,6 +3,24 @@
 import { User, Globe, MailCheck } from "lucide-react"
 
 export default function EmailFinderSteps() {
+  const steps = [
+    {
+      icon: <User className="w-8 h-8 text-[#9856F2]" />,
+      title: "Enter the Full Name",
+      desc: "Provide the professional’s first and last name.",
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-[#9856F2]" />,
+      title: "Add the Company Domain",
+      desc: "Our tool auto-suggests domains for accuracy.",
+    },
+    {
+      icon: <MailCheck className="w-8 h-8 text-[#9856F2]" />,
+      title: "Get Verified Emails",
+      desc: "Receive validated email addresses instantly.",
+    },
+  ]
+
   return (
     <section className="bg-[#FFF7FF] py-20 px-6">
       <div className="max-w-6xl mx-auto text-center">
@@ -19,32 +37,24 @@ export default function EmailFinderSteps() {
 
         {/* Step Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Step 1 */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-8 text-left hover:shadow-md transition">
-            <User className="w-8 h-8 text-[#9856F2] mb-4" />
-            <h4 className="text-[#9856F2] font-semibold text-lg mb-2">Enter the Full Name</h4>
-            <p className="text-gray-700 text-sm">
-              Provide the professional’s first and last name.
-            </p>
-          </div>
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-8 text-left hover:shadow-md transition"
+            >
+              {/* Icon and Index */}
+              <div className="flex items-center justify-between mb-4">
+                {step.icon}
+                <span className="text-2xl font-bold text-[#E0C4FF]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-          {/* Step 2 */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-8 text-left hover:shadow-md transition">
-            <Globe className="w-8 h-8 text-[#9856F2] mb-4" />
-            <h4 className="text-[#9856F2] font-semibold text-lg mb-2">Add the Company Domain</h4>
-            <p className="text-gray-700 text-sm">
-              Our tool auto-suggests domains for accuracy.
-            </p>
-          </div>
-
-          {/* Step 3 */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-8 text-left hover:shadow-md transition">
-            <MailCheck className="w-8 h-8 text-[#9856F2] mb-4" />
-            <h4 className="text-[#9856F2] font-semibold text-lg mb-2">Get Verified Emails</h4>
-            <p className="text-gray-700 text-sm">
-              Receive validated email addresses instantly.
-            </p>
-          </div>
+              {/* Title & Description */}
+              <h4 className="text-[#9856F2] font-semibold text-lg mb-2">{step.title}</h4>
+              <p className="text-gray-700 text-sm">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

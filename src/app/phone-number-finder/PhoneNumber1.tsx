@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function LeadDiscoveryStep1() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white  px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">

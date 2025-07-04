@@ -43,7 +43,7 @@ const features = [
 
 export default function DataPlatformFeatures() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white pb-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="mb-16 text-center">

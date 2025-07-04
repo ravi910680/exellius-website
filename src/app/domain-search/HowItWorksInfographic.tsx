@@ -35,19 +35,27 @@ export default function HowItWorksInfographic() {
 
       {/* Steps */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {steps.map((step, i) => (
-          <div
-            key={i}
-            className={`rounded-xl p-8 text-left shadow-sm ${step.bg} transition hover:shadow-md`}
-          >
-            <div className="mb-6">
-              <Image src={step.image} alt={step.title} width={48} height={48} />
-            </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h4>
-            <p className="text-base text-gray-700">{step.desc}</p>
-          </div>
-        ))}
+  {steps.map((step, i) => (
+    <div
+      key={i}
+      className={`rounded-xl p-8 text-left shadow-sm ${step.bg} transition hover:shadow-md`}
+    >
+      <div className="mb-6 flex items-center justify-between">
+        {/* Icon */}
+        <Image src={step.image} alt={step.title} width={48} height={48} />
+
+        {/* Step Index */}
+        <div className="text-4xl font-bold text-[#E9D8FF]">
+          {String(i + 1).padStart(2, '0')}
+        </div>
       </div>
+
+      <h4 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h4>
+      <p className="text-base text-gray-700">{step.desc}</p>
+    </div>
+  ))}
+</div>
+
 
       {/* CTA */}
       <div className="mt-12">

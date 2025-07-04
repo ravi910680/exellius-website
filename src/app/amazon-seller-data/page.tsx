@@ -10,6 +10,7 @@ import IndustriesWeServe from "../lead-discovery/IndustriesWeServe"
 import AmazonSellerWhyWeOutperform from "./AmazonSellerWhyWeOutperform"
 import AmazonSellerFlexibleSolutions from "./AmazonSellerFlexibleSolutions"
 import AmazonSellerFaq from "./AmazonSellerFaq"
+import CallToAction from "@/components/CallToAction"
 
 
 export default function LeadDiscoveryPage() {
@@ -27,6 +28,7 @@ export default function LeadDiscoveryPage() {
         <AmazonSellerWhyWeOutperform />
         <AmazonSellerFlexibleSolutions />
         <AmazonSellerFaq />
+        <CallToAction />
         
        
         

@@ -28,7 +28,7 @@ const timelineSteps = [
 
 export default function AmazonSellerFlexibleSolutions() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="pb-24 px-6 bg-white">
       <div className="max-w-5xl mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">

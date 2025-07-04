@@ -29,7 +29,7 @@ export default function WhyChooseExelliusSection() {
   ]
 
   return (
-    <section className="w-full bg-white py-20 px-6">
+    <section className="w-full bg-white pb-20 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
           Why Choose <span className="text-[#9856F2]">Exellius</span> Over Other Tools?

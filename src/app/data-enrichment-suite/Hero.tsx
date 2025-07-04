@@ -6,7 +6,7 @@ import { CheckCircle } from "lucide-react"
 
 export default function DataEnrichmentHero() {
   return (
-    <section className="relative w-full bg-[#FFF5FD] pt-44 pb-20 px-6 overflow-hidden">
+    <section className="relative w-full bg-[#FFF5FD] pt-40 pb-20 px-6 overflow-hidden">
       {/* Backgrounds */}
       <Image
         src="/bg_top.png"
@@ -45,7 +45,6 @@ export default function DataEnrichmentHero() {
             {[
               "Improve lead quality with contact data enrichment",
               "Enhance CRM records with CRM data enrichment",
-              "Automate data updates with API-based data enrichment",
               "Increase sales efficiency with lead enrichment and customer data enrichment"
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-2 font-medium">

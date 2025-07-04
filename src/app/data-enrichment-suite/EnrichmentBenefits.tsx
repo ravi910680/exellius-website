@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function EnrichmentBenefits() {
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white  px-6">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
           Who Can Benefit from <span className="text-[#9856F2]">Exellius’</span> Data Enrichment Platforms?

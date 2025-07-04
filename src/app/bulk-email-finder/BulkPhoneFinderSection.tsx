@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
+import { ChevronsRight } from "lucide-react"
+
 const advantages = [
   {
     title: "Accurate Data",
@@ -82,22 +84,35 @@ export default function BulkPhoneFinderSection() {
 
         {/* How It Works */}
         <h3 className="text-lg font-semibold text-gray-800 mb-6">How It Works:</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-          {steps.map((item, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-xl text-left shadow-sm relative"
-              style={{ backgroundColor: item.bg }}
-            >
-              <div className="text-6xl text-[#F1E9FF] font-bold text-right">
-                {item.step}
-              </div>
-              <p className="mt-12 text-sm text-gray-700 font-medium">
-                {item.text}
-              </p>
-            </div>
-          ))}
+       <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 mb-10 items-center">
+  {steps.map((item, i) => (
+    <>
+      {/* Step Card */}
+      <div
+        key={`step-${i}`}
+        className="p-6 rounded-xl text-left shadow-sm relative"
+        style={{ backgroundColor: item.bg }}
+      >
+        <div className="text-6xl text-[#F1E9FF] font-bold text-right">
+          {item.step}
         </div>
+        <p className="mt-12 text-sm text-gray-700 font-medium">
+          {item.text}
+        </p>
+      </div>
+
+      {/* Arrow between cards (skip after last card) */}
+      {i < steps.length - 1 && (
+        <div
+          key={`chevron-${i}`}
+          className="hidden sm:flex justify-center items-center"
+        >
+          <ChevronsRight className="text-[#9856F2]" size={28} strokeWidth={2} />
+        </div>
+      )}
+    </>
+  ))}
+</div>
 
         <Button className="bg-[#9856F2] text-white hover:bg-[#7836c9] text-sm sm:text-base">
           Get Contacts
