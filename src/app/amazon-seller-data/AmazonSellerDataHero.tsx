@@ -26,7 +26,7 @@ export default function AmazonSellerDataHero() {
         {/* Left: Visual */}
         <div className="w-full max-w-md">
           <Image
-            src="/amazon-seller-hero.png" // Replace with your Amazon data image
+            src="/amazon-seller-hero.png"
             alt="Amazon Seller Data"
             width={600}
             height={600}
@@ -37,22 +37,21 @@ export default function AmazonSellerDataHero() {
         {/* Right: Text Content */}
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold leading-snug">
-            <span className="text-[#6c3cbe]">Amazon Seller Data</span> to Power{" "}
-            <span className="text-[#6c3cbe]">DTC & SaaS Prospecting</span>
+            <span className="text-[#6c3cbe]">Amazon Seller Database</span><br />
+            Complete Amazon Seller List for Your Business Growth
           </h1>
 
           <p className="mt-6 text-base text-gray-900">
-            Instantly access verified contact and store-level insights for millions of Amazon sellers worldwide. 
-            From private-label brands to high-volume sellers—target the right merchants with precision.
+            At Exellius, we've built the most comprehensive Amazon seller database to help businesses like yours connect with verified sellers across multiple marketplaces.
           </p>
 
           <p className="mt-4 text-base text-gray-900">
-            Filter by category, reviews, revenue, location, or fulfillment method. Find their decision-makers, emails, and websites in one click.
+            Our meticulously curated Amazon seller list provides accurate, up-to-date information to streamline your lead generation and partnership efforts.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Explore Seller Leads
+              Access Database
             </Button>
             <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
               View Sample Data

@@ -5,44 +5,29 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "What kind of Amazon sellers can I find?",
+    question: "How often is your Amazon seller database updated?",
     answer:
-      "You can discover FBA, FBM, private label, and reseller accounts across various categories — filtered by product type, seller rating, review count, and geography.",
+      "We refresh our data monthly, with critical fields like contact information verified quarterly.",
   },
   {
-    question: "Do you provide contact details of Amazon sellers?",
+    question: "Can I get a list of Amazon sellers in specific categories?",
     answer:
-      "Yes. We enrich Amazon seller profiles with business emails, LinkedIn profiles, phone numbers, and brand-level information where available.",
+      "Yes, our advanced filtering allows you to select sellers by product category, marketplace, and performance metrics.",
   },
   {
-    question: "How fresh is the Amazon seller data?",
+    question: "How does your Amazon vendor list differ from other directories?",
     answer:
-      "Our Amazon seller data is updated weekly with real-time crawling and enrichment — ensuring seller status, rank, and contact details remain current.",
+      "Our database includes verified contact information not available through public sources, along with historical performance data.",
   },
   {
-    question: "Can I filter sellers by product niche?",
+    question: "What's included in your Amazon FBA leads package?",
     answer:
-      "Absolutely. You can search sellers by product keywords, categories, ASINs, or even review patterns — helping you segment by niche or competition.",
+      "Each lead includes business name, contact person, verified email, marketplace locations, product categories, and performance metrics.",
   },
   {
-    question: "Can I export seller data?",
+    question: "Can I search for a specific seller by name?",
     answer:
-      "Yes. You can bulk export enriched seller data to CSV, or use our API to integrate directly into your CRM or lead pipeline.",
-  },
-  {
-    question: "Is your data GDPR and CCPA compliant?",
-    answer:
-      "Yes. We only collect publicly available data and provide options for opt-out suppression and regional filtering for full compliance.",
-  },
-  {
-    question: "Is there a free trial?",
-    answer:
-      "Yes, we offer a limited free trial so you can test the Amazon Seller Discovery tool and export sample data before upgrading.",
-  },
-  {
-    question: "Can I target top-performing sellers only?",
-    answer:
-      "Yes. You can sort and filter by sales rank, number of reviews, star rating, and other indicators of performance to find top sellers in any niche.",
+      'Absolutely. Our "find Amazon seller by name" function helps you locate specific businesses quickly.',
   },
 ]
 
@@ -57,7 +42,7 @@ export default function AmazonSellerFaq() {
     <section className="bg-[#fcf4fc] py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          FAQs About <span className="text-[#6c3cbe]">Amazon Seller</span> Data
+          Frequently Asked <span className="text-[#6c3cbe]">Questions</span>
         </h2>
         <div className="h-1 w-20 bg-[#6c3cbe] mt-4 mb-12 mx-auto rounded" />
 

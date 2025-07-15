@@ -5,12 +5,17 @@ import AmazonSellerFeatures from "./AmazonSellerFeatures"
 import AmazonSellerFeature1 from "./AmazonSellerFeature1"
 import AmazonSellerFeature2 from "./AmazonSellerFeature2"
 import AmazonSellerFeature3 from "./AmazonSellerFeature3"
-import AmazonSellerFeature4 from "./AmazonSellerFeature4"
+import HowBussinessUse from "./HowBussinessUse"
+import OurDataCollectionMethodology from "./OurDataCollectionMethodology"
 import IndustriesWeServe from "../lead-discovery/IndustriesWeServe"
 import AmazonSellerWhyWeOutperform from "./AmazonSellerWhyWeOutperform"
 import AmazonSellerFlexibleSolutions from "./AmazonSellerFlexibleSolutions"
 import AmazonSellerFaq from "./AmazonSellerFaq"
 import CallToAction from "@/components/CallToAction"
+import ComparisonTable from "./ComparisonTable"
+import AmazonLeadListPricing from "./AmazonLeadListPricing"
+import PremiumGuarantees from "./PremiumGuarantees"
+import TestimonialSlider from "./TestimonialSlider"
 
 
 export default function LeadDiscoveryPage() {
@@ -23,10 +28,13 @@ export default function LeadDiscoveryPage() {
         <AmazonSellerFeature1 />
         <AmazonSellerFeature2 />
         <AmazonSellerFeature3 />
-        <AmazonSellerFeature4 />
-        <IndustriesWeServe />
-        <AmazonSellerWhyWeOutperform />
-        <AmazonSellerFlexibleSolutions />
+        <HowBussinessUse />
+        <OurDataCollectionMethodology />
+        <ComparisonTable />
+        <AmazonLeadListPricing />
+        <PremiumGuarantees />
+        <TestimonialSlider />
+       
         <AmazonSellerFaq />
         <CallToAction />
         

@@ -5,14 +5,14 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       {/* Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-10">
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-6 gap-10">
         {/* Brand and Social */}
-        <div className="md:col-span-2">
+        <div>
           <img src="/logo-white.png" alt="Exellius Logo" className="w-32 mb-4" />
-          <p className="text-sm text-gray-300 mb-10">
+          <p className="text-sm text-gray-300 mb-6">
             Your daily stream of fresh data on companies and professionals
           </p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4">
             <Link href="#"><Instagram className="w-5 h-5 text-[#9856F2]" /></Link>
             <Link href="#"><Twitter className="w-5 h-5 text-[#9856F2]" /></Link>
             <Link href="#"><Linkedin className="w-5 h-5 text-[#9856F2]" /></Link>
@@ -20,59 +20,66 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Links */}
+        {/* Products */}
         <div>
-          <h4 className="font-semibold mb-4 pb-1">Company</h4>
-          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Products</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">About us</Link></li>
-            <li><Link href="#">Data transparency</Link></li>
-            <li><Link href="#">News</Link></li>
-            <li><Link href="#">Press area</Link></li>
-            <li><Link href="#">Contact us</Link></li>
+            <li><Link href="#">Lead Discovery</Link></li>
+            <li><Link href="#">Domain Search</Link></li>
+            <li><Link href="#">Email Finder</Link></li>
+            <li><Link href="#">Email Verifier</Link></li>
+            <li><Link href="#">Phone Number Finder</Link></li>
+            <li><Link href="#">Data Enrichment</Link></li>
           </ul>
         </div>
 
+        {/* Add-ons */}
         <div>
-          <h4 className="font-semibold mb-4 pb-1">Data</h4>
-          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Add-ons</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Firmographic data</Link></li>
-            <li><Link href="#">Employee data</Link></li>
-            <li><Link href="#">Job posting data</Link></li>
-            <li><Link href="#">Technographic data</Link></li>
-            <li><Link href="#">Company data enrichment</Link></li>
-            <li><Link href="#">Data APIs</Link></li>
+            <li><Link href="#">TechLookup</Link></li>
           </ul>
         </div>
 
+        {/* Resources */}
         <div>
           <h4 className="font-semibold mb-4 pb-1">Resources</h4>
-          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
+          <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Documentation</Link></li>
-            <li><Link href="#">FAQ</Link></li>
-            <li><Link href="#">Blog</Link></li>
-            <li><Link href="#">Discover companies</Link></li>
-            <li><Link href="#">Resource center</Link></li>
+            <li><Link href="#">Blogs</Link></li>
+            <li><Link href="#">Customer Stories</Link></li>
+            <li><Link href="#">Templates</Link></li>
+            <li><Link href="#">Help Center</Link></li>
           </ul>
         </div>
 
+        {/* Company */}
         <div>
-          <h4 className="font-semibold mb-4 pb-1">Use cases</h4>
-          <div className="w-20 h-1 bg-white rounded mb-5 mt-5" />
+          <h4 className="font-semibold mb-4 pb-1">Company</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Investment intelligence</Link></li>
-            <li><Link href="#">Trend forecasting</Link></li>
-            <li><Link href="#">Data-driven recruitment</Link></li>
-            <li><Link href="#">Lead generation</Link></li>
-            <li><Link href="#">Data enrichment</Link></li>
-            <li><Link href="#">Labor market research</Link></li>
+            <li><Link href="#">About us</Link></li>
+            <li><Link href="#">Our Data</Link></li>
+            <li><Link href="#">Careers</Link></li>
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div>
+          <h4 className="font-semibold mb-4 pb-1">Support</h4>
+          <div className="w-20 h-1 bg-white rounded mb-5" />
+          <ul className="space-y-2 text-sm text-gray-400">
+            <li><Link href="#">Contact Us</Link></li>
+            <li><Link href="#">Help Center / FAQ</Link></li>
+            <li><Link href="#">Terms & Conditions</Link></li>
+            <li><Link href="#">Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom Bar with Flex Layout */}
+      {/* Bottom Bar */}
       <div className="border-t border-gray-700 px-6 py-6 text-sm text-gray-400">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>©2025 All Rights Reserved. Exellius®</div>

@@ -2,56 +2,43 @@
 
 import Image from "next/image"
 import { CheckCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const features = [
   {
     id: "01",
-    title: "Global Seller Coverage",
+    title: "Why Access an Amazon Seller Database?",
     bgColor: "bg-[#FBF8FE]",
     points: [
-      "Millions of active Amazon sellers worldwide",
-      "Covers US, UK, DE, IN, and 15+ marketplaces",
-      "Private label, FBA, wholesale, and DTC sellers",
+      "Verified seller profiles with complete contact information",
+      "Filterable data by marketplace, category, and performance metrics",
+      "Regular updates to ensure data accuracy",
+      "Advanced search capabilities to find sellers by name, location, or product type"
     ],
     description:
-      "Tap into a rich database of Amazon sellers across every region and fulfillment model. Get real-time access to their store URLs, brand names, and selling categories.",
-    emphasis: "Expand your TAM beyond just Shopify—Amazon sellers are scaling fast."
+      "Navigating Amazon's vast marketplace can be challenging when trying to identify potential partners, competitors, or acquisition targets."
   },
   {
     id: "02",
-    title: "Actionable Seller Intelligence",
+    title: "Global Seller Network for Explosive Growth",
     bgColor: "bg-[#FEF0EC]",
     points: [
-      "Estimated monthly revenue & order volume",
-      "Seller ratings, reviews & product count",
-      "Fulfillment model: FBA, FBM, or hybrid",
+      "Top-rated sellers in 12 global marketplaces",
+      "Buy Box dominators with 95%+ positive feedback",
+      "Emerging brands with viral growth potential"
     ],
-    description:
-      "Prioritize sellers by size, performance, and market presence. Use sales signals to score prospects and focus on accounts with actual momentum."
+    description: "Elite Seller Circle — Collaborate with Marketplace Leaders"
   },
   {
     id: "03",
-    title: "Verified Decision-Maker Data",
+    title: "Inventory Revolution",
     bgColor: "bg-[#FFF6F7]",
     points: [
-      "Founder, eCommerce, and growth roles",
-      "Verified emails & LinkedIn URLs",
-      "Phone numbers & business websites",
+      "Global inventory redistribution",
+      "Seasonality-based stock absorption",
+      "FBA/FBM hybrid flow management"
     ],
-    description:
-      "Find and connect with the people behind the store. Reach Amazon sellers via verified contact data and skip the manual LinkedIn scraping."
-  },
-  {
-    id: "04",
-    title: "Flexible Filters & Bulk Exports",
-    bgColor: "bg-[#EAF2FB]",
-    points: [
-      "Filter by category, country, revenue, or reviews",
-      "Export as CSV or push via API",
-      "Sync with CRMs like HubSpot or Salesforce",
-    ],
-    description:
-      "Whether you're enriching leads, building audiences, or running cold outreach, Exellius makes it easy to extract the exact seller data you need—at scale."
+    description: "Smart Liquidation & FBA Optimization — Our vetted partners specialize in:"
   }
 ]
 
@@ -68,10 +55,22 @@ export default function AmazonSellerFeatures() {
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
             <FeatureCard key={i} feature={feature} />
           ))}
+        </div>
+
+        {/* CTAs */}
+        <div className="mt-20 text-center">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-md">
+              Join the Network
+            </Button>
+            <Button variant="outline" size="lg" className="text-[#9856F2] border-[#9856F2]">
+              Optimize Your Supply Chain
+            </Button>
+          </div>
         </div>
       </div>
     </section>
@@ -81,7 +80,6 @@ export default function AmazonSellerFeatures() {
 function FeatureCard({ feature }: { feature: typeof features[0] }) {
   return (
     <div className={`relative overflow-hidden p-6 rounded-xl border border-gray-200 ${feature.bgColor}`}>
-      {/* Optional background pattern */}
       <div className="absolute inset-y-0 right-0 w-64">
         <Image
           src="/grp-bg.png"
@@ -91,7 +89,6 @@ function FeatureCard({ feature }: { feature: typeof features[0] }) {
         />
       </div>
 
-      {/* Text */}
       <div className="relative z-10 text-left">
         <h3 className="text-2xl font-bold text-black mb-7 flex items-baseline gap-2">
           <span className="text-[#6c3cbe]">{feature.id}.</span>
@@ -114,9 +111,7 @@ function FeatureCard({ feature }: { feature: typeof features[0] }) {
           </ul>
         )}
 
-        {feature.emphasis && (
-          <p className="text-md text-gray-600">{feature.emphasis}</p>
-        )}
+       
       </div>
     </div>
   )

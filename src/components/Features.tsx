@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Features() {
   return (
-    <section className="w-full  px-0 bg-white">
+    <section className="w-full py-20  px-0 bg-white">
       <div className="w-full max-w-[100%] grid grid-cols-1 md:grid-cols-2">
         
         {/* Left Column */}

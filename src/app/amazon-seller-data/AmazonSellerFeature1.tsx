@@ -5,11 +5,11 @@ import { CheckCircle } from "lucide-react"
 
 export default function AmazonSellerFeature1() {
   return (
-    <section className="bg-white  px-6">
+    <section className="bg-white px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          Unlock <span className="text-[#6c3cbe]">Global Amazon Seller</span> Intelligence
+          Key Features of Our <span className="text-[#6c3cbe]">Amazon Seller List</span>
         </h2>
         <div className="h-1 w-20 bg-[#6c3cbe] mt-4 mb-16 mx-auto rounded"></div>
 
@@ -28,18 +28,19 @@ export default function AmazonSellerFeature1() {
 
           {/* Left: Text Content */}
           <div className="w-full lg:w-1/2 text-left relative z-10">
-            <h4 className="text-2xl font-bold text-gray-900 mb-3">Global Seller Coverage</h4>
+            <h4 className="text-2xl font-bold text-gray-900 mb-3">Comprehensive Seller Profiles</h4>
             <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
 
             <p className="text-base text-gray-800 mb-6">
-              Get access to a growing network of Amazon sellers across all major geographies and categories:
+              Each entry in our Amazon FBA leads database includes rich, verified data to help you connect and convert faster.
             </p>
 
             <ul className="space-y-3 text-sm text-gray-900">
               {[
-                <><strong>Millions of sellers</strong> across 100+ countries</>,
-                <><strong>US, UK, IN, DE & 15+ Amazon marketplaces</strong></>,
-                <><strong>Private label, FBA, DTC, and wholesale models</strong></>,
+                <><strong>Business name and contact details</strong></>,
+                <><strong>Product categories and specialties</strong></>,
+                <><strong>Performance metrics and customer ratings</strong></>,
+                <><strong>Marketplace locations</strong> (US, UK, IN, DE, and more)</>,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-[#6c3cbe]" />
@@ -49,7 +50,7 @@ export default function AmazonSellerFeature1() {
             </ul>
 
             <p className="mt-6 text-sm text-gray-600">
-              From emerging brands to high-volume stores, access detailed Amazon seller profiles to fuel your sales and partnerships.
+              Perfect for lead generation, market research, and outreach automation.
             </p>
           </div>
 

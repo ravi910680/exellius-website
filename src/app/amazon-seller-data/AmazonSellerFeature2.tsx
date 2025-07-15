@@ -24,8 +24,8 @@ export default function AmazonSellerFeature2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
               <Image
-                src="/amazon-product-categories.png" // Replace with relevant visual
-                alt="Product Category Visual"
+                src="/amazon-advanced-search.png" // Replace with relevant visual
+                alt="Advanced Search Visual"
                 width={520}
                 height={360}
                 className="w-full h-auto object-contain"
@@ -35,19 +35,19 @@ export default function AmazonSellerFeature2() {
 
           {/* Right: Text Content */}
           <div className="w-full lg:w-1/2 text-left relative z-10">
-            <h4 className="text-2xl font-bold text-gray-900 mb-3">Deep Product Category Insights</h4>
+            <h4 className="text-2xl font-bold text-gray-900 mb-3">Advanced Search Functionality</h4>
             <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
 
             <p className="text-base text-gray-800 mb-6">
-              Understand what each seller is selling and how they position themselves in the market:
+              Quickly find relevant Amazon sellers using our powerful search filters tailored for precision prospecting:
             </p>
 
             <ul className="space-y-3 text-sm text-gray-900">
               {[
-                <><strong>Top product categories</strong> by ASIN listings</>,
-                <><strong>Brand ownership</strong> vs. resellers & dropshippers</>,
-                <><strong>Average pricing</strong>, ratings & review volumes</>,
-                <><strong>Seller rank & velocity</strong> estimation</>
+                <><strong>Geographic location</strong> (including sellers in the USA)</>,
+                <><strong>Product categories</strong> and niche segmentation</>,
+                <><strong>Sales volume</strong> tiers and trends</>,
+                <><strong>Customer feedback scores</strong> and review health</>
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-[#6c3cbe]" />
