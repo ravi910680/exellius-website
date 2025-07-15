@@ -42,7 +42,7 @@ export default function AmazonSellerDataHero() {
           </h1>
 
           <p className="mt-6 text-base text-gray-900">
-            At Exellius, we've built the most comprehensive Amazon seller database to help businesses like yours connect with verified sellers across multiple marketplaces.
+            At Exellius, we&apos;ve built &apos; most comprehensive Amazon seller database to help businesses like yours connect with verified sellers across multiple marketplaces.
           </p>
 
           <p className="mt-4 text-base text-gray-900">

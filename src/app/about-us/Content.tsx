@@ -97,7 +97,7 @@ export default function AboutUs() {
            <div className="mb-8">
     <h3 className="text-2xl font-semibold mb-4">What Sets Us Apart</h3>
     <p className="text-gray-700 max-w-2xl mx-auto">
-      Exellius isn’t just a data provider—we’re your partner in B2B growth. Here's how we help you scale smarter, faster, and more efficiently.
+      Exellius isn’t just a data provider—we’re your partner in B2B growth. Here&apos;s how we help you scale smarter, faster, and more efficiently.
     </p>
   </div>
 

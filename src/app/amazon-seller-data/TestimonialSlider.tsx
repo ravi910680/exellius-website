@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const testimonials = [
@@ -71,7 +71,7 @@ export default function TestimonialSlider() {
                 key={i}
                 className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm text-left"
               >
-                <p className="text-sm text-gray-700 mb-3 italic">"{testimonial.quote}"</p>
+                <p className="text-sm text-gray-700 mb-3 italic">&quot;{testimonial.quote}&quot;</p>
                 <p className="text-sm font-semibold text-[#6c3cbe]">
                   — {testimonial.industry}
                 </p>
