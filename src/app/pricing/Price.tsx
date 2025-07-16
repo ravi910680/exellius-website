@@ -41,7 +41,7 @@ export default function CreditPurchase() {
         </h2>
         <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
           Exellius provides a flexible way to access our email and phone finding and verification services at scale. Determine how many credits you need,
-          and only pay for the credits you're planning to spend.
+          and only pay for the credits you&apos;re planning to spend.
         </p>
 
         {/* Main Content Area: Sliders and Summary */}
