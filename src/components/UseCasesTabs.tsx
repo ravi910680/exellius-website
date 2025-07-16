@@ -58,7 +58,7 @@ const tabs = [
 
 export default function UseCasesTabs() {
   const [activeTab, setActiveTab] = useState("sales")
-  const intervalRef = useRef(null) // Ref to store the interval ID
+  const intervalRef = useRef<NodeJS.Timeout | null>(null) // Ref to store the interval ID
 
   // Function to start the auto-switching interval
   const startAutoSwitch = () => {
