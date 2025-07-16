@@ -37,7 +37,7 @@ export default function CreditPurchase() {
       <div className="max-w-6xl mx-auto text-center">
         {/* Header Section */}
         <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-          Access Exellius data via API.
+          Access Exellius data.
         </h2>
         <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
           Exellius provides a flexible way to access our email and phone finding and verification services at scale. Determine how many credits you need,
