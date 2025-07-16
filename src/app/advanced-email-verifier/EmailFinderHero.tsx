@@ -77,7 +77,7 @@ export default function EmailFinderHero() {
                 key={idx}
                 onClick={() => handleTabClick(tab)}
                 className={clsx(
-                  "px-6 py-3 text-sm font-medium transition-all",
+                  "px-6 py-3 text-sm font-medium transition-all w-[200px]",
                   selectedTab === tab
                     ? "text-[#9856F2] border-b-2 border-[#9856F2] bg-[#f7f0fd]"
                     : "text-gray-600 hover:bg-gray-100"
