@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react" // Import useRef
 import { CheckCircle, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -58,18 +58,35 @@ const tabs = [
 
 export default function UseCasesTabs() {
   const [activeTab, setActiveTab] = useState("sales")
+  const intervalRef = useRef(null) // Ref to store the interval ID
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  // Function to start the auto-switching interval
+  const startAutoSwitch = () => {
+    // Clear any existing interval before starting a new one
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    intervalRef.current = setInterval(() => {
       setActiveTab((prevKey) => {
         const currentIndex = tabs.findIndex((tab) => tab.key === prevKey)
         const nextIndex = (currentIndex + 1) % tabs.length
         return tabs[nextIndex].key
       })
     }, 5000)
+  }
 
-    return () => clearInterval(interval)
-  }, [])
+  // Function to stop the auto-switching interval
+  const stopAutoSwitch = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+  }
+
+  useEffect(() => {
+    startAutoSwitch() // Start auto-switching when component mounts
+
+    return () => stopAutoSwitch() // Clear interval when component unmounts
+  }, []) // Empty dependency array means this runs once on mount and unmount
 
   const tabData = tabs.find((tab) => tab.key === activeTab)!
 
@@ -91,23 +108,36 @@ export default function UseCasesTabs() {
         </p>
         <div className="w-36 h-1 bg-[#9856F2] rounded mx-auto mt-6 mb-10" />
 
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
+        <div
+          className="flex flex-wrap justify-center gap-4 mb-10"
+          onMouseLeave={startAutoSwitch} // Restart auto-switch when mouse leaves the tab container
+        >
           {tabs.map((tab, index) => (
             <button
               key={tab.key}
-              onMouseEnter={() => setActiveTab(tab.key)}
+              onMouseEnter={() => {
+                stopAutoSwitch() // Stop auto-switch on hover
+                setActiveTab(tab.key) // Set the hovered tab as active
+              }}
               className={`group relative w-[400px] px-10 py-4 rounded-md font-bold text-2xl text-center items-center gap-2 overflow-hidden transition-all duration-500 ${
                 activeTab === tab.key
                   ? "bg-[#cbf0ff] text-[#000] border-b-4 border-[#9856F2]"
                   : "bg-white text-gray-900"
               }`}
             >
-              <span className="absolute inset-0 z-0 before:content-[''] before:absolute before:inset-0 before:bg-[url('/button-bottom.png')] before:bg-no-repeat before:bg-[center_bottom] before:bg-[length:100%_100%] before:transition-all before:duration-500 before:transform group-hover:before:bg-[left_top] group-hover:before:rotate-90 group-hover:before:origin-top-right" />
-              <span className="text-[#9856F2] z-10">{index + 1}. </span>
-              <span className="z-10">{tab.title}</span>
-              {activeTab === tab.key && (
-                <span className="absolute top-0 left-0 w-20 h-20 bg-[url('/button-bottom.png')] bg-no-repeat bg-contain z-0" />
-              )}
+              {/* This `before` pseudo-element will now handle both active and hover states */}
+              <span
+                className={`absolute inset-0 z-0 before:content-[''] before:absolute before:inset-0 before:bg-[url('/button-bottom.png')] before:bg-no-repeat before:bg-[length:100%_100%] before:transition-all before:duration-500 before:pointer-events-none
+                  ${
+                    activeTab === tab.key
+                      ? "before:bg-[left_top] before:rotate-90 before:origin-top-right" // Active state style
+                      : "before:bg-[center_bottom] before:rotate-0 before:origin-bottom" // Default/Hover out state
+                  }
+                  group-hover:before:bg-[left_top] group-hover:before:rotate-90 group-hover:before:origin-top-right
+                `}
+              />
+              <span className="relative z-10 text-[#9856F2]">{index + 1}. </span>
+              <span className="relative z-10">{tab.title}</span>
             </button>
           ))}
         </div>
