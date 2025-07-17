@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button"
 
 export default function Features() {
   return (
-    <section className="w-full py-20  px-0 bg-white">
+    <section className="w-full py-20  px-0 bg-white pt-0">
       <div className="w-full max-w-[100%] grid grid-cols-1 md:grid-cols-2">
         
         {/* Left Column */}
         {/* Left Column */}
-<div className="bg-[#fcf4fc] px-6 sm:px-10 md:px-20 py-16 sm:py-24 md:py-36 flex flex-col justify-center h-full">
+<div className="bg-[#fcf4fc] px-6 sm:px-10 md:px-20 py-10 sm:py-16 md:py-16 flex flex-col justify-center h-full">
 
           <h2 className="text-4xl sm:text-4xl font-bold text-gray-900">
             Precision-Built Tools for <br />

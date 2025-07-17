@@ -49,20 +49,20 @@ export default function AmazonLeadQuoteSection() {
                 <div
                   key={i}
                   className={`relative border rounded-xl shadow-sm bg-[#f3f1fa] text-center ${
-                    pkg.recommended ? "ring-2 ring-[#6c3cbe]" : ""
+                    pkg.recommended ? "ring-2 ring-[#e05e2b]" : ""
                   }`}
                 >
                   {pkg.recommended && (
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full z-10">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#e05e2b] text-white text-xs font-semibold px-3 py-1 rounded-full z-10">
                       RECOMMENDED
                     </div>
                   )}
-                  <div className="bg-[#e05e2b] text-white text-sm font-semibold py-2 rounded-t-xl">
+                  <div className="bg-[#6c3cbe] text-white text-sm font-semibold py-2 rounded-t-xl">
                     {pkg.title}
                   </div>
                   <div className="p-5">
                     <p className="text-lg font-bold text-gray-900 mb-1">Get access for {pkg.price}</p>
-                    <p className="text-sm text-[#e05e2b] font-semibold mb-2">
+                    <p className="text-sm text-[#6c3cbe] font-semibold mb-2">
                       Only {pkg.perLead} per lead
                     </p>
                     <p className="text-sm text-gray-600 mb-4">Delivered in {pkg.delivery}</p>
@@ -76,7 +76,7 @@ export default function AmazonLeadQuoteSection() {
               <ul className="space-y-4 text-sm text-gray-900">
                 {features.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 mt-0.5 text-[#e05e2b]" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 text-[#6c3cbe]" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -116,7 +116,7 @@ export default function AmazonLeadQuoteSection() {
                 <option>All</option>
               </select>
             </div>
-            <button className="mt-6 w-full bg-[#e05e2b] hover:bg-[#bd441b] text-white font-semibold py-3 px-6 rounded-lg transition">
+            <button className="mt-6 w-full bg-[#6c3cbe] hover:bg-[#6c3cbe] text-white font-semibold py-3 px-6 rounded-lg transition">
               GENERATE MY LIST 👉
             </button>
           </div>

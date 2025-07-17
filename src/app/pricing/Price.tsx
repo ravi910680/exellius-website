@@ -1,170 +1,212 @@
 "use client"
 
 import { useState } from "react"
+import { Check } from "lucide-react"
 
-// Helper function to format numbers with commas
-const formatNumber = (num: number) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
+export default function ExelliusPricingTabs() {
+  const [activeTab, setActiveTab] = useState<"outreach" | "data">("outreach")
+  const [activeBilling, setActiveBilling] = useState("monthly")
 
-// Function to calculate price based on credits (simplified for example)
-// You would replace this with your actual pricing logic from your backend
-const calculatePrice = (emailCredits: number, phoneCredits: number): string => {
-  // Example pricing tiers:
-  // Email: $55 per 1000 credits
-  // Phone: $15 per 1000 credits
-  const emailPricePerThousand = 55;
-  const phonePricePerThousand = 15;
+  const features = [
+    "Email Finder",
+    "Mobile Finder",
+    "Email Verifier",
+    "Domain Search",
+    "API Access",
+    "Bulk Processing",
+    "Priority Support",
+  ]
 
-  const calculatedEmailCost = (emailCredits / 1000) * emailPricePerThousand;
-  const calculatedPhoneCost = (phoneCredits / 1000) * phonePricePerThousand;
-
-  return (calculatedEmailCost + calculatedPhoneCost).toFixed(2);
-}
-
-export default function CreditPurchase() {
-  const [emailCredits, setEmailCredits] = useState(1000)
-  const [phoneCredits, setPhoneCredits] = useState(1000)
-
-  // Calculate the total price based on current slider values
-  const totalPrice = calculatePrice(emailCredits, phoneCredits);
-
-  // Define the theme color for easy use
-  const themeColor = '#58328c';
+  const plans = [
+    {
+      name: "Free",
+      price: "$0/month",
+      credits: "75 credits ?",
+      bg: "bg-white",
+      features: [true, true, true, true, true, false, false],
+    },
+    {
+      name: "Basic",
+      price: "$59/month",
+      credits: "6,000 credits ?",
+      bg: "bg-[#f4f8ff]",
+      features: [true, true, true, true, true, true, false],
+    },
+    {
+      name: "Growth",
+      price: "$119/month",
+      credits: "13,000 credits ?",
+      bg: "bg-[#fef4f1]",
+      features: [true, true, true, true, true, true, true],
+    },
+    {
+      name: "Professional",
+      price: "$199/month",
+      credits: "21,000 credits ?",
+      bg: "bg-[#f8f5ff]",
+      features: [true, true, true, true, true, true, true],
+    },
+  ]
 
   return (
-    <section className="min-h-screen bg-gray-50 py-40 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Header Section */}
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-          Access Exellius data.
-        </h2>
-        <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-          Exellius provides a flexible way to access our email and phone finding and verification services at scale. Determine how many credits you need,
-          and only pay for the credits you&apos;re planning to spend.
-        </p>
+    <section className="bg-white px-4 md:px-8 py-20 pb-0">
+      <div className="max-w-7xl mx-auto">
 
-        {/* Main Content Area: Sliders and Summary */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          {/* Left Section: Credit Sliders */}
-          <div className="flex-1 w-full bg-white p-8 rounded-lg shadow-xl">
-            <h3 className="text-xl font-semibold text-gray-800 mb-8 text-left">
-              How many credits do you want to purchase?
-            </h3>
+      <div className="flex border-b border-[#f1f1f1]">
+  {/* Outreach Tab */}
+  <button
+    onClick={() => setActiveTab("outreach")}
+    className={`w-1/2 text-center pb-4 border-b-4 ${
+      activeTab === "outreach" ? "border-[#9856f2]" : "border-transparent"
+    }`}
+  >
+    <p className="text-md font-medium text-gray-400 mb-0.5">
+      All-in-one outreach platform
+    </p>
+    <p className="text-2xl font-semibold text-black">
+      Find, verify and send cold emails
+    </p>
+  </button>
 
-            {/* Email Credits Slider */}
-            <div className="mb-8">
-              <div className="flex justify-between items-center mb-2">
-                <label htmlFor="email-credits" className="text-gray-700 font-medium text-lg">
-                  Email credits
-                </label>
-                <span className="text-gray-900 font-semibold text-xl">
-                  {formatNumber(emailCredits)}
-                </span>
-              </div>
-              <input
-                type="range"
-                id="email-credits"
-                min="1000"
-                max="1000000" // Max 1 million credits
-                step="1000" // Increment by 1000
-                value={emailCredits}
-                onChange={(e) => setEmailCredits(Number(e.target.value))}
-                // Custom styling for the range input track to show progress
-                className="w-full h-2 rounded-lg appearance-none cursor-pointer range-lg focus:outline-none focus:ring-2"
-                style={{
-                  background: `linear-gradient(to right, ${themeColor} 0%, ${themeColor} ${((emailCredits - 1000) / (1000000 - 1000)) * 100}% , #E0F2FE ${((emailCredits - 1000) / (1000000 - 1000)) * 100}% , #E0F2FE 100%)`,
-                  borderColor: themeColor, // For focus ring
-                  accentColor: themeColor // For thumb color (if supported by browser/tailwind config)
-                }}
-              />
-              <div className="flex justify-between text-sm text-gray-500 mt-2 px-1">
-                <span>1,000</span>
-                <span>10,000</span>
-                <span>100,000</span>
-                <span>1M.</span>
-              </div>
-            </div>
+  {/* Data Platform Tab */}
+  <button
+    onClick={() => setActiveTab("data")}
+    className={`w-1/2 text-center pb-4 border-b-4 ${
+      activeTab === "data" ? "border-[#9856f2]" : "border-transparent"
+    }`}
+  >
+    <p className="text-md font-medium text-gray-400 mb-0.5">
+      Data Platform
+    </p>
+    <p className="text-2xl font-semibold text-black">
+      Data solutions for your application
+    </p>
+  </button>
+</div>
 
-            {/* Phone Credits Slider */}
-            <div className="mb-8">
-              <div className="flex justify-between items-center mb-2">
-                <label htmlFor="phone-credits" className="text-gray-700 font-medium text-lg">
-                  Phone credits
-                </label>
-                <span className="text-gray-900 font-semibold text-xl">
-                  {formatNumber(phoneCredits)}
-                </span>
-              </div>
-              <input
-                type="range"
-                id="phone-credits"
-                min="1000"
-                max="1000000" // Max 1 million credits
-                step="1000" // Increment by 1000
-                value={phoneCredits}
-                onChange={(e) => setPhoneCredits(Number(e.target.value))}
-                // Custom styling for the range input track to show progress
-                className="w-full h-2 rounded-lg appearance-none cursor-pointer range-lg focus:outline-none focus:ring-2"
-                style={{
-                  background: `linear-gradient(to right, ${themeColor} 0%, ${themeColor} ${((phoneCredits - 1000) / (1000000 - 1000)) * 100}% , #E0F2FE ${((phoneCredits - 1000) / (1000000 - 1000)) * 100}% , #E0F2FE 100%)`,
-                  borderColor: themeColor, // For focus ring
-                  accentColor: themeColor // For thumb color (if supported by browser/tailwind config)
-                }}
-              />
-              <div className="flex justify-between text-sm text-gray-500 mt-2 px-1">
-                <span>1,000</span>
-                <span>10,000</span>
-                <span>100,000</span>
-                <span>1M.</span>
-              </div>
-            </div>
 
-            <p className="text-sm text-gray-500 mt-6 text-left">
-              Email credits are used to find emails, and Phone credits are used to find phone numbers.
-            </p>
-          </div>
 
-          {/* Right Section: Bulk Purchase Summary */}
-          <div className="flex-1 w-full bg-white p-8 rounded-lg shadow-xl border border-gray-200">
-            <h3 className="text-gray-600 text-lg font-medium mb-6">
-              Your Bulk credits purchase
-            </h3>
-            <p className="text-5xl font-extrabold text-gray-900 mb-8">
-              ${totalPrice} <span className="text-3xl font-semibold text-gray-500">USD</span>
-            </p>
 
-            <div className="border-t border-b border-gray-200 py-6 mb-8">
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-gray-700 font-medium text-lg">
-                  {formatNumber(emailCredits)} Email credits
-                </span>
-                <span className="text-gray-900 font-semibold text-xl">
-                  ${((emailCredits / 1000) * 55).toFixed(2)} USD
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-700 font-medium text-lg">
-                  {formatNumber(phoneCredits)} Phone credits
-                </span>
-                <span className="text-gray-900 font-semibold text-xl">
-                  ${((phoneCredits / 1000) * 15).toFixed(2)} USD
-                </span>
+        {/* ======================== OUTREACH TAB ======================== */}
+        {activeTab === "outreach" && (
+          <>
+            <div className="overflow-x-auto">
+              <div className="grid grid-cols-[340px_repeat(4,minmax(200px,1fr))] w-full border-t border-gray-200">
+                {/* Left Column */}
+                <div className="border-b border-r px-4 py-6">
+                  <div className="inline-flex rounded-full border border-gray-200 p-1 bg-[#f5f0fd] mb-4">
+                    <button
+                      className={`px-4 py-1.5 text-sm font-semibold rounded-full transition ${
+                        activeBilling === "monthly" ? "bg-white text-[#9856f2]" : "text-gray-500"
+                      }`}
+                      onClick={() => setActiveBilling("monthly")}
+                    >
+                      Monthly
+                    </button>
+                    <button
+                      className={`px-4 py-1.5 text-sm font-semibold rounded-full transition ${
+                        activeBilling === "yearly" ? "bg-white text-[#9856f2]" : "text-gray-500"
+                      }`}
+                      onClick={() => setActiveBilling("yearly")}
+                    >
+                      Yearly Plans Save up to <span className="text-[#9856f2] font-bold">25%</span>
+                    </button>
+                  </div>
+                  <p className="text-sm text-gray-500 mb-6">
+                    <strong className="text-black">Unlimited seats.</strong><br />
+                    Upgrade or downgrade at anytime.
+                  </p>
+                  <div className="space-y-5 text-sm font-medium text-black">
+                    {features.map((f, i) => (
+                      <div key={i}>{f}</div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Plans */}
+                {plans.map((plan, idx) => (
+                  <div key={idx} className={`border-l border-b px-4 py-6 ${plan.bg}`}>
+                    <h4 className="text-base font-semibold text-black mb-1">{plan.name}</h4>
+                    <p className="text-xl font-bold text-[#9856f2] mb-1">{plan.price}</p>
+                    <p className="text-sm text-gray-500 mb-4">{plan.credits}</p>
+                    <button className="w-full bg-[#9856f2] hover:bg-[#7b44ca] text-white py-2 rounded-md text-sm font-semibold mb-4">
+                      Buy now
+                    </button>
+                    <hr className="mb-4 border-[#ddd]" />
+                    <ul className="space-y-5 text-sm text-black">
+                      {plan.features.map((hasFeature, i) => (
+                        <li key={i} className="h-5 flex items-center">
+                         {hasFeature ? (
+  <Check className="w-4 h-4 text-[#9856f2]" />
+) : (
+  <span className="w-4 h-4 inline-block text-center text-gray-400">–</span>
+)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
+          </>
+        )}
 
-            <p className="text-sm text-gray-500 mb-8">
-              Credits can be used up to 12 months from purchase.
+        {/* ======================== DATA PLATFORM TAB ======================== */}
+        {activeTab === "data" && (
+          <>
+          <div className="p-10 bg-[#FFF5FD]" >
+            <h2 className="text-3xl font-bold text-center mb-4 ">
+              Access exellius data via API.
+            </h2>
+            <p className="text-center text-sm text-gray-500 max-w-2xl mx-auto mb-12">
+              Exellius Data Platform is a flexible way to access our email finding and verification services at scale.
+              Determine how many credits you need, and only pay for the credits you’re planning to spend.
             </p>
 
-            <button
-              className="w-full text-white font-bold py-4 rounded-md text-lg transition duration-300 ease-in-out hover:bg-[#4a2b75]"
-              style={{ backgroundColor: themeColor }} // Adjust hover color if needed
-            >
-              Confirm purchase
-            </button>
-          </div>
-        </div>
+            <div className="grid md:grid-cols-2 gap-8  p-8 rounded-xl">
+              {/* Sliders */}
+              <div>
+                <h4 className="text-lg font-semibold mb-6">How many credits do you want to purchase?</h4>
+                {["Search", "Email", "Verification", "Phone"].map((type) => (
+                  <div key={type} className="mb-6">
+                    <div className="text-sm font-medium text-black mb-1">{type} Credits</div>
+                    <input
+                      type="range"
+                      min={1000}
+                      max={1000000}
+                      step={1000}
+                      defaultValue={10000}
+                      className="w-full accent-[#9856f2]"
+                    />
+                    <div className="text-xs flex justify-between text-gray-400 mt-1">
+                      <span>1,000</span>
+                      <span>10,000</span>
+                      <span>100,000</span>
+                      <span>1M</span>
+                    </div>
+                  </div>
+                  
+                ))}
+              </div>
+
+              {/* Summary Box */}
+              <div className="bg-white rounded-xl p-6 shadow text-center">
+                <p className="text-sm text-gray-400 mb-1">Your credits purchase</p>
+                <h3 className="text-3xl font-bold mb-6">$4,000 USD</h3>
+                <ul className="text-sm text-black space-y-4 mb-6 border-t pt-4">
+                  <li className="flex justify-between"><span>10,000 Search Credits</span><span>$1,000USD</span></li>
+                  <li className="flex justify-between"><span>10,000 Email Credits</span><span>$1,000USD</span></li>
+                  <li className="flex justify-between"><span>10,000 Verification Credits</span><span>$1,000USD</span></li>
+                  <li className="flex justify-between"><span>10,000 Phone Credits</span><span>$1,000USD</span></li>
+                </ul>
+                <button className="w-full bg-[#9856f2] hover:bg-[#7c45d2] text-white font-semibold py-2 rounded-md">
+                  Get started
+                </button>
+              </div>
+            </div>
+            </div>
+          </>
+        )}
       </div>
     </section>
   )

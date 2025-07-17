@@ -10,10 +10,10 @@ const features = [
     title: "Why Access an Amazon Seller Database?",
     bgColor: "bg-[#FBF8FE]",
     points: [
-      "Verified seller profiles with complete contact information",
-      "Filterable data by marketplace, category, and performance metrics",
-      "Regular updates to ensure data accuracy",
-      "Advanced search capabilities to find sellers by name, location, or product type"
+      "Verified seller profiles with complete contact",
+      "Filterable data by marketplace, category",
+      "Regular updates to ensure data accuracy"
+      
     ],
     description:
       "Navigating Amazon's vast marketplace can be challenging when trying to identify potential partners, competitors, or acquisition targets."
@@ -24,7 +24,7 @@ const features = [
     bgColor: "bg-[#FEF0EC]",
     points: [
       "Top-rated sellers in 12 global marketplaces",
-      "Buy Box dominators with 95%+ positive feedback",
+      "Buy Box dominators with 95%+ positive",
       "Emerging brands with viral growth potential"
     ],
     description: "Elite Seller Circle — Collaborate with Marketplace Leaders"

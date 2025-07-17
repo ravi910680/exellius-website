@@ -22,7 +22,7 @@ export default function LeadDiscoveryStep3() {
 
           {/* Left Text Content */}
           <div className="w-full lg:w-1/2 text-left relative z-10">
-            <h3 className="text-2xl font-bold text-[#6c3cbe] mb-2">Step 3:</h3>
+            <h3 className="text-2xl font-bold text-[#6c3cbe] mb-2"></h3>
             <h4 className="text-2xl font-bold text-gray-900 mb-3">Enrich Your Existing Leads</h4>
             <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
 

@@ -2,6 +2,12 @@
 
 import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import FinancialDataFeature1 from "./FinancialDataFeature1"
+import GeospatialDataFeature from "./GeospatialDataFeature"
+import BusinessDataFeature from "./BusinessDataFeature"
+import SocialDemographicDataFeature from "./SocialDemographicDataFeature"
+import WebDigitalDataFeature from "./WebDigitalDataFeature"
+import ScientificResearchDataFeature from "./ScientificResearchDataFeature"
 
 export default function DataPage() {
   return (
@@ -78,57 +84,14 @@ export default function DataPage() {
           <p className="text-gray-700 text-center max-w-3xl mx-auto mb-12">
             Exellius Data provides a comprehensive collection of datasets across multiple domains. Below are the main data types and their respective categories for easy navigation:
           </p>
-          <div className="grid md:grid-cols-2 gap-8 text-gray-800">
-            <div>
-              <h3 className="font-semibold text-lg mb-2">1. Financial & Economic Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Market Data: Stock prices, indices, forex rates, commodities</li>
-                <li>Company Financials: Balance sheets, income statements, cash flows</li>
-                <li>Economic Indicators: GDP, inflation, employment, interest rates</li>
-                <li>Alternative Data: Credit card transactions, satellite imagery, web traffic</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-2">2. Geospatial & Environmental Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Satellite & Remote Sensing: Land use, weather patterns, vegetation</li>
-                <li>GIS Data: Maps, administrative boundaries, transportation networks</li>
-                <li>Climate Data: Temperature, precipitation, carbon emissions</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-2">3. Business & Corporate Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Firmographics: Company registrations, industry classifications</li>
-                <li>Supply Chain & Logistics: Shipping routes, trade volumes</li>
-                <li>Consumer Behavior: Retail sales, e-commerce trends</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-2">4. Social & Demographic Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Population Statistics: Census data, migration trends</li>
-                <li>Social Media & Sentiment: Twitter trends, brand perception</li>
-                <li>Health & Education: Disease prevalence, literacy rates</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-2">5. Web & Digital Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Web Scraping: Product listings, news articles</li>
-                <li>API Datasets: Real-time feeds from platforms</li>
-                <li>Domain & SEO Data: Website rankings, backlink profiles</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-2">6. Scientific & Research Data</h3>
-              <ul className="list-disc list-inside">
-                <li>Academic Publications: Citations, research papers</li>
-                <li>Clinical Trials: Drug efficacy, patient records</li>
-                <li>Genomics & Biotech: DNA sequencing, protein structures</li>
-              </ul>
-            </div>
-          </div>
+
+          <FinancialDataFeature1 />
+          <GeospatialDataFeature />
+          <BusinessDataFeature />
+          <SocialDemographicDataFeature />
+          <WebDigitalDataFeature />
+          <ScientificResearchDataFeature />
+          
         </div>
       </div>
     </section>

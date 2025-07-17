@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import Hero from "./Hero";
 import Footer from "@/components/Footer"
 import Price from "./Price"
 import Companies from "@/components/Companies"
@@ -10,13 +11,12 @@ export default function Home() {
     <>
       <Header />
       <main>
+        <Hero />
         <Price />
        <Companies />
         <FAQs />
         
-        {/* Add any additional sections or components here */}
-        
-        {/* Footer */}
+      
         <Footer /> 
         
        

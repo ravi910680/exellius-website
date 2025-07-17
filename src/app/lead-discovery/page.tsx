@@ -5,7 +5,6 @@ import LeadDiscoveryFeatures from "./LeadDiscoveryFeatures"
 import LeadDiscoveryStep1 from "./LeadDiscoveryStep1"
 import LeadDiscoveryStep2 from "./LeadDiscoveryStep2"
 import LeadDiscoveryStep3 from "./LeadDiscoveryStep3"
-import LeadDiscoveryStep4 from "./LeadDiscoveryStep4"
 import IndustriesWeServe from "./IndustriesWeServe"
 import HowWeOutperform from "./HowWeOutperform"
 import FlexibleSolutions from "./FlexibleSolutions"
@@ -24,7 +23,6 @@ export default function LeadDiscoveryPage() {
             <LeadDiscoveryStep1 />
             <LeadDiscoveryStep2 />
             <LeadDiscoveryStep3 />
-            <LeadDiscoveryStep4 />
             <IndustriesWeServe />
             <HowWeOutperform />
             <FlexibleSolutions />
