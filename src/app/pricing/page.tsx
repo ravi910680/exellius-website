@@ -4,6 +4,7 @@ import Footer from "@/components/Footer"
 import Price from "./Price"
 import FAQs from "./FAQs"
 import PlanSelector from "./PlanSelector";
+import CallToAction from "@/components/CallToAction";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         {/* Additional sections */}
       
         <FAQs />
+        <CallToAction />
         
       
         <Footer /> 
