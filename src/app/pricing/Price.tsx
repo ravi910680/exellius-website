@@ -50,7 +50,7 @@ export default function ExelliusPricingTabs() {
     emailVerifier: 10000,
     domainSearch: 10000,
   });
-  const [buyingCredits, setBuyingCredits] = useState(false);
+  
 
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
   const totalPrice =
