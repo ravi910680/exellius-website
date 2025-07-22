@@ -4,7 +4,7 @@ import Footer from "@/components/Footer"
 import Price from "./Price"
 import Companies from "@/components/Companies"
 import FAQs from "./FAQs"
-
+import PlanSelector from "./PlanSelector";
 
 export default function Home() {
   return (
@@ -13,7 +13,10 @@ export default function Home() {
       <main>
         <Hero />
         <Price />
-       <Companies />
+        <PlanSelector />
+        
+        {/* Additional sections */}
+      
         <FAQs />
         
       
