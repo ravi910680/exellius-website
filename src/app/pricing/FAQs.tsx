@@ -90,16 +90,9 @@ export default function FAQSection() {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className={`transition-shadow transition-border border rounded-xl bg-white px-6 py-4
-              ${
-                openIndex === i
-                  ? "border-2 border-[#e5d7fa] shadow-lg"
-                  : "border-transparent shadow-sm"
-              }
-            `}
-            style={{
-              boxShadow: openIndex === i ? "0 2px 8px 0 #c6a8ef44" : "0 2px 4px 0 #e5dbf712",
-            }}
+             className={`bg-gradient-to-br from-[#f5f5f5] to-[#edf2fb] border-b-2 border-[#9856F2] rounded-xl px-6 py-6 transition-all duration-300 ${
+              openIndex === i ? "shadow-md" : ""
+            }`}
           >
             <button
               className={`w-full flex justify-between items-center text-left font-medium text-lg md:text-xl ${openIndex === i ? "text-[#6538b6]" : "text-[#201a32]"} `}
