@@ -55,7 +55,7 @@ export default function ExelliusPricingTabs() {
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
   const totalPrice =
     creditTypes
-      .map(type => creditCounts[type.key] * type.pricePerCredit)
+     .map(type => creditCounts[type.key as keyof typeof creditCounts] * type.pricePerCredit)
       .reduce((a, b) => a + b, 0);
 
   function handleSliderChange(typeKey: keyof typeof creditCounts, value: number) {
@@ -301,8 +301,8 @@ export default function ExelliusPricingTabs() {
                   <b>Total Credits:</b> {totalCredits.toLocaleString()}
                 </div>
                 <button
-                  className={`w-full bg-[#9856f2] hover:bg-[#7c45d2] text-white font-semibold py-2 rounded-md ${buyingCredits ? "opacity-60 cursor-wait" : ""}`}
-                  disabled={buyingCredits || totalPrice === 0}
+                  className="w-full bg-[#9856f2] hover:bg-[#7c45d2] text-white font-semibold py-2 rounded-md"
+                 
                   onClick={handleBuyCredits}
                 >
                  Buy Now
