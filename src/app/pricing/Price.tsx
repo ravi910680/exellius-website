@@ -35,7 +35,7 @@ const creditTypes = [
   },
 ];
 
-function formatCurrency(val) {
+function formatCurrency(val: number) {
   return `$${val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
