@@ -28,7 +28,7 @@ const timelineSteps = [
 
 export default function FlexibleSolutions() {
   return (
-    <section className=" px-6 bg-white pb-20">
+    <section className=" px-6 bg-white py-20">
       <div className="max-w-5xl mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">

@@ -47,9 +47,9 @@ export default function LeadDiscoveryStep3() {
 
           {/* Right: Step 3 Visual */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[420px]">
+            <div className="w-[520px]">
               <Image
-                src="/img-3.png"
+                src="/lead-discovery/img-5.png" // 🔁 Replace with appropriate image
                 alt="Step 3 Visual"
                 width={420}
                 height={300}

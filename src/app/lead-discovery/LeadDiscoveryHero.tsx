@@ -28,12 +28,12 @@ export default function LeadDiscoveryHero() {
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         
         {/* Left: Static Image */}
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-xl">
           <Image
-            src="/login.png" // 🔁 Replace this with your actual image
+            src="/lead-discovery/hero.png" // 🔁 Replace this with your actual image
             alt="Lead Discovery Visual"
-            width={600}
-            height={600}
+            width={800}
+            height={800}
             className="w-full h-auto"
           />
         </div>

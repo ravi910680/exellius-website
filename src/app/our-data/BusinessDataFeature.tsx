@@ -1,69 +1,114 @@
-"use client"
+import {
+  MailCheck,
+  Globe,
+  Users,
+  ShieldCheck,
+  RefreshCw,
+} from "lucide-react";
 
-import Image from "next/image"
-import { CheckCircle } from "lucide-react"
+// Data for the 4-step validation
+const steps = [
+  {
+    title: "Syntax Check",
+    description: "RFC-compliant email patterns",
+    icon: <MailCheck className="text-indigo-600" size={28} />,
+  },
+  {
+    title: "Domain Verification",
+    description: "MX record validation",
+    icon: <Globe className="text-blue-600" size={28} />,
+  },
+  {
+    title: "Role Detection",
+    description: "Filter generic addresses",
+    icon: <Users className="text-amber-600" size={28} />,
+  },
+  {
+    title: "Human Review",
+    description: "5% random sampling",
+    icon: <ShieldCheck className="text-green-600" size={28} />,
+  },
+];
 
-export default function BusinessDataFeature() {
+// Data for refresh cycles
+const refreshes = [
+  {
+    label: "Emails",
+    interval: "Every 48 hours",
+    color: "from-fuchsia-100 to-fuchsia-50",
+    iconColor: "text-fuchsia-600",
+    border: "border-fuchsia-200",
+    desc: "Always up-to-date contact details with near-real-time validation.",
+  },
+  {
+    label: "Company Data",
+    interval: "Weekly",
+    color: "from-sky-100 to-sky-50",
+    iconColor: "text-sky-600",
+    border: "border-sky-200",
+    desc: "Frequent updates for changes in company profiles and hierarchies.",
+  },
+  {
+    label: "Technographics",
+    interval: "Monthly",
+    color: "from-stone-100 to-stone-50",
+    iconColor: "text-stone-600",
+    border: "border-stone-200",
+    desc: "Regularly refreshed technology stack and usage insights.",
+  },
+];
+
+export default function DataVerificationProcess() {
   return (
-    <section className="px-6">
-      <div className="max-w-7xl mx-auto text-center">
-        {/* Section Divider Only */}
-       
+    <section className="bg-white rounded-2xl shadow-lg p-8 md:p-10 max-w-3xl mx-auto mt-10">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+        Data Verification Process
+      </h2>
+      <p className="text-gray-500 text-base mb-8">
+        Ensuring data quality through automated and manual checks
+      </p>
 
-        {/* Feature Card */}
-        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
-          
-          {/* Background Graphic */}
-          <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
-            <Image
-              src="/grp-large.png"
-              alt="Decorative Background"
-              fill
-              className="object-contain object-right"
-            />
-          </div>
-
-          {/* Left: Text Content */}
-          <div className="w-full lg:w-1/2 text-left relative z-10">
-            <h4 className="text-2xl font-bold text-gray-900 mb-3">Business & Corporate Data</h4>
-            <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
-
-            <p className="text-base text-gray-800 mb-6">
-              Drive business intelligence with structured corporate datasets.
-            </p>
-
-            <ul className="space-y-3 text-sm text-gray-900">
-              {[
-                <><strong>Firmographics:</strong> Company registrations, industry classifications</>,
-                <><strong>Supply Chain & Logistics:</strong> Shipping routes, trade volumes</>,
-                <><strong>Consumer Behavior:</strong> Retail sales, e-commerce trends</>,
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 mt-0.5 text-[#6c3cbe]" />
-                  <span className="font-semibold">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-6 text-sm text-gray-600">
-              Useful for B2B intelligence, logistics planning, and retail strategy.
-            </p>
-          </div>
-
-          {/* Right: Image */}
-          <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[420px]">
-              <Image
-                src="/business-corp.png" // Replace with relevant image
-                alt="Business Data Illustration"
-                width={420}
-                height={300}
-                className="w-full h-auto object-contain rounded-lg"
-              />
+      {/* 4-Step Validation Timeline */}
+      <ol className="relative border-l-2 border-indigo-100 ml-3 mb-12">
+        {steps.map((step, idx) => (
+          <li key={step.title} className="mb-8 ml-6">
+            {/* Step circle/icon */}
+            <span className="absolute -left-6 flex items-center justify-center w-10 h-10 bg-indigo-50 rounded-full ring-2 ring-white shadow">
+              {step.icon}
+            </span>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900">
+                <span className="mr-2 text-indigo-500">{idx + 1}.</span> {step.title}
+              </h3>
             </div>
-          </div>
+            <p className="text-sm text-gray-600 pl-7">{step.description}</p>
+          </li>
+        ))}
+      </ol>
+
+      {/* Refresh Cycles Card Grid */}
+      <div>
+        <h3 className="text-lg font-bold mb-4 text-gray-900">Refresh Cycles</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {refreshes.map((ref) => (
+            <div
+              key={ref.label}
+              className={`border ${ref.border} rounded-xl p-6 shadow-sm bg-gradient-to-br ${ref.color} transition-shadow hover:shadow-lg flex flex-col items-center text-center`}
+            >
+              <div className="mb-3">
+                <RefreshCw className={ref.iconColor} size={32} />
+              </div>
+              <div className="text-base font-semibold text-gray-800 mb-1">
+                {ref.label}
+              </div>
+              <span className="inline-block mb-2 rounded-full bg-white font-semibold text-xs px-3 py-1 border border-gray-200 shadow-sm text-gray-600">
+                {ref.interval}
+              </span>
+              <div className="text-xs text-gray-500">{ref.desc}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

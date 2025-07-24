@@ -55,8 +55,16 @@ export default function DataPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Why us?</h2>
+        
+
+        {/* Data Types Section */}
+        <div className="mt-24">
+          
+
+          <FinancialDataFeature1 />
+
+          <div className="mt-24 text-center">
+         
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <div className="flex items-center gap-2 text-gray-800">
               <CheckCircle className="text-[#9856F2] w-5 h-5" /> Reliable data you can act on instantly
@@ -78,19 +86,10 @@ export default function DataPage() {
           </div>
         </div>
 
-        {/* Data Types Section */}
-        <div className="mt-24">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">Data Types & Categories</h2>
-          <p className="text-gray-700 text-center max-w-3xl mx-auto mb-12">
-            Exellius Data provides a comprehensive collection of datasets across multiple domains. Below are the main data types and their respective categories for easy navigation:
-          </p>
 
-          <FinancialDataFeature1 />
           <GeospatialDataFeature />
           <BusinessDataFeature />
-          <SocialDemographicDataFeature />
-          <WebDigitalDataFeature />
-          <ScientificResearchDataFeature />
+         
           
         </div>
       </div>

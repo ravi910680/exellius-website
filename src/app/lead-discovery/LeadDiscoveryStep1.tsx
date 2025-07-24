@@ -22,7 +22,7 @@ export default function LeadDiscoveryStep1() {
               src="/grp-large.png"
               alt="Background graphic"
               fill
-              className="object-contain object-right"
+              className="object-cover object-right"
             />
           </div>
 
@@ -53,9 +53,9 @@ export default function LeadDiscoveryStep1() {
 
           {/* Right: Single Image */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[420px]">
+            <div className="w-[520px]">
               <Image
-                src="/image_1.png"
+                src="/lead-discovery/img-3.png" // 🔁 Replace with appropriate image
                 alt="Step visual"
                 width={420}
                 height={300}
