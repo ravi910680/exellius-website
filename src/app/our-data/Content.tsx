@@ -5,9 +5,7 @@ import { Button } from "@/components/ui/button"
 import FinancialDataFeature1 from "./FinancialDataFeature1"
 import GeospatialDataFeature from "./GeospatialDataFeature"
 import BusinessDataFeature from "./BusinessDataFeature"
-import SocialDemographicDataFeature from "./SocialDemographicDataFeature"
-import WebDigitalDataFeature from "./WebDigitalDataFeature"
-import ScientificResearchDataFeature from "./ScientificResearchDataFeature"
+
 
 export default function DataPage() {
   return (
