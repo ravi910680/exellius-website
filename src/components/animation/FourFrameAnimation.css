@@ -1,0 +1,77 @@
+.four-frame-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  height: 300px; /* Fixed height for the first 3 frames */
+  margin: 0 auto;
+  
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* So the last frame opens from the top */
+}
+
+.four-frame {
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(.4,1,.6,1);
+  pointer-events: none;
+  /* For the first 3 images - fixed height! */
+  height: 200px;
+}
+
+.four-frame.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Special styling for last frame */
+.four-frame.last-frame {
+  width: 100%;
+  height: auto;           /* Use real image height */
+  top: 0;
+  /* Prevent inherited height from .four-frame */
+  /* (If needed, you could also set min-height: unset; here) */
+}
+/* Last-frame: open from halfway down, as before */
+.four-frame.last-frame.active {
+  animation: curtainHalfDown 4s cubic-bezier(.51,2,.51,.10) forwards;
+  opacity: 1;
+  clip-path: inset(0 0 50% 0);
+}
+
+@keyframes curtainHalfDown {
+  from {
+    clip-path: inset(0 0 50% 0);
+    opacity: 0.5;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+.four-frame.last-frame.last-frame-exit {
+  animation: curtainTopDown 3s cubic-bezier(.51,2,.51,.10) forwards;  /* Duration set to 2 seconds */
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+@keyframes curtainTopDown {
+  from {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.5; /* Or 0 for complete fade */
+  }
+}
+
+
+
+

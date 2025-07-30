@@ -3,6 +3,7 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import AnimationVerify from "@/components/animation/AnimationVerify"
 
 export default function EmailVerifyFeature() {
   return (
@@ -18,13 +19,7 @@ export default function EmailVerifyFeature() {
             className="object-cover opacity-30"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
-            <Image
-              src="/email-verifier.png"
-              alt="Email verification UI"
-              width={400}
-              height={300}
-              className="rounded-md shadow-md"
-            />
+           <AnimationVerify />
           </div>
         </div>
 

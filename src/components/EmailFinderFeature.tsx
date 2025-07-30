@@ -3,7 +3,7 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-
+import AnimationFinder from "@/components/animation/Animation1"
 export default function EmailFinderFeature() {
   return (
     <section className="w-full  px-4 sm:px-6">
@@ -56,13 +56,7 @@ export default function EmailFinderFeature() {
             className="object-cover object-left opacity-50"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-6 sm:p-8">
-            <Image
-              src="/finder-component.png"
-              alt="Email finder UI"
-              width={400}
-              height={300}
-              className="rounded-md shadow-md"
-            />
+            <AnimationFinder />
           </div>
         </div>
       </div>
