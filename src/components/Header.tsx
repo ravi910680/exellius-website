@@ -42,27 +42,31 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-  // Insert Zoho SalesIQ chatbot script
-  const script = document.createElement("script")
-  script.src = "https://salesiq.zohopublic.in/widget?wc=siq84646a54c0ed16a2fa31eb4a0c59a20fbefd8488b0d78e393036f03e317fc106"
-  script.defer = true
-  script.id = "zsiqscript"
-  document.body.appendChild(script)
+    const script = document.createElement("script")
+    script.src = "https://salesiq.zohopublic.in/widget?wc=siq84646a54c0ed16a2fa31eb4a0c59a20fbefd8488b0d78e393036f03e317fc106"
+    script.defer = true
+    script.id = "zsiqscript"
+    document.body.appendChild(script)
 
-  // Initialize Zoho's salesiq object if needed
-  ;(window as any).$zoho = (window as any).$zoho || {}
-;(window as any).$zoho.salesiq = (window as any).$zoho.salesiq || { ready: function () {} }
-
-
-  return () => {
-    // Clean up script on unmount safely
-    const existingScript = document.getElementById("zsiqscript")
-    if (existingScript && existingScript.parentNode) {
-      existingScript.parentNode.removeChild(existingScript)
+    interface ZohoWindow extends Window {
+      $zoho?: {
+        salesiq?: {
+          ready: () => void
+        }
+      }
     }
-  }
-}, [])
 
+    const win = window as ZohoWindow
+    win.$zoho = win.$zoho || {}
+    win.$zoho.salesiq = win.$zoho.salesiq || { ready: () => {} }
+
+    return () => {
+      const existingScript = document.getElementById("zsiqscript")
+      if (existingScript && existingScript.parentNode) {
+        existingScript.parentNode.removeChild(existingScript)
+      }
+    }
+  }, [])
 
   const toggleDropdown = (menu: string) => {
     setActiveDropdown(prev => (prev === menu ? null : menu))
@@ -103,11 +107,7 @@ export default function Header() {
                   <div className="absolute top-full left-0 bg-white border border-gray-200 shadow-md rounded-md z-50 w-[720px] grid grid-cols-2 gap-6 p-4">
                     <div className="grid grid-cols-1 gap-4">
                       {featuresMenuPrimary.map(item => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block text-sm text-gray-800 hover:text-purple-600"
-                        >
+                        <Link key={item.href} href={item.href} className="block text-sm text-gray-800 hover:text-purple-600">
                           <div className="font-medium">{item.label}</div>
                           {item.desc && <div className="text-sm text-gray-400">{item.desc}</div>}
                         </Link>
@@ -116,11 +116,7 @@ export default function Header() {
                     <div className="border-l pl-4">
                       <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Platform Tools</p>
                       {featuresMenuSecondary.map(item => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block text-sm text-gray-800 hover:text-purple-600 mb-4"
-                        >
+                        <Link key={item.href} href={item.href} className="block text-sm text-gray-800 hover:text-purple-600 mb-4">
                           <div className="font-medium">{item.label}</div>
                           {item.desc && <div className="text-sm text-gray-400">{item.desc}</div>}
                         </Link>
@@ -132,11 +128,7 @@ export default function Header() {
                 {label !== "Features" && label !== "Pricing Page" && label !== "Support" && activeDropdown === label && (
                   <div className="absolute top-full left-0 bg-white border border-gray-200 shadow-md rounded-md p-2 w-48 z-50">
                     {menuData[label as keyof typeof menuData].map(link => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block px-3 py-1 text-sm text-gray-700 hover:text-purple-600"
-                      >
+                      <Link key={link.href} href={link.href} className="block px-3 py-1 text-sm text-gray-700 hover:text-purple-600">
                         {link.label}
                       </Link>
                     ))}
@@ -147,22 +139,12 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex gap-2">
-            <a
-              href="https://app.exellius.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
+            <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button variant="outline" className="text-sm px-4 py-2 w-full">
                 Create Account
               </Button>
             </a>
-            <a
-              href="https://app.exellius.com/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
+            <a href="https://app.exellius.com/login" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button className="text-sm px-4 py-2 w-full">
                 Login
               </Button>
@@ -210,11 +192,7 @@ export default function Header() {
                     <div className="text-sm font-medium text-gray-700 mb-1">{label}</div>
                     <div className="pl-4 border-l border-gray-200">
                       {(menuData[label as keyof typeof menuData] || []).map(item => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block text-sm text-gray-700 py-1 hover:text-purple-600"
-                        >
+                        <Link key={item.href} href={item.href} className="block text-sm text-gray-700 py-1 hover:text-purple-600">
                           {item.label}
                         </Link>
                       ))}
@@ -226,25 +204,11 @@ export default function Header() {
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
-            <a
-              href="https://app.exellius.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
-              <Button variant="outline" className="w-full">
-                Book a Demo
-              </Button>
+            <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="outline" className="w-full">Book a Demo</Button>
             </a>
-            <a
-              href="https://app.exellius.com/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
-              <Button className="w-full">
-                Create Account
-              </Button>
+            <a href="https://app.exellius.com/login" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button className="w-full">Create Account</Button>
             </a>
           </div>
         </div>
