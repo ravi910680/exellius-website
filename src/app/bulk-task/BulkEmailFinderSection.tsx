@@ -2,68 +2,70 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-
 import { ChevronsRight } from "lucide-react"
 
-const advantages = [
+
+const benefits = [
   {
-    title: "Accurate Data",
-    description: "Verified, up-to-date phone numbers",
-    image: "/icons/bulk-8.png",
+    title: "High Accuracy",
+    description: "Advanced algorithms fetch valid corporate emails",
+    image: "/icons/bulk-3.png",
     bg: "#F8F2FF",
   },
   {
-    title: "Bulk Processing",
-    description: "Get a list of phone numbers in minutes",
-    image: "/icons/bulk-9.png",
+    title: "Scalable",
+    description: "Upload thousands of domains to find email addresses in bulk",
+    image: "/icons/bulk-2.png",
     bg: "#EDF2FB",
   },
   {
-    title: "Multi-Source Validation",
-    description: "Cross-checked for reliability",
-    image: "/icons/bulk-10.png",
-    bg: "#F8F2FF",
+    title: "Time-Saving",
+    description: "Skip manual searches and get results in seconds",
+    image: "/icons/bulk-1.png",
+    bg: "#FDF1FF",
   },
 ]
 
 const steps = [
   {
     step: "01",
-    text: "Upload company names or domains",
+    text: "Upload a list of domains",
     bg: "#F9F5FF",
   },
   {
     step: "02",
-    text: "Exellius fetches associated phone numbers",
+    text: "Exellius scans multiple sources to retrieve relevant emails",
     bg: "#FEF6F5",
   },
   {
     step: "03",
-    text: "Download the contact list for your CRM or dialer",
+    text: "Download a verified list of email addresses in CSV format",
     bg: "#EDF2FB",
   },
 ]
 
-export default function BulkPhoneFinderSection() {
+export default function BulkEmailFinderSection() {
   return (
-    <section className="w-full bg-[#fdf1db] py-24 px-6">
+    <section className="w-full bg-white py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
         {/* Header */}
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-          <span className="text-[#9856F2]">04.</span>{" "}
-          <span className="text-gray-900">Bulk Phone Finder:</span>{" "}
-          Get Valid <span className="text-[#9856F2]">Contact Numbers</span>
+          <span className="text-[#9856F2]">01.</span>{" "}
+          <span className="text-gray-900">Bulk Email Finder:</span>{" "}
+          Get a List of <span className="text-[#9856F2]">Email Addresses</span>{" "}
+          Instantly
         </h2>
 
         <p className="max-w-2xl mx-auto text-gray-700 text-sm sm:text-base mb-10">
-          Phone outreach remains a powerful sales channel. Exellius’ bulk phone finder helps you obtain direct and
-          mobile numbers linked to professionals, enhancing your cold-calling strategy.
+          Finding professional email addresses manually is time-consuming. Exellius’ bulk email finder
+          extracts accurate contact details from domains, LinkedIn profiles, and company pages—helping
+          you build a list of prospects effortlessly.
         </p>
 
-        {/* Advantages */}
-        <h3 className="text-lg font-semibold text-gray-800 mb-6">Advantages:</h3>
+        {/* Key Benefits */}
+        <h3 className="text-lg font-semibold text-gray-800 mb-6">Key Benefits:</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-          {advantages.map((item, i) => (
+          {benefits.map((item, i) => (
             <div
               key={i}
               className="p-6 rounded-xl shadow-sm text-center"
@@ -87,10 +89,10 @@ export default function BulkPhoneFinderSection() {
        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 mb-10 items-center">
   {steps.map((item, i) => (
     <>
-      {/* Step Card */}
+      {/* Step */}
       <div
         key={`step-${i}`}
-        className="p-6 rounded-xl text-left shadow-sm relative"
+        className="p-6 rounded-xl text-left shadow-sm"
         style={{ backgroundColor: item.bg }}
       >
         <div className="text-6xl text-[#F1E9FF] font-bold text-right">
@@ -101,12 +103,9 @@ export default function BulkPhoneFinderSection() {
         </p>
       </div>
 
-      {/* Arrow between cards (skip after last card) */}
+      {/* Chevron (only between steps) */}
       {i < steps.length - 1 && (
-        <div
-          key={`chevron-${i}`}
-          className="hidden sm:flex justify-center items-center"
-        >
+        <div key={`chevron-${i}`} className="hidden sm:flex justify-center">
           <ChevronsRight className="text-[#9856F2]" size={28} strokeWidth={2} />
         </div>
       )}
@@ -114,9 +113,18 @@ export default function BulkPhoneFinderSection() {
   ))}
 </div>
 
-        <Button className="bg-[#9856F2] text-white hover:bg-[#7836c9] text-sm sm:text-base">
-          Get Contacts
-        </Button>
+
+       <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <Button className="bg-[#9856F2] text-white hover:bg-[#7836c9] text-sm sm:text-base">
+    Find Now
+  </Button>
+</a>
+
       </div>
     </section>
   )

@@ -108,9 +108,17 @@ export default function BulkEmailVerifierSection() {
 </div>
 
 
-        <Button className="bg-[#9856F2] text-white hover:bg-[#7836c9] text-sm sm:text-base">
-          Verify Now
-        </Button>
+       <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <Button className="bg-[#9856F2] text-white hover:bg-[#7836c9] text-sm sm:text-base">
+    Verify Now
+  </Button>
+</a>
+
       </div>
     </section>
   )

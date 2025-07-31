@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 
 const features = [
   {
@@ -9,7 +10,7 @@ const features = [
     bgColor: "bg-[#FBF8FE]",
     description: `Need a large B2B email list for your campaigns? Our `,
     linkLabel: "Bulk Email Finder",
-    link: "#",
+    link: "/bulk-task",
     afterLink:
       " tool lets you upload domains or company names and extract verified emails in seconds—perfect for marketing and sales teams.",
   },
@@ -19,7 +20,7 @@ const features = [
     bgColor: "bg-[#EAF2FB]",
     description: `Find the exact email formats of key decision-makers with our `,
     linkLabel: "Professional Email Finder",
-    link: "#",
+    link: "/professional-email-finder",
     afterLink:
       ". Just enter a name and company, and get accurate contact information instantly.",
   },
@@ -29,7 +30,7 @@ const features = [
     bgColor: "bg-[#FEF0EC]",
     description: `Boost your cold calling success with our `,
     linkLabel: "Phone Number Finder",
-    link: "#",
+    link: "/phone-number-finder",
     afterLink:
       ", providing direct lines to executives and managers.",
   },
@@ -38,6 +39,7 @@ const features = [
     title: "Domain Search – Discover All Associated Emails",
     bgColor: "bg-[#FBF8FE]",
     description: `Our Domain Search feature helps you uncover every professional email linked to a company, ensuring no potential lead is missed.`,
+    // No link for this since description is complete
   },
 ]
 
@@ -48,7 +50,8 @@ export default function DataPlatformFeatures() {
         {/* Heading */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl font-bold text-gray-900">
-            Key Features of Our B2B <span className="text-[#6c3cbe]">Email Data</span> Platform
+            Key Features of Our B2B{" "}
+            <span className="text-[#6c3cbe]">Email Data</span> Platform
           </h2>
           <div className="h-1 w-24 bg-[#6c3cbe] mt-4 mx-auto rounded" />
         </div>
@@ -87,7 +90,7 @@ function FeatureCard({
           src="/grp-bg.png"
           alt=""
           fill
-          className=" opacity-50 pointer-events-none"
+          className="opacity-50 pointer-events-none"
         />
       </div>
 
@@ -101,11 +104,11 @@ function FeatureCard({
 
         <p className="text-sm sm:text-base text-gray-800 leading-relaxed">
           {feature.description}
-          {feature.link && (
-            <a href={feature.link} className="text-[#6c3cbe] underline font-medium">
+          {feature.link && feature.linkLabel ? (
+            <Link href={feature.link} className="text-[#6c3cbe] underline font-medium">
               {feature.linkLabel}
-            </a>
-          )}
+            </Link>
+          ) : null}
           {feature.afterLink}
         </p>
       </div>

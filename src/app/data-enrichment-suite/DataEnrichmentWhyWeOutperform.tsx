@@ -10,7 +10,7 @@ const timelineSteps = [
     side: "left",
     points: [],
     buttons: [
-      { label: "Sign up free", variant: "primary" },
+      { label: "Sign up free", variant: "primary", href: "https://app.exellius.com/signup" },
       { label: "No credit card", variant: "secondary" },
     ],
     bg: "bg-[#fbf8fe]",
@@ -78,31 +78,49 @@ export default function GetStartedTimeline() {
 
                   {/* Optional buttons */}
                   {step.buttons.length > 0 && (
-                    <div className=" flex flex-col gap-2">
-                      {step.buttons.map((btn, i) => (
-                        <button
-                          key={i}
-                          className={`${
-                            btn.variant === "primary"
-                              ? "bg-[#6c3cbe] text-white"
-                              : "border border-[#6c3cbe] text-[#6c3cbe]"
-                          } rounded-md px-4 py-2 text-sm font-medium`}
-                        >
-                          {btn.label}
-                        </button>
-                      ))}
+                    <div className="flex flex-col gap-2 mt-4">
+                      {step.buttons.map((btn, i) =>
+                        btn.href ? (
+                          <a
+                            key={i}
+                            href={btn.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`rounded-md px-4 py-2 text-sm font-medium text-center ${
+                              btn.variant === "primary"
+                                ? "bg-[#6c3cbe] text-white hover:bg-[#582fa0]"
+                                : "border border-[#6c3cbe] text-[#6c3cbe] hover:bg-[#e6e6f7]"
+                            } transition`}
+                          >
+                            {btn.label}
+                          </a>
+                        ) : (
+                          <button
+                            key={i}
+                            className={`rounded-md px-4 py-2 text-sm font-medium text-center ${
+                              btn.variant === "primary"
+                                ? "bg-[#6c3cbe] text-white hover:bg-[#582fa0]"
+                                : "border border-[#6c3cbe] text-[#6c3cbe] hover:bg-[#e6e6f7]"
+                            } transition cursor-default`}
+                            disabled
+                            type="button"
+                          >
+                            {btn.label}
+                          </button>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
 
                 {/* Centered Step Number */}
-                 <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white ">
-  <img
-    src={`/icons/${step.id}.png`}
-    alt={`Step ${step.id}`}
-    className="w-full h-full object-contain block"
-  />
-</div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white ">
+                  <img
+                    src={`/icons/${step.id}.png`}
+                    alt={`Step ${step.id}`}
+                    className="w-full h-full object-contain block"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -110,9 +128,16 @@ export default function GetStartedTimeline() {
 
         {/* Bottom CTA Button */}
         <div className="mt-16 text-center">
-          <button className="bg-[#6c3cbe] hover:bg-[#582fa0] text-white px-6 py-3 rounded-lg text-sm font-semibold transition">
-            Start Enriching Data Now
-          </button>
+          <a
+            href="https://app.exellius.com/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <button className="bg-[#6c3cbe] hover:bg-[#582fa0] text-white px-6 py-3 rounded-lg text-sm font-semibold transition">
+              Start Enriching Data Now
+            </button>
+          </a>
         </div>
       </div>
     </section>

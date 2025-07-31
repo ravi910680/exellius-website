@@ -70,14 +70,24 @@ export default function LeadDiscoveryHero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Book a Demo
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Compare Plans
-            </Button>
-          </div>
+         <div className="mt-8 flex flex-wrap gap-4">
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-auto"
+  >
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
+      Create Free Account
+    </Button>
+  </a>
+  <a href="/pricing" className="w-auto">
+    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+      Compare Plans
+    </Button>
+  </a>
+</div>
+
         </div>
       </div>
     </section>

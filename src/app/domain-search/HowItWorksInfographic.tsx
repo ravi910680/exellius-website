@@ -59,10 +59,18 @@ export default function HowItWorksInfographic() {
 
       {/* CTA */}
       <div className="mt-12">
-        <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-16 py-8 text-base sm:text-lg rounded-md">
-          Try Domain Search Free
-        </Button>
-      </div>
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block"
+  >
+    <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-16 py-8 text-base sm:text-lg rounded-md">
+      Try Domain Search Free
+    </Button>
+  </a>
+</div>
+
     </section>
   )
 }

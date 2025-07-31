@@ -46,21 +46,31 @@ export default function DataPlatformHero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-lg">
-              Get Started
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Learn More
-            </Button>
-          </div>
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-auto"
+  >
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-lg">
+      Get Started
+    </Button>
+  </a>
+  <a href="/pricing" className="w-auto">
+    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+      Compare Plans
+    </Button>
+  </a>
+</div>
+
         </div>
 
         {/* Right: Image */}
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-lg">
           <Image
             src="/plate-1.svg"
             alt="Lead Finder Login"
-            width={600}
+            width={800}
             height={600}
             className="w-full h-auto"
           />

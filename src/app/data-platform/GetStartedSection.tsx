@@ -28,7 +28,7 @@ export default function GetStartedSection() {
 
           <p className="text-base text-gray-800 mb-4">
             Ready to transform your outreach? Explore our{" "}
-            <a href="#" className="text-[#9856F2] underline">B2B Data Enrichment Tool</a> to
+            <a href="/data-enrichment-suite" className="text-[#9856F2] underline">B2B Data Enrichment Tool</a> to
             enhance your existing lead lists with missing contact details.
           </p>
 

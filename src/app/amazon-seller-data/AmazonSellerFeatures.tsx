@@ -64,13 +64,24 @@ export default function AmazonSellerFeatures() {
         {/* CTAs */}
         <div className="mt-20 text-center">
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-md">
-              Join the Network
-            </Button>
-            <Button variant="outline" size="lg" className="text-[#9856F2] border-[#9856F2]">
-              Optimize Your Supply Chain
-            </Button>
-          </div>
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className=""
+  >
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-md">
+      Join the Network
+    </Button>
+  </a>
+
+  <a href="/data-platform" className="">
+    <Button variant="outline" size="lg" className="text-[#9856F2] border-[#9856F2]">
+      Optimize Your Supply Chain
+    </Button>
+  </a>
+</div>
+
         </div>
       </div>
     </section>

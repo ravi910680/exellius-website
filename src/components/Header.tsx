@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -18,14 +18,14 @@ const featuresMenuPrimary = [
 
 const featuresMenuSecondary = [
   { label: "Data Platform", desc: "Industry-leading B2B Email Data", href: "/data-platform" },
-  { label: "Bulk Email Finder", desc: "Verify & Find Contacts at Scale", href: "/bulk-email-finder" },
+  { label: "Bulk Email Finder", desc: "Verify & Find Contacts at Scale", href: "/bulk-task" },
   { label: "Developer API Hub", desc: "Seamlessly Integrate Exellius into Your Stack", href: "/developer-api-hub" },
   { label: "Amazon Seller Data", desc: "", href: "/amazon-seller-data" },
 ]
 
-const menuData: Record<"Resources" | "Company" , { label: string; href: string }[]> = {
+const menuData: Record<"Resources" | "Company", { label: string; href: string }[]> = {
   Resources: [
-    { label: "Blogs", href: "/blogs" },
+    { label: "Blogs", href: "/coming-soon" },
     { label: "Customer Stories", href: "/customer-stories" },
     { label: "Templates", href: "/templates" },
     { label: "Help Center", href: "/help-center" },
@@ -34,13 +34,34 @@ const menuData: Record<"Resources" | "Company" , { label: string; href: string }
     { label: "About Us", href: "/about-us" },
     { label: "Our Data", href: "/our-data" },
     { label: "Careers", href: "/careers" },
-  ]
+  ],
 }
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
-  
+
+  useEffect(() => {
+  // Insert Zoho SalesIQ chatbot script
+  const script = document.createElement("script")
+  script.src = "https://salesiq.zohopublic.in/widget?wc=siq84646a54c0ed16a2fa31eb4a0c59a20fbefd8488b0d78e393036f03e317fc106"
+  script.defer = true
+  script.id = "zsiqscript"
+  document.body.appendChild(script)
+
+  // Initialize Zoho's salesiq object if needed
+  window.$zoho = window.$zoho || {}
+  window.$zoho.salesiq = window.$zoho.salesiq || { ready: function () {} }
+
+  return () => {
+    // Clean up script on unmount safely
+    const existingScript = document.getElementById("zsiqscript")
+    if (existingScript && existingScript.parentNode) {
+      existingScript.parentNode.removeChild(existingScript)
+    }
+  }
+}, [])
+
 
   const toggleDropdown = (menu: string) => {
     setActiveDropdown(prev => (prev === menu ? null : menu))
@@ -63,9 +84,13 @@ export default function Header() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {label === "Pricing Page" ? (
-                  <Link href="/pricing" className="flex items-center gap-1 hover:text-purple-600 p-2">Pricing</Link>
+                  <Link href="/pricing" className="flex items-center gap-1 hover:text-purple-600 p-2">
+                    Pricing
+                  </Link>
                 ) : label === "Support" ? (
-                  <Link href="/help-center" className="flex items-center gap-1 hover:text-purple-600 p-2">Support</Link>
+                  <Link href="/help-center" className="flex items-center gap-1 hover:text-purple-600 p-2">
+                    Support
+                  </Link>
                 ) : (
                   <span className="flex items-center gap-1 cursor-pointer hover:text-purple-600 p-2">
                     {label}
@@ -77,7 +102,11 @@ export default function Header() {
                   <div className="absolute top-full left-0 bg-white border border-gray-200 shadow-md rounded-md z-50 w-[720px] grid grid-cols-2 gap-6 p-4">
                     <div className="grid grid-cols-1 gap-4">
                       {featuresMenuPrimary.map(item => (
-                        <Link key={item.href} href={item.href} className="block text-sm text-gray-800 hover:text-purple-600">
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block text-sm text-gray-800 hover:text-purple-600"
+                        >
                           <div className="font-medium">{item.label}</div>
                           {item.desc && <div className="text-sm text-gray-400">{item.desc}</div>}
                         </Link>
@@ -86,7 +115,11 @@ export default function Header() {
                     <div className="border-l pl-4">
                       <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Platform Tools</p>
                       {featuresMenuSecondary.map(item => (
-                        <Link key={item.href} href={item.href} className="block text-sm text-gray-800 hover:text-purple-600 mb-4">
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block text-sm text-gray-800 hover:text-purple-600 mb-4"
+                        >
                           <div className="font-medium">{item.label}</div>
                           {item.desc && <div className="text-sm text-gray-400">{item.desc}</div>}
                         </Link>
@@ -97,7 +130,7 @@ export default function Header() {
 
                 {label !== "Features" && label !== "Pricing Page" && label !== "Support" && activeDropdown === label && (
                   <div className="absolute top-full left-0 bg-white border border-gray-200 shadow-md rounded-md p-2 w-48 z-50">
-                    {menuData[label as keyof typeof menuData].map((link) => (
+                    {menuData[label as keyof typeof menuData].map(link => (
                       <Link
                         key={link.href}
                         href={link.href}
@@ -113,8 +146,26 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex gap-2">
-            <Button variant="outline" className="text-sm px-4 py-2">Book a Demo</Button>
-            <Button className="text-sm px-4 py-2">Create Account</Button>
+            <a
+              href="https://app.exellius.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button variant="outline" className="text-sm px-4 py-2 w-full">
+                Create Account
+              </Button>
+            </a>
+            <a
+              href="https://app.exellius.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button className="text-sm px-4 py-2 w-full">
+                Login
+              </Button>
+            </a>
           </div>
 
           <div className="flex lg:hidden">
@@ -146,15 +197,23 @@ export default function Header() {
             {["Pricing Page", "Support", ...Object.keys(menuData)].map(label => (
               <div key={label} className="mb-2">
                 {label === "Pricing Page" ? (
-                  <Link href="/pricing" className="block text-gray-800 py-2">Pricing</Link>
+                  <Link href="/pricing" className="block text-gray-800 py-2">
+                    Pricing
+                  </Link>
                 ) : label === "Support" ? (
-                  <Link href="/help-center" className="block text-gray-800 py-2">Support</Link>
+                  <Link href="/help-center" className="block text-gray-800 py-2">
+                    Support
+                  </Link>
                 ) : (
                   <>
                     <div className="text-sm font-medium text-gray-700 mb-1">{label}</div>
                     <div className="pl-4 border-l border-gray-200">
                       {(menuData[label as keyof typeof menuData] || []).map(item => (
-                        <Link key={item.href} href={item.href} className="block text-sm text-gray-700 py-1 hover:text-purple-600">
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block text-sm text-gray-700 py-1 hover:text-purple-600"
+                        >
                           {item.label}
                         </Link>
                       ))}
@@ -166,8 +225,26 @@ export default function Header() {
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
-            <Button variant="outline" className="w-full">Book a Demo</Button>
-            <Button className="w-full">Create Account</Button>
+            <a
+              href="https://app.exellius.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button variant="outline" className="w-full">
+                Book a Demo
+              </Button>
+            </a>
+            <a
+              href="https://app.exellius.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full">
+                Create Account
+              </Button>
+            </a>
           </div>
         </div>
       )}

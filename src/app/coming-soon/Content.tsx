@@ -14,9 +14,12 @@ export default function ComingSoonPage() {
           In the meantime, explore other tools in your dashboard or reach out to support.
         </p>
 
-        <button className="bg-[#6c3cbe] text-white px-6 py-3 rounded-lg hover:bg-[#51289e] transition text-sm">
-          Try Other Tools
-        </button>
+        <a href="/" className="inline-block">
+  <button className="bg-[#6c3cbe] text-white px-6 py-3 rounded-lg hover:bg-[#51289e] transition text-sm">
+    Try Other Tools
+  </button>
+</a>
+
       </div>
     </section>
   )

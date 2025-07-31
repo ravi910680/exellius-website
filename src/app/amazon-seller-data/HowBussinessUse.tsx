@@ -65,9 +65,16 @@ export default function HowBusinessesUseData() {
                 ))}
               </ul>
 
+ <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className=""
+  >
               <button className="bg-[#6c3cbe] hover:bg-[#4b239e] text-white text-sm font-semibold py-2 px-4 rounded-lg transition">
                 {card.cta}
               </button>
+              </a>
             </div>
           ))}
         </div>

@@ -49,14 +49,25 @@ export default function AmazonSellerDataHero() {
             Our meticulously curated Amazon seller list provides accurate, up-to-date information to streamline your lead generation and partnership efforts.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Access Database
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              View Sample Data
-            </Button>
-          </div>
+         <div className="mt-8 flex flex-wrap gap-4">
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-auto"
+  >
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
+      Get Started
+    </Button>
+  </a>
+
+  <a href="/pricing" className="w-auto">
+    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+      Compare Plans
+    </Button>
+  </a>
+</div>
+
         </div>
       </div>
     </section>

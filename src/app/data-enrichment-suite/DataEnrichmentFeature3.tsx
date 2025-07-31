@@ -31,9 +31,16 @@ export default function LeadDiscoveryStep3() {
               Push enriched leads to your CRM/MAP in 1 click
             </p>
 
-            <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white text-sm font-semibold px-6 py-2 rounded">
-              Watch 90-Second Demo
-            </Button>
+           <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block mt-4"
+  >
+    <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white text-sm font-semibold px-6 py-2 rounded">
+      Create Free Account
+    </Button>
+  </a>
           </div>
 
           {/* Right: Image */}

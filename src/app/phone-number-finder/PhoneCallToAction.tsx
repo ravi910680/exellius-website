@@ -14,10 +14,17 @@ export default function CallToAction() {
           Stop wasting time on outdated directories. With Exellius’{" "}
           <span className="font-semibold">mobile number finder tool</span>.
         </p>
+<a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <button className="bg-white text-[#9856F2] font-medium text-sm sm:text-base px-6 py-3 rounded-md hover:bg-gray-100 transition">
+    Find Phone Numbers Now
+  </button>
+</a>
 
-        <button className="bg-white text-[#9856F2] font-medium text-sm sm:text-base px-6 py-3 rounded-md hover:bg-gray-100 transition">
-          Find Phone Numbers Now
-        </button>
       </div>
     </section>
   )

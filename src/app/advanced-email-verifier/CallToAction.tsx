@@ -37,9 +37,19 @@ export default function CallToAction() {
             </li>
           </ul>
 
-          <button className="bg-[#9856F2] text-white font-semibold text-sm rounded-md px-6 py-3 hover:bg-[#7a3fe0] transition">
-            Try Exellius’ Email Verifier Now
-          </button>
+          <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <button
+    className="bg-[#9856F2] text-white font-semibold text-sm rounded-md px-6 py-3 hover:bg-[#7a3fe0] transition"
+  >
+    Try Exellius’ Email Verifier Now
+  </button>
+</a>
+
         </div>
 
         {/* ✅ Right: Image */}

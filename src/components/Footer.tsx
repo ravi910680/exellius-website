@@ -25,12 +25,17 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Products</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Lead Discovery</Link></li>
-            <li><Link href="#">Domain Search</Link></li>
-            <li><Link href="#">Email Finder</Link></li>
-            <li><Link href="#">Email Verifier</Link></li>
-            <li><Link href="#">Phone Number Finder</Link></li>
-            <li><Link href="#">Data Enrichment</Link></li>
+            <li><Link href="/lead-discovery">Lead Discovery</Link></li>
+            <li><Link href="/domain-search">Domain Search</Link></li>
+            <li><Link href="/professional-email-finder">Professional Email Finder</Link></li>
+            <li><Link href="/advanced-email-verifier">Advanced Email Verifier</Link></li>
+            <li><Link href="/phone-number-finder">Phone Number Finder</Link></li>
+            <li><Link href="/website-technology-checker">Website Technology Checker</Link></li>
+            <li><Link href="/data-enrichment-suite">Data Enrichment Suite</Link></li>
+            <li><Link href="/data-platform">Data Platform</Link></li>
+            <li><Link href="/bulk-task">Bulk Task</Link></li>
+            <li><Link href="/developer-api-hub">Developer API Hub</Link></li>
+            <li><Link href="/amazon-seller-data">Amazon Seller Data</Link></li>
           </ul>
         </div>
 
@@ -39,7 +44,9 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Add-ons</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">TechLookup</Link></li>
+            <li><Link href="/website-technology-checker">Website Technology Checker</Link></li>
+            <li><Link href="/data-enrichment-suite">Data Enrichment Suite</Link></li>
+            <li><Link href="/bulk-task">Bulk Task</Link></li>
           </ul>
         </div>
 
@@ -48,10 +55,10 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Resources</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Blogs</Link></li>
-            <li><Link href="#">Customer Stories</Link></li>
-            <li><Link href="#">Templates</Link></li>
-            <li><Link href="#">Help Center</Link></li>
+            <li><Link href="/blogs">Blogs</Link></li>
+            <li><Link href="/customer-stories">Customer Stories</Link></li>
+            <li><Link href="/templates">Templates</Link></li>
+            <li><Link href="/help-center">Help Center</Link></li>
           </ul>
         </div>
 
@@ -60,9 +67,9 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Company</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">About us</Link></li>
-            <li><Link href="#">Our Data</Link></li>
-            <li><Link href="#">Careers</Link></li>
+            <li><Link href="/about-us">About Us</Link></li>
+            <li><Link href="/our-data">Our Data</Link></li>
+            <li><Link href="/careers">Careers</Link></li>
           </ul>
         </div>
 
@@ -71,10 +78,10 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Support</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="#">Contact Us</Link></li>
-            <li><Link href="#">Help Center / FAQ</Link></li>
-            <li><Link href="#">Terms & Conditions</Link></li>
-            <li><Link href="#">Privacy Policy</Link></li>
+            <li><Link href="/contact-us">Contact Us</Link></li>
+            <li><Link href="/help-center">Help Center / FAQ</Link></li>
+            <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
@@ -84,7 +91,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>©2025 All Rights Reserved. Exellius®</div>
           <div className="flex gap-6">
-            <Link href="/terms-and-condition" className="hover:text-white transition">Terms & Conditions</Link>
+            <Link href="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</Link>
             <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
           </div>
         </div>

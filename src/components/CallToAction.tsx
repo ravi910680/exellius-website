@@ -14,7 +14,7 @@ export default function CallToAction() {
         </div>
         <div className="mt-6 md:mt-0 text-center w-full md:w-auto">
           <Link
-            href="#"
+            href="https://app.exellius.com/signup"
             className="inline-block bg-white text-[#9856F2] px-6 py-3 font-semibold rounded-lg text-sm shadow-sm hover:opacity-90 transition"
           >
             Try Exellius Free Now

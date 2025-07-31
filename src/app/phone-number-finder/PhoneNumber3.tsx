@@ -43,9 +43,17 @@ export default function LeadDiscoveryStep3() {
               </li>
             </ul>
 
-            <button className="mt-6 px-5 py-2 text-white bg-[#9856F2] hover:bg-[#6c3cbe] rounded-md text-sm font-medium">
-              Get Started for Free
-            </button>
+          <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-medium px-8 py-3 rounded-md text-sm sm:text-base mt-8">
+    Get Started for Free
+  </button>
+</a>
+
           </div>
 
           {/* Right Visual */}

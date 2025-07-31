@@ -69,9 +69,17 @@ export default function ColdCallSolution() {
         </div>
 
         {/* CTA Button */}
-        <button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-medium px-8 py-3 rounded-md text-sm sm:text-base">
-          Get Started for Free
-        </button>
+       <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-medium px-8 py-3 rounded-md text-sm sm:text-base">
+    Get Started for Free
+  </button>
+</a>
+
       </div>
     </section>
   )

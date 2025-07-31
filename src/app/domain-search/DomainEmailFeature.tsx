@@ -47,9 +47,17 @@ export default function DomainEmailFeature() {
             ))}
           </ul>
 
-          <Button className="mt-8 bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
-            Find Verified Emails Now
-          </Button>
+        <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <Button className="mt-8 bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
+    Find Verified Emails Now
+  </Button>
+</a>
+
         </div>
       </div>
     </section>

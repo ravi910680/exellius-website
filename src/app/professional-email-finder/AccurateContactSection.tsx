@@ -24,7 +24,7 @@ export default function AccurateContactSection() {
 
         {/* Button */}
         <Link
-          href="/signup"
+          href="https://app.exellius.com/signup"
           className="inline-block bg-white text-[#9B4FF6] font-semibold px-6 py-3 rounded-lg text-sm sm:text-base shadow hover:bg-gray-100 transition"
         >
           Get started for free

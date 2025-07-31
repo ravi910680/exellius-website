@@ -41,10 +41,17 @@ export default function Features() {
       className="object-contain"
     />
   </div>
-  
+  <a
+  href="https://app.exellius.com/free-trial"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
   <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit">
     Avail Free Trial
   </Button>
+</a>
+
 </div>
       </div>
     </section>

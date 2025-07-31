@@ -42,14 +42,34 @@ export default function Hero() {
             98% Accurate B2B Data | 100M+ Verified Contacts | GDPR Compliant
           </p>
           {/* CTA Buttons */}
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center lg:justify-start items-center">
-            <Button size="lg" className="w-full sm:w-auto bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Book a Demo
-            </Button>
-            <Button variant="ghost" size="lg" className="w-full sm:w-auto text-[#6c3cbe] text-lg">
-              Compare Plans <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
+         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center lg:justify-start items-center">
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full sm:w-auto"
+  >
+    <Button
+      size="lg"
+      className="w-full sm:w-auto bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg"
+    >
+      Create Free Account
+    </Button>
+  </a>
+
+  <a
+    href="/pricing"
+    className="w-full sm:w-auto"
+  >
+    <Button
+      variant="ghost"
+      size="lg"
+      className="w-full sm:w-auto text-[#6c3cbe] text-lg flex items-center justify-center"
+    >
+      Compare Plans <ArrowRight className="ml-2 h-4 w-4" />
+    </Button>
+  </a>
+</div>
           {/* Social Proof Image */}
           <div className="mt-4 sm:mt-6">
             <Image

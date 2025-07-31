@@ -66,14 +66,25 @@ export default function DeveloperApiHero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Explore API Docs
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Start Free with API Key
-            </Button>
-          </div>
+         <div className="mt-8 flex flex-wrap gap-4">
+  <a href="/developer-api-hub" className="w-auto">
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
+      Explore API Docs
+    </Button>
+  </a>
+
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-auto"
+  >
+    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+      Start Free with API Key
+    </Button>
+  </a>
+</div>
+
         </div>
       </div>
     </section>

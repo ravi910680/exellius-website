@@ -54,7 +54,7 @@ export default function WhyChooseExelliusSection() {
 
         <p className="text-sm sm:text-base text-gray-800">
           Enhance your outreach with accurate, scalable data.{" "}
-          <a href="#" className="text-[#9856F2] font-medium hover:underline">
+          <a href="https://app.exellius.com/signup" className="text-[#9856F2] font-medium hover:underline">
             Sign up for Exellius now
           </a>{" "}
           and transform your prospecting workflow!

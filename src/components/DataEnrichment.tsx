@@ -59,12 +59,17 @@ export default function EmailVerifyFeature() {
             })}
           </ul>
 
-          <Button
-            className="mt-8 bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit"
-            size="lg"
-          >
-            Find Verified Emails Now
-          </Button>
+         <a
+  href="https://app.exellius.com/signup"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block"
+>
+  <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
+     Find Verified Emails Now
+  </Button>
+</a>
+         
         </div>
       </div>
     </section>
