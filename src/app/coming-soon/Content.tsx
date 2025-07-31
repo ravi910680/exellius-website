@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 
 export default function ComingSoonPage() {
   return (
@@ -14,11 +15,11 @@ export default function ComingSoonPage() {
           In the meantime, explore other tools in your dashboard or reach out to support.
         </p>
 
-        <a href="/" className="inline-block">
+       <Link href="/" className="inline-block">
   <button className="bg-[#6c3cbe] text-white px-6 py-3 rounded-lg hover:bg-[#51289e] transition text-sm">
     Try Other Tools
   </button>
-</a>
+</Link>
 
       </div>
     </section>
