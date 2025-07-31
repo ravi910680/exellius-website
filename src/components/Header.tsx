@@ -50,8 +50,9 @@ export default function Header() {
   document.body.appendChild(script)
 
   // Initialize Zoho's salesiq object if needed
-  window.$zoho = window.$zoho || {}
-  window.$zoho.salesiq = window.$zoho.salesiq || { ready: function () {} }
+  ;(window as any).$zoho = (window as any).$zoho || {}
+;(window as any).$zoho.salesiq = (window as any).$zoho.salesiq || { ready: function () {} }
+
 
   return () => {
     // Clean up script on unmount safely
