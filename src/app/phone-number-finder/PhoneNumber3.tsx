@@ -5,11 +5,11 @@ import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep3() {
   return (
-    <section className="bg-white  px-6">
+    <section className="bg-white px-6">
       <div className="max-w-7xl mx-auto">
         {/* Card */}
         <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
-          
+
           {/* Right-side background image */}
           <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
             <Image
@@ -20,8 +20,21 @@ export default function LeadDiscoveryStep3() {
             />
           </div>
 
-          {/* Left Text Content */}
-          <div className="w-full lg:w-1/2 text-left relative z-10">
+          {/* Right Visual - show first on mobile, second on desktop */}
+          <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
+            <div className="w-[420px]">
+              <Image
+                src="/phone-4.svg"
+                alt="API Integration Visual"
+                width={420}
+                height={300}
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Left Text Content - show second on mobile, first on desktop */}
+          <div className="w-full lg:w-1/2 text-left relative z-10 order-last lg:order-first">
             <h3 className="text-3xl font-semibold mb-1">
               <span className="text-[#9856F2]">03.</span> API Integration
             </h3>
@@ -43,31 +56,18 @@ export default function LeadDiscoveryStep3() {
               </li>
             </ul>
 
-          <a
-  href="https://app.exellius.com/signup"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block"
->
-  <button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-medium px-8 py-3 rounded-md text-sm sm:text-base mt-8">
-    Get Started for Free
-  </button>
-</a>
-
+            <a
+              href="https://app.exellius.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-medium px-8 py-3 rounded-md text-sm sm:text-base mt-8">
+                Get Started for Free
+              </button>
+            </a>
           </div>
 
-          {/* Right Visual */}
-          <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[420px]">
-              <Image
-                src="/phone-4.svg"
-                alt="API Integration Visual"
-                width={420}
-                height={300}
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

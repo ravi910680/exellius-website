@@ -20,8 +20,21 @@ export default function LeadDiscoveryStep3() {
             />
           </div>
 
-          {/* Left Text Section */}
-          <div className="w-full lg:w-1/2 relative z-10 text-left">
+          {/* Right Screenshot Image - show first on mobile, second on desktop */}
+          <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
+            <div className="w-[500px]">
+              <Image
+                src="/finder-4.svg" // replace with actual image
+                alt="Email Verifier UI"
+                width={500}
+                height={360}
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Left Text Section - show second on mobile, first on desktop */}
+          <div className="w-full lg:w-1/2 relative z-10 text-left order-last lg:order-first">
             <h3 className="text-3xl font-semibold mb-2">
               <span className="text-[#9856F2]">03.</span> Enterprise-Ready Data Governance
             </h3>
@@ -45,19 +58,6 @@ export default function LeadDiscoveryStep3() {
                 <span>Regular auditing of our verification systems</span>
               </li>
             </ul>
-          </div>
-
-          {/* Right Screenshot Image */}
-          <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[500px]">
-              <Image
-                src="/finder-4.svg" // replace with actual image
-                alt="Email Verifier UI"
-                width={500}
-                height={360}
-                className="w-full h-auto object-contain rounded-lg "
-              />
-            </div>
           </div>
         </div>
       </div>

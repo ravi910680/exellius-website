@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep1() {
   return (
-    <section className="bg-white  px-6">
+    <section className="bg-white px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Section Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
@@ -15,7 +15,6 @@ export default function LeadDiscoveryStep1() {
 
         {/* Inner Card */}
         <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
-          
           {/* Right-side background image inside the card */}
           <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
             <Image
@@ -26,8 +25,21 @@ export default function LeadDiscoveryStep1() {
             />
           </div>
 
-          {/* Left Text Content */}
-          <div className="w-full lg:w-1/2 text-left relative z-10">
+          {/* Right: Single Image - show first on mobile */}
+          <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
+            <div className="w-[520px]">
+              <Image
+                src="/lead-discovery/img-3.png" // Replace with appropriate image if needed
+                alt="Step visual"
+                width={420}
+                height={300}
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Left Text Content - show second on mobile */}
+          <div className="w-full lg:w-1/2 text-left relative z-10 order-last lg:order-first">
             <h3 className="text-2xl font-bold text-[#6c3cbe] mb-2"></h3>
             <h4 className="text-2xl font-bold text-gray-900 mb-3">Define Your Target Audience</h4>
             <div className="h-0.5 w-10 bg-[#6c3cbe] mb-5"></div>
@@ -49,19 +61,6 @@ export default function LeadDiscoveryStep1() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Right: Single Image */}
-          <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[520px]">
-              <Image
-                src="/lead-discovery/img-3.png" // 🔁 Replace with appropriate image
-                alt="Step visual"
-                width={420}
-                height={300}
-                className="w-full h-auto object-contain rounded-lg"
-              />
-            </div>
           </div>
         </div>
       </div>

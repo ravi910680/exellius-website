@@ -41,7 +41,7 @@ export default function AboutUs() {
           </div>
           <div className="relative w-full h-72">
             <Image
-              src="/group.jpg"
+              src="/about-1.jpeg"
               alt="About Exellius Team"
               fill
               className="object-contain"
@@ -53,7 +53,7 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 relative w-full h-72">
             <Image
-              src="/mission.jpg"
+              src="/about-2.jpeg"
               alt="Mission"
               fill
               className="object-contain"
@@ -135,13 +135,19 @@ export default function AboutUs() {
             Thousands of businesses rely on Exellius Systems to fuel their growth. Discover how our B2B data solutions can elevate your strategy—explore our platform or contact us today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Explore Platform
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Contact Us
-            </Button>
-          </div>
+  <a href="/data-platform" className="w-auto">
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
+      Explore Platform
+    </Button>
+  </a>
+
+  <a href="/help-center" className="w-auto">
+    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+      Contact Us
+    </Button>
+  </a>
+</div>
+
         </div>
 
       </div>

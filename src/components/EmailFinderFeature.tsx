@@ -4,12 +4,26 @@ import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import AnimationFinder from "@/components/animation/Animation1"
+
 export default function EmailFinderFeature() {
   return (
-    <section className="w-full  px-4 sm:px-6">
+    <section className="w-full px-4 sm:px-6">
       <div className="max-w-7xl mx-auto rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white shadow-sm">
-        {/* Left: Content */}
-        <div className="bg-[#FBF8FE] p-6 sm:p-10 flex flex-col justify-center">
+        {/* Right: AnimationFinder; shows first on mobile, second on desktop */}
+        <div className="relative bg-[#FBF8FE] order-first md:order-last">
+          <Image
+            src="/right-back.png"
+            alt="Grid background"
+            fill
+            className="object-cover object-left opacity-50"
+          />
+          <div className="relative z-10 flex items-center justify-center h-full p-6 sm:p-8">
+            <AnimationFinder />
+          </div>
+        </div>
+
+        {/* Left: Content; shows second on mobile, first on desktop */}
+        <div className="bg-[#FBF8FE] p-6 sm:p-10 flex flex-col justify-center order-last md:order-first">
           <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">
             <span className="text-[#9856F2]">01. </span> 
             Find Email Addresses & <br />
@@ -22,7 +36,8 @@ export default function EmailFinderFeature() {
 
           {/* Feature List */}
           <ul className="mt-6 space-y-3 text-md text-gray-900">
-            {["Company Email Finder — Locate corporate emails in seconds.",
+            {[
+              "Company Email Finder — Locate corporate emails in seconds.",
               "Domain Email Extraction — Extract all emails associated with a website.",
               "Professional Email Search — Get accurate work emails for decision-makers.",
               "Employee Email Finder — Locate emails by name and company.",
@@ -39,30 +54,16 @@ export default function EmailFinderFeature() {
             })}
           </ul>
 
-<a
-  href="https://app.exellius.com/signup"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block"
->
-  <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
-     Find Verified Emails Now
-  </Button>
-</a>
-         
-        </div>
-
-        {/* Right: Image on Grid BG */}
-        <div className="relative bg-[#FBF8FE]">
-          <Image
-            src="/right-back.png"
-            alt="Grid background"
-            fill
-            className="object-cover object-left opacity-50"
-          />
-          <div className="relative z-10 flex items-center justify-center h-full p-6 sm:p-8">
-            <AnimationFinder />
-          </div>
+          <a
+            href="https://app.exellius.com/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
+              Find Verified Emails Now
+            </Button>
+          </a>
         </div>
       </div>
     </section>

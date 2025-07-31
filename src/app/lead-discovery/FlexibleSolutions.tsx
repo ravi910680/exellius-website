@@ -66,7 +66,7 @@ export default function FlexibleSolutions() {
                 </div>
 
                 {/* Index Badge (on the center line) */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white ">
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white hidden md:flex">
   <img
     src={`/icons/${step.id}.png`}
     alt={`Step ${step.id}`}

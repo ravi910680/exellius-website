@@ -114,13 +114,15 @@ export default function GetStartedTimeline() {
                 </div>
 
                 {/* Centered Step Number */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white ">
-                  <img
-                    src={`/icons/${step.id}.png`}
-                    alt={`Step ${step.id}`}
-                    className="w-full h-full object-contain block"
-                  />
-                </div>
+                {/* Centered Step Number */}
+<div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white hidden md:flex">
+  <img
+    src={`/icons/${step.id}.png`}
+    alt={`Step ${step.id}`}
+    className="w-full h-full object-contain block"
+  />
+</div>
+
               </div>
             ))}
           </div>

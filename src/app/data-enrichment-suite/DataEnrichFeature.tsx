@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -5,9 +7,9 @@ import { Button } from "@/components/ui/button"
 export default function DomainEmailFeature() {
   return (
     <section className="py-20 bg-white px-6 md:px-10">
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-        {/* Left Side - Image */}
-        <div className="w-full lg:w-1/2 relative">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        {/* Left Side - Image (show first on mobile) */}
+        <div className="w-full lg:w-1/2 relative order-first lg:order-first">
           <div className="rounded-xl overflow-hidden">
             <Image
               src="/data-2.svg" // Replace with your actual image path
@@ -19,8 +21,8 @@ export default function DomainEmailFeature() {
           </div>
         </div>
 
-        {/* Right Side - Text */}
-        <div className="w-full lg:w-1/2">
+        {/* Right Side - Text (show second on mobile) */}
+        <div className="w-full lg:w-1/2 order-last lg:order-last">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Turn Incomplete Data into Your{" "}
             <span className="text-[#9856F2]">Competitive</span> Edge
@@ -48,24 +50,22 @@ export default function DomainEmailFeature() {
           </ul>
 
           <div className="mt-8 flex gap-4 flex-wrap">
-  <a
-    href="https://app.exellius.com/signup"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-auto"
-  >
-    <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
-      Get Started for Free
-    </Button>
-  </a>
-  <a href="/pricing" className="w-auto">
-    <Button variant="outline" className="border-[#9856F2] text-[#9856F2] px-6 py-3 text-base rounded-md">
-      Compare Plans
-    </Button>
-  </a>
-</div>
-
-       
+            <a
+              href="https://app.exellius.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-auto"
+            >
+              <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
+                Get Started for Free
+              </Button>
+            </a>
+            <a href="/pricing" className="w-auto">
+              <Button variant="outline" className="border-[#9856F2] text-[#9856F2] px-6 py-3 text-base rounded-md">
+                Compare Plans
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </section>

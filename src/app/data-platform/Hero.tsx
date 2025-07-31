@@ -25,8 +25,19 @@ export default function DataPlatformHero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Left: Text Content */}
-        <div className="max-w-2xl">
+        {/* Right: Image - show first on mobile, second on desktop */}
+        <div className="w-full max-w-lg order-first lg:order-last">
+          <Image
+            src="/plate-1.svg"
+            alt="Lead Finder Login"
+            width={800}
+            height={600}
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* Left: Text Content - show second on mobile, first on desktop */}
+        <div className="max-w-2xl order-last lg:order-first">
           <h1 className="text-4xl font-bold leading-snug text-gray-900">
             <span className="text-[#9856F2]">Exellius</span>{" "}
             B2B Data Platform – Reliable{" "}
@@ -46,34 +57,22 @@ export default function DataPlatformHero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-  <a
-    href="https://app.exellius.com/signup"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-auto"
-  >
-    <Button size="lg" className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-lg">
-      Get Started
-    </Button>
-  </a>
-  <a href="/pricing" className="w-auto">
-    <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-      Compare Plans
-    </Button>
-  </a>
-</div>
-
-        </div>
-
-        {/* Right: Image */}
-        <div className="w-full max-w-lg">
-          <Image
-            src="/plate-1.svg"
-            alt="Lead Finder Login"
-            width={800}
-            height={600}
-            className="w-full h-auto"
-          />
+            <a
+              href="https://app.exellius.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-auto"
+            >
+              <Button size="lg" className="bg-[#9856F2] hover:bg-[#7836c9] text-white text-lg">
+                Get Started
+              </Button>
+            </a>
+            <a href="/pricing" className="w-auto">
+              <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
+                Compare Plans
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </section>

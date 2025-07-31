@@ -7,8 +7,20 @@ export default function ProspectingHighlight() {
   return (
     <section className="bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
-        {/* Left Text Content */}
-        <div className="w-full lg:w-1/2 text-left">
+        
+        {/* Right UI Image - show first on mobile, second on desktop */}
+        <div className="w-full lg:w-1/2 flex justify-center order-first lg:order-last">
+          <Image
+            src="/domain-5.png" // Replace with actual image
+            alt="Prospecting UI"
+            width={560}
+            height={360}
+            className="w-full h-auto object-contain"
+          />
+        </div>
+
+        {/* Left Text Content - show second on mobile, first on desktop */}
+        <div className="w-full lg:w-1/2 text-left order-last lg:order-first">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             Supercharge Your Prospecting<br /> with <span className="text-[#9856F2]">Exellius</span>
           </h2>
@@ -34,17 +46,6 @@ export default function ProspectingHighlight() {
               </span>
             </li>
           </ul>
-        </div>
-
-        {/* Right UI Image */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <Image
-            src="/domain-5.png" // Replace with actual image
-            alt="Prospecting UI"
-            width={560}
-            height={360}
-            className="w-full h-auto object-contain"
-          />
         </div>
       </div>
     </section>
