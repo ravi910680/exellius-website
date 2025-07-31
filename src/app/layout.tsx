@@ -11,7 +11,7 @@ const outfit = Outfit({
 export const metadata = {
    title: 'Exellius - B2B Data Platform',
   icons: {
-    icon: '/download.ico', // path relative to the public folder
+    icon: '/favicon.ico', // path relative to the public folder
   },
 };
 
