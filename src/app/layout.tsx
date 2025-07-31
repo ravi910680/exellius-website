@@ -8,6 +8,13 @@ const outfit = Outfit({
   display: "swap",
 });
 
+export const metadata = {
+   title: 'Exellius - B2B Data Platform',
+  icons: {
+    icon: '/download.ico', // path relative to the public folder
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={outfit.variable}>

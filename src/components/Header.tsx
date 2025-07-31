@@ -139,6 +139,11 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex gap-2">
+             <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="outline" className="text-sm px-4 py-2 w-full">
+                Book a Demo
+              </Button>
+            </a>
             <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button variant="outline" className="text-sm px-4 py-2 w-full">
                 Create Account
