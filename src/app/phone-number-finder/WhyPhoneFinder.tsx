@@ -9,7 +9,7 @@ export default function WhyPhoneFinder() {
         {/* Left Image */}
         <div className="w-full md:w-1/2">
           <Image
-            src="/phone-finder-1.png" // Make sure to add this in your /public folder
+            src="/phone-1.svg" // Make sure to add this in your /public folder
             alt="Phone Finder UI"
             width={700}
             height={500}

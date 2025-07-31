@@ -11,7 +11,7 @@ export default function EmailVerificationBenefits() {
         {/* Image Section */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/domain-finder-img.png" // Replace with actual image path
+            src="/verify-1.png" // Replace with actual image path
             alt="Email verification UI"
             width={560}
             height={420}

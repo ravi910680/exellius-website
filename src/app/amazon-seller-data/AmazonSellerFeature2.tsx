@@ -24,7 +24,7 @@ export default function AmazonSellerFeature2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
               <Image
-                src="/amazon-advanced-search.png" // Replace with relevant visual
+                src="/amazon-3.jpeg" // Replace with relevant visual
                 alt="Advanced Search Visual"
                 width={520}
                 height={360}

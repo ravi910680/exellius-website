@@ -58,7 +58,7 @@ export default function DataPlatformHero() {
         {/* Right: Image */}
         <div className="w-full max-w-md">
           <Image
-            src="/login.png"
+            src="/plate-1.svg"
             alt="Lead Finder Login"
             width={600}
             height={600}

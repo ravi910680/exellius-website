@@ -39,7 +39,7 @@ export default function ProspectingHighlight() {
         {/* Right UI Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
           <Image
-            src="/domain-search-1.png" // Replace with actual image
+            src="/domain-5.png" // Replace with actual image
             alt="Prospecting UI"
             width={560}
             height={360}

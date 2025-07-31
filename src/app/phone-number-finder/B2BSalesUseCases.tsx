@@ -10,7 +10,7 @@ export default function B2BSalesUseCases() {
         {/* Left: Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
           <Image
-            src="/use-case-b2b.png" // Replace with your image
+            src="/phone-5.svg" // Replace with your image
             alt="B2B Sales Use Case Visual"
             width={520}
             height={350}

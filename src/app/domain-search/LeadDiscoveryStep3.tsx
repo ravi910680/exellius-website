@@ -49,7 +49,7 @@ export default function LeadDiscoveryStep3() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
             <div className="w-[500px]">
               <Image
-                src="/img-3-step.png"
+                src="/domain-3.png"
                 alt="Email Verifier UI"
                 width={500}
                 height={360}

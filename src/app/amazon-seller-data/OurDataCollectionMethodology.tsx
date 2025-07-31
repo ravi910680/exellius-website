@@ -54,7 +54,7 @@ export default function OurDataCollectionMethodology() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
             <div className="w-[420px]">
               <Image
-                src="/data-methodology.png" // Replace with a visual that reflects data flow/verification
+                src="/amazon-5.jpeg" // Replace with a visual that reflects data flow/verification
                 alt="Data Methodology Visual"
                 width={420}
                 height={300}

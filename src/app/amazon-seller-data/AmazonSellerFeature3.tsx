@@ -48,7 +48,7 @@ export default function AmazonSellerFeature3() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
             <div className="w-[420px]">
               <Image
-                src="/amazon-contact-info.png" // Replace with actual visual
+                src="/amazon-4.jpeg" // Replace with actual visual
                 alt="Verified Contact Visual"
                 width={420}
                 height={300}

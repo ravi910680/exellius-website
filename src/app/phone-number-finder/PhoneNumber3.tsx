@@ -52,7 +52,7 @@ export default function LeadDiscoveryStep3() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
             <div className="w-[420px]">
               <Image
-                src="/image_1.png"
+                src="/phone-4.svg"
                 alt="API Integration Visual"
                 width={420}
                 height={300}

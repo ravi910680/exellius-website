@@ -10,7 +10,7 @@ export default function OptimizeOutreach() {
         {/* Left Image Section */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/email-search-1.png" // Replace with your actual image path
+            src="/finder-5.svg" // Replace with your actual image path
             alt="Optimize outreach UI"
             width={600}
             height={400}

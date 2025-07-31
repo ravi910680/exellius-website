@@ -21,7 +21,7 @@ export default function LeadDiscoveryStep4() {
           {/* ✅ Left: UI Image */}
           <div className="w-full lg:w-1/2 relative z-10">
             <Image
-              src="/img-2.png" // Replace with actual image
+              src="/verify-7.png" // Replace with actual image
               alt="Bulk email checker UI"
               width={520}
               height={360}

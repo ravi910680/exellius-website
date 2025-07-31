@@ -24,7 +24,7 @@ export default function DataEnrichmentFeature2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
               <Image
-                src="/data-enrich-1.png" // Replace with real visual
+                src="/data-4.svg" // Replace with real visual
                 alt="CRM Enrichment Visual"
                 width={420}
                 height={320}

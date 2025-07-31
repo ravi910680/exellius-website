@@ -62,11 +62,11 @@ export default function LeadDiscoveryStep1() {
           <div className="w-full lg:w-1/2 relative z-10 flex justify-center">
             <div className="w-[420px]">
               <Image
-                src="/domain-finder-img-2.png"
+                src="/finder-2.svg"
                 alt="Department pattern UI"
                 width={420}
                 height={300}
-                className="w-full h-auto object-contain rounded-lg shadow-md"
+                className="w-full h-auto object-contain rounded-lg"
               />
             </div>
           </div>

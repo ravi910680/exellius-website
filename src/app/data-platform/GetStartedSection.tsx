@@ -10,7 +10,7 @@ export default function GetStartedSection() {
         {/* Left Image */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/data-1.png" // replace with your actual image path
+            src="/plate-3.svg" // replace with your actual image path
             alt="Exellius Platform"
             width={600}
             height={400}

@@ -67,7 +67,7 @@ export default function DataEnrichmentHero() {
         {/* Right: Image */}
         <div className="w-full max-w-lg">
           <Image
-            src="/email-verifier.png" // Ensure this path exists
+            src="/data-1.svg" // Ensure this path exists
             alt="Data Enrichment Visual"
             width={800}
             height={800}

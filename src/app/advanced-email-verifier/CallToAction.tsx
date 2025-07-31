@@ -45,7 +45,7 @@ export default function CallToAction() {
         {/* ✅ Right: Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
           <Image
-            src="/verification-1.png" // Replace with actual path
+            src="/verify-6.png" // Replace with actual path
             alt="Database visual"
             width={500}
             height={360}
