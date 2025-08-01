@@ -1,12 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 
 const testimonials = [
-  
   {
     name: "John D.",
     text: "We’ve seen a 40% improvement in response rates since switching to Exellius. The verified data is a game changer.",
@@ -62,12 +61,19 @@ const testimonials = [
     text: "No more wasted emails! Exellius’ real-time verification ensures our campaigns hit real inboxes, boosting deliverability and ROI.",
     avatar: "/avatar12.jpg",
   },
-];
-
-
+]
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0)
+
+  // Automatically update testimonial every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length)
+    }, 5000) // 5000 ms = 5 seconds
+
+    return () => clearInterval(intervalId) // Cleanup on unmount
+  }, [])
 
   const next = () => setIndex((prev) => (prev + 1) % testimonials.length)
   const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
@@ -95,7 +101,7 @@ export default function Testimonials() {
         <div className="relative bg-[#f0f4ff] p-8 sm:p-10 md:p-20 rounded-xl shadow-sm text-gray-800 order-2 md:order-none w-full min-h-[250px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
-             key={index}
+              key={index}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
@@ -107,13 +113,14 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-                {/*<Image
+            {/*    <Image
                   src={testimonials[index].avatar}
                   alt={testimonials[index].name}
                   width={40}
                   height={40}
                   className="rounded-full"
-                />*/}
+                />
+                */}
                 <p className="font-semibold">{testimonials[index].name}</p>
               </div>
             </motion.div>
