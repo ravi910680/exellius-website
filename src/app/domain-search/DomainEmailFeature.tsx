@@ -10,13 +10,12 @@ export default function DomainEmailFeature() {
         {/* Left Side - Image */}
         <div className="w-full lg:w-1/2 relative">
           <div className="rounded-xl overflow-hidden ">
-            <Image
-              src="/domain-4.png" // replace with your actual UI asset
-              alt="Domain Search UI"
-              width={640}
-              height={400}
-              className="w-full h-auto"
-            />
+           <img
+  src="/domain-4.png"
+  alt="Domain Search UI"
+  className="w-auto h-auto max-w-full"
+/>
+
           </div>
         </div>
 

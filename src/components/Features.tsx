@@ -42,7 +42,7 @@ export default function Features() {
     />
   </div>
   <a
-  href="https://app.exellius.com/free-trial"
+  href="https://app.exellius.com/signup"
   target="_blank"
   rel="noopener noreferrer"
   className="inline-block"

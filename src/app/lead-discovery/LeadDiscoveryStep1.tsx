@@ -29,7 +29,7 @@ export default function LeadDiscoveryStep1() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
             <div className="w-[520px]">
               <Image
-                src="/lead-discovery/img-3.png" // Replace with appropriate image if needed
+                src="/lead-discovery/img-3.svg" // Replace with appropriate image if needed
                 alt="Step visual"
                 width={420}
                 height={300}
