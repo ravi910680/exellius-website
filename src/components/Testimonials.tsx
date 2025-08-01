@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 
 const testimonials = [
