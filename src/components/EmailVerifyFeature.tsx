@@ -3,7 +3,6 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import AnimationVerify from "@/components/animation/AnimationVerify"
 
 export default function EmailVerifyFeature() {
   return (
@@ -19,56 +18,57 @@ export default function EmailVerifyFeature() {
             className="object-cover opacity-30"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
-           <AnimationVerify />
+            <Image
+              src="/home/home-2.png"
+              alt="Email Verification Feature"
+              width={500}
+              height={450}
+              className="rounded-lg shadow bg-white"
+              priority
+            />
           </div>
         </div>
 
         {/* Right: Content */}
-        <div className="  p-6 sm:p-10 flex flex-col justify-center">
+        <div className="p-6 sm:p-10 flex flex-col justify-center">
           <h2 className="text-2xl sm:text-4xl font-bold text-gray-900  items-center gap-2">
             <span className="text-[#9856F2]">02. </span>
             Verify Email Addresses in Real-Time
           </h2>
           <div className="w-20 h-1 bg-[#9856F2] rounded mb-4 mt-5" />
-
           {/* Divider */}
           <div className="w-10 h-1  rounded mt-4 mb-6" />
-
           <p className="text-md text-gray-700 leading-relaxed mb-6">
             Our enterprise-grade email verification engine goes far beyond simple syntax checks to deliver industry-leading 98% deliverability rates.
           </p>
-
           {/* Bullet List */}
           <ul className="space-y-4 text-md text-gray-800">
-  {[
-    "Check Email Validity — Reduce bounce rates with instant verification.",
-    "Bulk Email Lookup — Validate thousands of email addresses at once.",
-    "Verified Contact Data — Ensure only accurate leads enter your funnel.",
-  ].map((item, i) => {
-    const [boldPart, rest] = item.split(" — ");
-    return (
-      <li key={i} className="flex items-start gap-2">
-        <CheckCircle className="text-[#9856F2] w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5 " />
-        <span>
-          <strong className="font-semibold text-gray-1000">{boldPart}</strong> — {rest}
-        </span>
-      </li>
-    );
-  })}
-</ul>
-
-
+            {[
+              "Check Email Validity — Reduce bounce rates with instant verification.",
+              "Bulk Email Lookup — Validate thousands of email addresses at once.",
+              "Verified Contact Data — Ensure only accurate leads enter your funnel.",
+            ].map((item, i) => {
+              const [boldPart, rest] = item.split(" — ");
+              return (
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle className="text-[#9856F2] w-7 h-7 sm:w-6 sm:h-6 md:w-5 md:h-5" />
+                  <span>
+                    <strong className="font-semibold text-gray-1000">{boldPart}</strong> — {rest}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
           <a
-  href="https://app.exellius.com/signup"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block"
->
-  <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
-     Find Verified Emails Now
-  </Button>
-</a>
-         
+            href="https://app.exellius.com/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
+              Find Verified Emails Now
+            </Button>
+          </a>
         </div>
       </div>
     </section>

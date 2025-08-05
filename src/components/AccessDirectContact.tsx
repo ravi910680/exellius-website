@@ -3,26 +3,32 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import PhoneAnimation from "@/components/animation/PhoneAnimation"
 
 export default function EmailFinderFeature() {
   return (
     <section className="w-full py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white shadow-sm">
-        {/* Right: Animation - shows first on mobile, second on desktop */}
+        {/* Right: Image - shows first on mobile, second on desktop */}
         <div className="relative bg-[#FBF8FE] order-first md:order-last">
           <Image
             src="/right-back.png"
             alt="Grid background"
             fill
-            className="object-cover object-left opacity-30" // Optional: lighter to blend with bg
+            className="object-cover object-left opacity-30"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
-            <PhoneAnimation />
+            <Image
+              src="/home/home-3.png"
+              alt="Phone Intelligence Feature"
+              width={500}  // Adjust width and height as needed
+              height={450}
+              className="rounded-lg bg-white"
+              priority
+            />
           </div>
         </div>
 
-        {/* Left: Content - shows second on mobile, first on desktop */}
+        {/* Left: Content */}
         <div className="bg-[#FBF8FE] p-6 sm:p-10 flex flex-col justify-center order-last md:order-first">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             <span className="text-[#9856F2]">03. </span> 
@@ -32,7 +38,6 @@ export default function EmailFinderFeature() {
           <p className="mt-4 text-md text-gray-900">
             We provide the most comprehensive B2B phone intelligence, combining verified corporate directories with AI-powered number discovery.
           </p>
-
           {/* Feature List */}
           <ul className="mt-6 space-y-4 text-md text-gray-800">
             {[
@@ -51,7 +56,6 @@ export default function EmailFinderFeature() {
               )
             })}
           </ul>
-
           <a
             href="https://app.exellius.com/signup"
             target="_blank"

@@ -3,14 +3,14 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import AnimationFinder from "@/components/animation/Animation1"
 
 export default function EmailFinderFeature() {
   return (
     <section className="w-full px-4 sm:px-6">
       <div className="max-w-7xl mx-auto rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white shadow-sm">
-        {/* Right: AnimationFinder; shows first on mobile, second on desktop */}
+        {/* Right: Image */}
         <div className="relative bg-[#FBF8FE] order-first md:order-last">
+          {/* Optional grid background, retained as before */}
           <Image
             src="/right-back.png"
             alt="Grid background"
@@ -18,11 +18,18 @@ export default function EmailFinderFeature() {
             className="object-cover object-left opacity-50"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-6 sm:p-8">
-            <AnimationFinder />
+            <Image
+              src="/home/home-1.png"
+              alt="Email Finder Feature"
+              width={500} // Adjust as needed
+              height={450} // Adjust as needed
+              className="rounded-lg shadow bg-white"
+              priority
+            />
           </div>
         </div>
 
-        {/* Left: Content; shows second on mobile, first on desktop */}
+        {/* Left: Content remains unchanged */}
         <div className="bg-[#FBF8FE] p-6 sm:p-10 flex flex-col justify-center order-last md:order-first">
           <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">
             <span className="text-[#9856F2]">01. </span> 
@@ -33,7 +40,6 @@ export default function EmailFinderFeature() {
           <p className="mt-4 text-md text-gray-900">
             Exellius revolutionizes lead generation with our intelligent contact discovery system that delivers accurate professional emails at scale.
           </p>
-
           {/* Feature List */}
           <ul className="mt-6 space-y-3 text-md text-gray-900">
             {[

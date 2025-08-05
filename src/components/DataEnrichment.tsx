@@ -15,11 +15,11 @@ export default function EmailVerifyFeature() {
             src="/left-back.png"
             alt="Background grid"
             fill
-            className="object-cover opacity-30" // Optional: make it lighter to blend with bg
+            className="object-cover opacity-30"
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/img-1.png"
+              src="/home/home-4.png"
               alt="Email verification UI"
               width={500}
               height={300}
@@ -35,11 +35,9 @@ export default function EmailVerifyFeature() {
              Data Enrichment & Lead Intelligence
           </h2>
           <div className="w-20 h-1 bg-[#9856F2] rounded mb-4 mt-5" />
-
           <p className="text-md text-gray-700 leading-relaxed mb-6">
             Transform basic contact lists into rich prospect profiles with our AI-driven enrichment engine.
           </p>
-
           {/* Bullet List */}
           <ul className="space-y-4 text-md text-gray-800">
             {[
@@ -59,17 +57,16 @@ export default function EmailVerifyFeature() {
             })}
           </ul>
 
-         <a
-  href="https://app.exellius.com/signup"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block"
->
-  <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
-     Find Verified Emails Now
-  </Button>
-</a>
-         
+          <a
+            href="https://app.exellius.com/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
+              Find Verified Emails Now
+            </Button>
+          </a>
         </div>
       </div>
     </section>

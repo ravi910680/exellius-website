@@ -8,7 +8,6 @@ export default function EmailFinderFeature() {
   return (
     <section className="w-full py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white shadow-sm">
-        
         {/* Right: Image on Grid BG - shows first on mobile */}
         <div className="relative bg-[#FBF8FE] order-first md:order-last">
           <Image
@@ -19,10 +18,10 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/img-2.png"
+              src="/home/home-5.png"
               alt="Email finder UI"
-              width={400}
-              height={300}
+              width={500}
+              height={400}
               className="rounded-md shadow-md"
             />
           </div>
@@ -39,7 +38,6 @@ export default function EmailFinderFeature() {
             Our technographic intelligence platform reveals the complete digital footprint of any business, 
             from their CRM and marketing automation tools to ecommerce platforms and infrastructure providers.
           </p>
-
           {/* Feature List */}
           <ul className="mt-6 space-y-3 text-md text-gray-900">
             {[
@@ -58,7 +56,6 @@ export default function EmailFinderFeature() {
               )
             })}
           </ul>
-
           <a
             href="https://app.exellius.com/signup"
             target="_blank"
