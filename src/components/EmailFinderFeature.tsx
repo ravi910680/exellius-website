@@ -67,7 +67,7 @@ export default function EmailFinderFeature() {
             className="inline-block"
           >
             <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
-              Find Verified Emails Now
+              Find Verified Contacts Now
             </Button>
           </a>
         </div>

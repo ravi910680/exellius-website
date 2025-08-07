@@ -75,13 +75,18 @@ export default function DataPage() {
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white text-md">
-              Explore Our Solutions
-            </Button>
-            <Button variant="outline" size="lg" className="text-[#9856F2] border-[#9856F2]">
-              Talk to Our Team
-            </Button>
-          </div>
+  <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer">
+    <Button size="lg" className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white text-md">
+      Explore Our Solutions
+    </Button>
+  </a>
+  <a href="/contact-us">
+    <Button variant="outline" size="lg" className="text-[#9856F2] border-[#9856F2]">
+      Talk to Our Team
+    </Button>
+  </a>
+</div>
+
         </div>
 
 

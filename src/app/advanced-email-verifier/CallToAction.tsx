@@ -36,9 +36,9 @@ export default function CallToAction() {
               </span>
             </li>
           </ul>
-
-          <a
-  href="https://app.exellius.com/signup"
+<a
+ 
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
   target="_blank"
   rel="noopener noreferrer"
   className="inline-block"
@@ -49,6 +49,7 @@ export default function CallToAction() {
     Try Exellius’ Email Verifier Now
   </button>
 </a>
+
 
         </div>
 

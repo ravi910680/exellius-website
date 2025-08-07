@@ -135,18 +135,24 @@ export default function AboutUs() {
             Thousands of businesses rely on Exellius Systems to fuel their growth. Discover how our B2B data solutions can elevate your strategy—explore our platform or contact us today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-  <a href="/data-platform" className="w-auto">
+  <a
+    href="https://app.exellius.com/signup"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-auto"
+  >
     <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-      Explore Platform
+      Explore
     </Button>
   </a>
 
-  <a href="/help-center" className="w-auto">
+  <a href="/contact-us" className="w-auto">
     <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
       Contact Us
     </Button>
   </a>
 </div>
+
 
         </div>
 

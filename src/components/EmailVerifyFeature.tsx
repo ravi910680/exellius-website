@@ -60,8 +60,8 @@ export default function EmailVerifyFeature() {
             })}
           </ul>
           <a
-            href="https://app.exellius.com/signup"
-            target="_blank"
+            href="https://www.exellius.com/advanced-email-verifier"
+            
             rel="noopener noreferrer"
             className="inline-block"
           >

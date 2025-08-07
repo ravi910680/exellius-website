@@ -3,62 +3,63 @@
 import { useState, useEffect } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
+import Image from "next/image"
 
 const testimonials = [
   {
     name: "John D.",
     text: "We’ve seen a 40% improvement in response rates since switching to Exellius. The verified data is a game changer.",
-    avatar: "/avatar2.jpg",
+    avatar: "/avatar1.png",
   },
   {
     name: "Sofia R.",
     text: "Our SDR team loves the accuracy and the speed of the platform. It’s become a critical part of our sales process.",
-    avatar: "/avatar3.jpg",
+    avatar: "/avatar2.png",
   },
   {
     name: "VP Sales",
     text: "Exellius’ data cut our prospecting time in half while doubling meeting bookings. Their company insights help us personalize at scale.",
-    avatar: "/avatar4.jpg",
+    avatar: "/avatar3.png",
   },
   {
     name: "Demand Gen Lead",
     text: "The only provider that consistently delivers accurate emails for hard-to-reach executives. Game-changer for our ABM strategy.",
-    avatar: "/avatar5.jpg",
+    avatar: "/avatar4.png",
   },
   {
     name: "FinTech Innovations Provider",
     text: "With Exellius, we’ve reduced lead research time by 60% and improved our outreach response rates by 35%. A game-changer for our sales team!",
-    avatar: "/avatar6.jpg",
+    avatar: "/avatar5.png",
   },
   {
     name: "Leading B2B Marketing Group",
     text: "Exellius delivers hyper-relevant prospect data that helps us tailor our messaging effectively. Our conversion rates have never been higher.",
-    avatar: "/avatar7.jpg",
+    avatar: "/avatar6.png",
   },
   {
     name: "Enterprise Software Inc.",
     text: "The accuracy and depth of Exellius’ insights have transformed our outbound strategy. We’re closing deals faster with less effort.",
-    avatar: "/avatar8.jpg",
+    avatar: "/avatar7.png",
   },
   {
     name: "Enterprise SaaS Provider",
     text: "Finding direct emails for C-level execs used to take hours. With Exellius, we get accurate contacts in seconds—game-changing for our outbound strategy.",
-    avatar: "/avatar9.jpg",
+    avatar: "/avatar8.png",
   },
   {
     name: "Marketing Automation Platform",
     text: "Processing 50,000 leads used to take weeks. With Exellius’ Bulk Tool, we enriched and segmented our entire database in 48 hours.",
-    avatar: "/avatar10.jpg",
+    avatar: "/avatar9.png",
   },
   {
     name: "Business Consulting Firm",
     text: "The accuracy of Exellius’ mobile numbers is unmatched. We cut through gatekeepers and reach decision-makers faster.",
-    avatar: "/avatar11.jpg",
+    avatar: "/avatar10.png",
   },
   {
     name: "Lead Generation Company",
     text: "No more wasted emails! Exellius’ real-time verification ensures our campaigns hit real inboxes, boosting deliverability and ROI.",
-    avatar: "/avatar12.jpg",
+    avatar: "/avatar11.png",
   },
 ]
 
@@ -112,14 +113,14 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-            {/*    <Image
-                  src={testimonials[index].avatar}
+              <Image
+                  src={"/avatar"+testimonials[index].avatar}
                   alt={testimonials[index].name}
                   width={40}
                   height={40}
                   className="rounded-full"
                 />
-                */}
+               
                 <p className="font-semibold">{testimonials[index].name}</p>
               </div>
             </motion.div>

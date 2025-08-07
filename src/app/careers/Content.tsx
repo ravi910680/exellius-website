@@ -82,14 +82,18 @@ export default function CareerPage() {
           <p className="text-gray-700 mb-6">
             Browse Open Roles or Learn About Our Culture
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-[#9856F2] text-white text-base hover:bg-[#6c3cbe]">
-              Browse Open Roles
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#9856F2] text-base">
-              Learn About Our Culture
-            </Button>
-          </div>
+         <div className="flex flex-wrap justify-center gap-4">
+  <a href="mailto:hr@exellius.com" className="w-auto">
+    <Button size="lg" className="bg-[#9856F2] text-white text-base hover:bg-[#6c3cbe]">
+      Email Us
+    </Button>
+  </a>
+  <div className="flex flex-col items-center">
+   
+    <p className="text-sm text-[#9856F2] mt-2">send email to hr@exellius.com</p>
+  </div>
+</div>
+
         </div>
       </div>
     </section>

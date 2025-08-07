@@ -49,23 +49,7 @@ export default function DomainEmailFeature() {
             ))}
           </ul>
 
-          <div className="mt-8 flex gap-4 flex-wrap">
-            <a
-              href="https://app.exellius.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-auto"
-            >
-              <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-6 py-3 text-base rounded-md">
-                Get Started for Free
-              </Button>
-            </a>
-            <a href="/pricing" className="w-auto">
-              <Button variant="outline" className="border-[#9856F2] text-[#9856F2] px-6 py-3 text-base rounded-md">
-                Compare Plans
-              </Button>
-            </a>
-          </div>
+         
         </div>
       </div>
     </section>

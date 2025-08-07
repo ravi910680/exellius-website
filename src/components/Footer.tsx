@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, X } from "lucide-react"
 import Link from "next/link"
 
 export default function Footer() {
@@ -13,10 +13,10 @@ export default function Footer() {
             Your daily stream of fresh data on companies and professionals
           </p>
           <div className="flex gap-4">
-            <Link href="#"><Instagram className="w-5 h-5 text-[#9856F2]" /></Link>
-            <Link href="#"><Twitter className="w-5 h-5 text-[#9856F2]" /></Link>
-            <Link href="#"><Linkedin className="w-5 h-5 text-[#9856F2]" /></Link>
-            <Link href="#"><Facebook className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link href="https://www.instagram.com/exelliussystems"><Instagram className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link href="https://x.com/ExelliusSystems"><X className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link href="https://www.linkedin.com/company/exellius-systems"><Linkedin className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link href="https://www.facebook.com/exelliussystems/"><Facebook className="w-5 h-5 text-[#9856F2]" /></Link>
           </div>
         </div>
 
@@ -31,10 +31,9 @@ export default function Footer() {
             <li><Link href="/advanced-email-verifier">Advanced Email Verifier</Link></li>
             <li><Link href="/phone-number-finder">Phone Number Finder</Link></li>
             <li><Link href="/website-technology-checker">Website Technology Checker</Link></li>
-            <li><Link href="/data-enrichment-suite">Data Enrichment Suite</Link></li>
+            
             <li><Link href="/data-platform">Data Platform</Link></li>
-            <li><Link href="/bulk-task">Bulk Task</Link></li>
-            <li><Link href="/developer-api-hub">Developer API Hub</Link></li>
+            
             <li><Link href="/amazon-seller-data">Amazon Seller Data</Link></li>
           </ul>
         </div>
@@ -46,6 +45,9 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="/website-technology-checker">Website Technology Checker</Link></li>
             <li><Link href="/data-enrichment-suite">Data Enrichment Suite</Link></li>
+            
+            <li><Link href="/bulk-task">Bulk Task</Link></li>
+            <li><Link href="/developer-api-hub">Developer API Hub</Link></li>
             <li><Link href="/bulk-task">Bulk Task</Link></li>
           </ul>
         </div>

@@ -59,13 +59,13 @@ export default function EmailFinderFeature() {
           </ul>
 
           <a
-            href="https://app.exellius.com/signup"
-            target="_blank"
+            href="https://www.exellius.com/developer-api-hub"
+           
             rel="noopener noreferrer"
             className="inline-block"
           >
             <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit mt-8">
-              Find Verified Emails Now
+              Get API Documentation
             </Button>
           </a>
         </div>

@@ -57,8 +57,8 @@ export default function EmailFinderFeature() {
             })}
           </ul>
           <a
-            href="https://app.exellius.com/signup"
-            target="_blank"
+            href="https://www.exellius.com/phone-number-finder"
+            
             rel="noopener noreferrer"
             className="inline-block"
           >

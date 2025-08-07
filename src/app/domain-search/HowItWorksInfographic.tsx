@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link";
 import { Button } from "@/components/ui/button"
 
 export default function HowItWorksInfographic() {
@@ -59,16 +60,11 @@ export default function HowItWorksInfographic() {
 
       {/* CTA */}
       <div className="mt-12">
-  <a
-    href="https://app.exellius.com/signup"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block"
-  >
+  <Link href="/domain-search" passHref>
     <Button className="bg-[#9856F2] hover:bg-[#6c3cbe] text-white px-16 py-8 text-base sm:text-lg rounded-md">
       Try Domain Search Free
     </Button>
-  </a>
+</Link>
 </div>
 
     </section>

@@ -58,12 +58,19 @@ export default function EmailVerifyFeature() {
               );
             })}
           </ul>
+          <a
+            href="https://www.exellius.com/amazon-seller-data"
+           
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
           <Button
             className="mt-8 bg-[#9856F2] hover:bg-[#813fe0] text-white w-fit"
             size="lg"
           >
-            Find Verified Emails Now
+           Find Sellers Database Now
           </Button>
+          </a>
         </div>
       </div>
     </section>

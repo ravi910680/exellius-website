@@ -71,7 +71,7 @@ export default function UsedByCompanies() {
             className="flex items-center gap-10 overflow-x-auto hide-scrollbar whitespace-nowrap"
             style={{ scrollBehavior: "auto", padding: "0 2rem" }}
           >
-            {Array.from({ length: 18 }).map((_, i) => (
+            {Array.from({ length: 17 }).map((_, i) => (
               <div
                 key={i}
                 className="flex-shrink-0 grayscale hover:grayscale-0 transition duration-300 inline-block"
