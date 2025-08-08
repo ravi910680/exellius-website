@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export default function DomainEmailFeature() {
   return (
