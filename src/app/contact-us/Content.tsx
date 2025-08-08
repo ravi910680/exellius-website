@@ -33,7 +33,7 @@ const ContactUs = () => {
       <hr className="w-full border-gray-100 mb-8" />
 
       <div className="text-xl text-gray-600 pt-10">
-        You didn't find your answer in the Help Center? We are here to help!
+        You didn&apos;t find your answer in the Help Center? We are here to help!
       </div>
 
       <form
