@@ -14,17 +14,17 @@ const topics = [
             <p>
               Your Exellius dashboard is the central hub for managing data
               projects, tracking usage, and collaborating with your team.
-              Whether you're a new user or need a refresher, this guide will
+              Whether you&apos;re a new user or need a refresher, this guide will
               walk you through accessing your dashboard securely and
               efficiently.
             </p>
             <h3 className="mt-4 font-semibold">Step-by-Step Access Instructions</h3>
             <ol className="list-decimal list-inside space-y-1">
               <li>
-                Visit <strong>www.exellius.com</strong> and click "Login".
+                Visit <strong>www.exellius.com</strong> and click &apos;Login&apos;.
               </li>
               <li>
-                Enter your email & password, or use "Forgot Password?" if
+                Enter your email & password, or use &apos;Forgot Password?&apos; if
                 needed.
               </li>
               <li>Complete 2FA if enabled.</li>
@@ -135,14 +135,14 @@ const topics = [
           <>
             <h3 className="font-semibold">When to Consider Upgrading</h3>
             <ul className="list-disc list-inside">
-              <li>You're consistently running out of data credits</li>
+              <li>You&apos;re consistently running out of data credits</li>
               <li>Your team has grown and needs more seats</li>
               <li>You require advanced features like API access or premium support</li>
             </ul>
             <h3 className="mt-4 font-semibold">How to Upgrade</h3>
             <ol className="list-decimal list-inside space-y-1">
               <li>Navigate to Billing in Account Settings</li>
-              <li>Click "Upgrade Plan"</li>
+              <li>Click &apos;Upgrade Plan&apos;</li>
               <li>Compare feature tiers and select your plan</li>
               <li>Choose billing cycle and add extras if needed</li>
               <li>Confirm payment details</li>
@@ -173,7 +173,7 @@ const topics = [
             <h3 className="font-semibold">How to Cancel</h3>
             <ol className="list-decimal list-inside space-y-1">
               <li>Go to Account → Billing → Subscription</li>
-              <li>Click "Cancel Plan" and confirm</li>
+              <li>Click &apos;Cancel Plan&apos; and confirm</li>
             </ol>
             <p>
               Annual plans cancelled within 30 days get prorated refunds. Data remains

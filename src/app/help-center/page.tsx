@@ -2,7 +2,6 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HelpCenterHero from "./HelpCenterHero";
 import CallToAction from "@/components/CallToAction";
 import Content from "./Content";
 import FAQs from "./FAQs";
