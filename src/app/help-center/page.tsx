@@ -2,8 +2,10 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Content from "./Content";
+import HelpCenterHero from "./HelpCenterHero";
 import CallToAction from "@/components/CallToAction";
+import Content from "./Content";
+import FAQs from "./FAQs";
 
 
 export default function EmailFinderPage() {
@@ -11,7 +13,9 @@ export default function EmailFinderPage() {
     <>
       <Header />
       
-            <Content />
+         
+          <Content />
+          <FAQs />
       <CallToAction />
      
      

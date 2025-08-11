@@ -65,6 +65,56 @@ export default function CustomerSuccess() {
             </ul>
             <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
           </div>
+
+          {/* New Case Study 3 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-[#eee]">
+            <div className="flex items-center gap-3 mb-4">
+               <Image src="/avatar/avatar2.png" alt="Client Logo" width={40} height={40} style={{borderRadius:"50%"}} />
+              <h3 className="font-bold text-xl text-gray-900">B2B Market Research Firm</h3>
+            </div>
+            <p className="text-md mb-2"><strong>Industry:</strong> Business Intelligence</p>
+            <p className="text-md mb-2"><strong>Challenge:</strong> Sourcing 10,000+ executive contacts weekly</p>
+            <p className="text-md mb-2"><strong>Exellius Solution:</strong></p>
+            <ul className="list-disc list-inside text-md text-gray-700 mb-2">
+              <li>C-level contact database with direct dials</li>
+              <li>Company hierarchy mapping</li>
+              <li>Automated data enrichment</li>
+            </ul>
+            <p className="text-md font-semibold mb-2">Results:</p>
+            <ul className="list-disc list-inside text-md text-gray-700 space-y-1">
+              <li>✔ 200,000+ decision-maker contacts yearly</li>
+              <li>✔ 82% interview completion rate</li>
+              <li>✔ 5x faster project turnaround</li>
+            </ul>
+            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+          </div>
+
+          {/* New Case Study 4 */}
+          <div className="bg-white rounded-xl shadow-md p-6 border border-[#eee]">
+            <div className="flex items-center gap-3 mb-4">
+               <Image src="/avatar/avatar3.png" alt="Client Logo" width={40} height={40} style={{borderRadius:"50%"}} />
+              <h3 className="font-bold text-xl text-gray-900">Fintech Payments Platform</h3>
+            </div>
+            <p className="text-md mb-2"><strong>Industry:</strong> Financial Technology</p>
+            <p className="text-md mb-2"><strong>Challenge:</strong> Needed to identify merchants processing $10M+ annually for high-ticket sales</p>
+            <p className="text-md mb-2"><strong>Exellius Solution:</strong></p>
+            <ul className="list-disc list-inside text-md text-gray-700 mb-2">
+              <li>Custom merchant scoring algorithm combining:</li>
+              <ul className="list-disc list-inside ml-6">
+                <li>Transaction volume signals</li>
+                <li>POS system technographics</li>
+                <li>E-commerce platform footprints</li>
+              </ul>
+              <li>Integrated with sales team's Gong.io for call intelligence</li>
+            </ul>
+            <p className="text-md font-semibold mb-2">Results:</p>
+            <ul className="list-disc list-inside text-md text-gray-700 space-y-1">
+              <li>✔ $2.3M in new ARR from first 90 days</li>
+              <li>✔ 37% shorter sales cycle for pre-qualified leads</li>
+              <li>✔ 92% data accuracy on merchant financial profiles</li>
+            </ul>
+            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+          </div>
         </div>
 
         {/* Testimonials */}
@@ -122,10 +172,8 @@ export default function CustomerSuccess() {
               <Quote className="absolute top-4 right-4 text-[#9856F2] w-6 h-6" />
               <p className="text-gray-800 text-lg italic">“{t.quote}”</p>
               <div className="mt-4 flex items-center gap-3">
-                
                 <div>
                   <p className="text-md font-semibold">{t.name}</p>
-                  
                 </div>
               </div>
             </div>
