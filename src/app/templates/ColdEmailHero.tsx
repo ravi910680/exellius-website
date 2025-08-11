@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 export default function ColdEmailHero() {
   return (
     <section className="bg-[#F8F9FC] border-b border-gray-200">
