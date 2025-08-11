@@ -105,7 +105,7 @@ export default function CustomerSuccess() {
                 <li>POS system technographics</li>
                 <li>E-commerce platform footprints</li>
               </ul>
-              <li>Integrated with sales team's Gong.io for call intelligence</li>
+              <li>Integrated with sales team&apos;s Gong.io for call intelligence</li>
             </ul>
             <p className="text-md font-semibold mb-2">Results:</p>
             <ul className="list-disc list-inside text-md text-gray-700 space-y-1">
