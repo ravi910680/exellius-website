@@ -39,24 +39,55 @@ function formatCurrency(val: number) {
   return `$${val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
+function getPricePerCredit(typeKey: string, quantity: number) {
+  if (quantity >= 1000000) {
+    switch (typeKey) {
+      case "mobileFinder": return 0.04;
+      default: return 0.0015;
+    }
+  }
+  if (quantity >= 100000) {
+    switch (typeKey) {
+      case "mobileFinder": return 0.05;
+      default: return 0.006;
+    }
+  }
+  if (quantity >= 10000) {
+    switch (typeKey) {
+      case "mobileFinder": return 0.055;
+      default: return 0.009;
+    }
+  }
+  // Default: 1,000 range
+  switch (typeKey) {
+    case "mobileFinder": return 0.06;
+    default: return 0.01;
+  }
+}
+
+
 export default function ExelliusPricingTabs() {
   const [activeTab, setActiveTab] = useState<"outreach" | "data">("outreach");
   const [activeBilling, setActiveBilling] = useState("monthly");
 
   // ---- Credit Bundles State ----
   const [creditCounts, setCreditCounts] = useState({
-    emailFinder: 10000,
-    mobileFinder: 10000,
-    emailVerifier: 10000,
-    domainSearch: 10000,
+    emailFinder: 1000,
+    mobileFinder: 1000,
+    emailVerifier: 1000,
+    domainSearch: 1000,
   });
   
 
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
-  const totalPrice =
-    creditTypes
-     .map(type => creditCounts[type.key as keyof typeof creditCounts] * type.pricePerCredit)
-      .reduce((a, b) => a + b, 0);
+  const totalPrice = creditTypes
+  .map(type => {
+    const qty = creditCounts[type.key as keyof typeof creditCounts];
+    const pricePerCredit = getPricePerCredit(type.key, qty);
+    return qty * pricePerCredit;
+  })
+  .reduce((a, b) => a + b, 0);
+
 
   function handleSliderChange(typeKey: keyof typeof creditCounts, value: number) {
     setCreditCounts(prev => ({
@@ -100,7 +131,7 @@ export default function ExelliusPricingTabs() {
     },
     {
       name: "Growth",
-      price: "$99/month",
+      price: "$119/month",
       year_price: "$89/month",
       credits: "13,000 credits",
       bg: "bg-[#fef4f1]",
@@ -110,10 +141,19 @@ export default function ExelliusPricingTabs() {
       name: "Professional",
       price: "$199/month",
       year_price: "$149/month",
-      credits: "21,000 credits",
+      credits: "25,000 credits",
       bg: "bg-[#f8f5ff]",
       features: [true, true, true, true, true, true, true],
     },
+    {
+  name: "Enterprise",
+  price: "Custom",
+  year_price: "Custom",
+  credits: "Unlimited credits",
+  bg: "bg-[#fffbea]", // light yellow background
+  features: [true, true, true, true, true, true, true], // all features enabled
+  enterprise: true, // flag to handle button rendering
+}
   ];
 
   // Tooltip message for info icon
@@ -156,7 +196,7 @@ export default function ExelliusPricingTabs() {
             <div className="min-w-[900px]">
 
               {/* Table Header for Plans */}
-              <div className="grid grid-cols-[340px_repeat(4,1fr)] border-gray-200">
+              <div className="grid grid-cols-[340px_repeat(5,1fr)] border-gray-200">
                 {/* Left top cell with billing toggle and info text */}
                 <div className="py-4 px-4 flex flex-col justify-center">
                   <div className="inline-flex rounded-full border border-gray-200 p-1 bg-[#f5f0fd] mb-3">
@@ -198,14 +238,26 @@ export default function ExelliusPricingTabs() {
                         </span>
                       </span>
                     </div>
-                    <a
-                      href="https://app.exellius.com/signup"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-[140px] bg-[#9856f2] hover:bg-[#7b44ca] text-white py-2 rounded-md text-sm font-semibold mb-4 text-center inline-block"
-                    >
-                      Buy now
-                    </a>
+                   {plan.enterprise ? (
+      <a
+        href="https://app.exellius.com/contact-sales"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-[140px] bg-[#f59e0b] hover:bg-[#d97706] text-white py-2 rounded-md text-sm font-semibold mb-4 text-center inline-block"
+      >
+        Talk to Sales
+      </a>
+    ) : (
+      <a
+        href="https://app.exellius.com/signup"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-[140px] bg-[#9856f2] hover:bg-[#7b44ca] text-white py-2 rounded-md text-sm font-semibold mb-4 text-center inline-block"
+      >
+        Buy now
+      </a>
+    )}
+
                     <hr className="w-3/4 mt-2 mb-3 border-[#9856f2] border-t-2" />
                   </div>
                 ))}
@@ -214,7 +266,7 @@ export default function ExelliusPricingTabs() {
               {/* Feature Rows */}
               {features.map((feature, fIdx) => (
                 <div
-                  className="grid grid-cols-[340px_repeat(4,1fr)] items-center"
+                  className="grid grid-cols-[340px_repeat(5,1fr)] items-center"
                   key={fIdx}
                   style={{ minHeight: 36 }}
                 >
@@ -270,15 +322,17 @@ export default function ExelliusPricingTabs() {
                     </div>
                     <input
                       type="range"
-                      min={1}
+                      min={0}
                       max={1000000}
-                      step={1}
+                      step={1000}
                       value={creditCounts[type.key as keyof typeof creditCounts]}
                       onChange={(e) => handleSliderChange(type.key as keyof typeof creditCounts, Number(e.target.value))}
                       className="w-full accent-[#9856f2]"
                     />
                     <div className="flex justify-between text-xs text-gray-400 mt-1">
-                      <span>1</span>
+                      <span>1000</span>
+
+                      <span>500K</span>
                       
                       <span>1M</span>
                     </div>
@@ -287,27 +341,34 @@ export default function ExelliusPricingTabs() {
               </div>
               {/* Summary Box */}
               <div className="bg-white rounded-xl p-6 shadow text-center">
-                <p className="text-sm text-gray-400 mb-1">Your credits purchase</p>
-                <h3 className="text-3xl font-bold mb-6">{formatCurrency(totalPrice)} USD</h3>
-                <ul className="text-sm text-black space-y-4 mb-6 border-t pt-4">
-                  {creditTypes.map((type) => (
-                    <li className="flex justify-between" key={type.key}>
-                      <span>{creditCounts[type.key as keyof typeof creditCounts].toLocaleString()} {type.label}</span>
-                      <span>{formatCurrency(creditCounts[type.key as keyof typeof creditCounts] * type.pricePerCredit)}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mb-4 text-gray-600 text-sm">
-                  <b>Total Credits:</b> {totalCredits.toLocaleString()}
-                </div>
-                <button
-                  className="w-full bg-[#9856f2] hover:bg-[#7c45d2] text-white font-semibold py-2 rounded-md"
-                 
-                  onClick={handleBuyCredits}
-                >
-                 Buy Now
-                </button>
-              </div>
+  <p className="text-sm text-gray-400 mb-1">Your credits purchase</p>
+  <h3 className="text-3xl font-bold mb-6">{formatCurrency(totalPrice)} USD</h3>
+
+  <ul className="text-sm text-black space-y-4 mb-6 border-t pt-4">
+    {creditTypes.map((type) => {
+      const qty = creditCounts[type.key as keyof typeof creditCounts];
+      const pricePerCredit = getPricePerCredit(type.key, qty);
+      return (
+        <li className="flex justify-between" key={type.key}>
+          <span>{qty.toLocaleString()} {type.label}</span>
+          <span>{formatCurrency(qty * pricePerCredit)}</span>
+        </li>
+      );
+    })}
+  </ul>
+
+  <div className="mb-4 text-gray-600 text-sm">
+    <b>Total Credits:</b> {totalCredits.toLocaleString()}
+  </div>
+
+  <button
+    className="w-full bg-[#9856f2] hover:bg-[#7c45d2] text-white font-semibold py-2 rounded-md"
+    onClick={handleBuyCredits}
+  >
+    Buy Now
+  </button>
+</div>
+
             </div>
           </div>
         )}

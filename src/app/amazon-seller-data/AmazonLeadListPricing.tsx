@@ -84,10 +84,20 @@ export default function AmazonLeadQuoteSection() {
             </div>
           </div>
 
-          {/* Right Side: Filters */}
+          {/* Right Side: Filters + Form */}
           <div className="bg-[#fbf8fe] border border-gray-200 rounded-xl p-6 shadow-sm h-fit">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Customize your list</h3>
             <div className="space-y-4 text-sm">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+              />
               <select className="w-full border rounded-lg px-4 py-2 text-gray-700">
                 <option>Number of Leads</option>
                 <option>1,000</option>
@@ -116,7 +126,7 @@ export default function AmazonLeadQuoteSection() {
                 <option>All</option>
               </select>
             </div>
-            <button className="mt-6 w-full bg-[#6c3cbe] hover:bg-[#6c3cbe] text-white font-semibold py-3 px-6 rounded-lg transition">
+            <button className="mt-6 w-full bg-[#6c3cbe] hover:bg-[#5b2da8] text-white font-semibold py-3 px-6 rounded-lg transition">
               GENERATE MY LIST 👉
             </button>
           </div>

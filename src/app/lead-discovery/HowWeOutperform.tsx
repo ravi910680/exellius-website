@@ -9,7 +9,8 @@ const cards = [
     points: [
       "Recent software purchases",
       "Usage trends",
-      "Security vulnerabilities"
+      "Security vulnerabilities",
+      "Human-Verified Contacts"
     ],
     cta: "Human-Verified Contacts",
     href: "/lead-discovery"
@@ -19,7 +20,8 @@ const cards = [
     points: [
       "Direct dials for C-suite",
       "Verified personal emails for founders",
-      "Current project involvement"
+      "Current project involvement",
+      "Buying Committee Mapping"
     ],
     cta: "Buying Committee Mapping",
     href: "/data-platform"
@@ -29,9 +31,10 @@ const cards = [
     points: [
       "Economic buyers (CFOs)",
       "Technical evaluators (CTOs)",
-      "End users (Department heads)"
+      "End users (Department heads)",
+      "Stakeholder Mapping"
     ],
-    cta: "Contact Us",
+    cta: "Stakeholder Mapping",
     href: "/contact-us"
   }
 ]
@@ -66,7 +69,7 @@ export default function HowWeOutperform() {
             >
               <h4 className="text-base font-semibold text-gray-900 mb-4">{title}</h4>
 
-              <ul className="space-y-2 text-sm text-gray-900 mb-6">
+              <ul className="space-y-2 text-sm text-gray-900 ">
                 {points.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 mt-0.5 text-[#6c3cbe]" />
@@ -74,13 +77,14 @@ export default function HowWeOutperform() {
                   </li>
                 ))}
               </ul>
-
+{/* Call to Action Button 
               <Link
                 href={href}
                 className="inline-block bg-[#6c3cbe] hover:bg-[#4b239e] text-white text-sm font-semibold py-2 px-4 rounded-lg transition"
               >
                 {cta}
               </Link>
+              */}
             </div>
           ))}
         </div>
