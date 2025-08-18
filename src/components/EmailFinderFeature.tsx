@@ -19,7 +19,7 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-6 sm:p-8">
             <Image
-              src="/images/img-test.svg"
+              src="/images/img-test.webp"
               alt="Email Finder Feature"
               width={643} // Adjust as needed
               height={471} // Adjust as needed
