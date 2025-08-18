@@ -77,14 +77,15 @@ export default function HowWeOutperform() {
                   </li>
                 ))}
               </ul>
-{/* Call to Action Button 
+
               <Link
                 href={href}
-                className="inline-block bg-[#6c3cbe] hover:bg-[#4b239e] text-white text-sm font-semibold py-2 px-4 rounded-lg transition"
+
+                className="hidden inline-block bg-[#6c3cbe] hover:bg-[#4b239e] text-white text-sm font-semibold py-2 px-4 rounded-lg transition"
               >
                 {cta}
               </Link>
-              */}
+           
             </div>
           ))}
         </div>
