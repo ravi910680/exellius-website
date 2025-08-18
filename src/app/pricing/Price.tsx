@@ -40,30 +40,26 @@ function formatCurrency(val: number) {
 }
 
 function getPricePerCredit(typeKey: string, quantity: number) {
-  if (quantity >= 1000000) {
-    switch (typeKey) {
-      case "mobileFinder": return 0.04;
-      default: return 0.0015;
-    }
-  }
-  if (quantity >= 100000) {
-    switch (typeKey) {
-      case "mobileFinder": return 0.05;
-      default: return 0.006;
-    }
-  }
-  if (quantity >= 10000) {
-    switch (typeKey) {
-      case "mobileFinder": return 0.055;
-      default: return 0.009;
-    }
-  }
-  // Default: 1,000 range
   switch (typeKey) {
-    case "mobileFinder": return 0.06;
-    default: return 0.01;
+    case "emailFinder": // Email Credits
+    case "emailVerifier": // Email Verifier
+    case "domainSearch": // Professional Email Finder (old Domain Search)
+      if (quantity >= 1000000) return 0.0015;
+      if (quantity >= 100000) return 0.006;
+      if (quantity >= 10000) return 0.009;
+      return 0.01;
+
+    case "mobileFinder": // Mobile Number Finder
+      if (quantity >= 1000000) return 0.04;
+      if (quantity >= 100000) return 0.05;
+      if (quantity >= 10000) return 0.055;
+      return 0.06;
+
+    default:
+      return 0.01;
   }
 }
+
 
 
 export default function ExelliusPricingTabs() {
