@@ -89,7 +89,7 @@ export default function Header() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {label === "Pricing Page" ? (
-                  <Link href="/pricing" className="flex items-center gap-1 hover:text-purple-600 p-2">
+                  <Link href="/coming-soon" className="flex items-center gap-1 hover:text-purple-600 p-2">
                     Pricing
                   </Link>
                 ) : label === "Support" ? (
@@ -185,7 +185,7 @@ export default function Header() {
             {["Pricing Page", "Support", ...Object.keys(menuData)].map(label => (
               <div key={label} className="mb-2">
                 {label === "Pricing Page" ? (
-                  <Link href="/pricing" className="block text-gray-800 py-2">
+                  <Link href="/coming-soon" className="block text-gray-800 py-2">
                     Pricing
                   </Link>
                 ) : label === "Support" ? (
