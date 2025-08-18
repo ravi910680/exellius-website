@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, X } from "lucide-react"
+import { Facebook, Instagram, Linkedin} from "lucide-react"
 import Link from "next/link"
 
 const XIcon = () => (
