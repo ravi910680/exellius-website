@@ -25,7 +25,7 @@ export default function LeadDiscoveryStep4() {
             {/* Left Panel */}
             <div className="w-[230px]">
               <Image
-                src="/img-4a.png"
+                src="/images/img-20.png"
                 alt="Campaign Panel 1"
                 width={230}
                 height={360}

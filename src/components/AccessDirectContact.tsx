@@ -18,11 +18,11 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/home-3.png"
+              src="/images/img-16.png"
               alt="Phone Intelligence Feature"
-              width={500}  // Adjust width and height as needed
-              height={450}
-              className="rounded-lg bg-white"
+              width={2578}  // Adjust width and height as needed
+              height={2028}
+              className="rounded-lg "
               priority
             />
           </div>

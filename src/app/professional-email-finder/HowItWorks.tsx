@@ -31,12 +31,12 @@ export default function LeadDiscoveryStep1() {
 
           {/* Image - shows first on mobile, right side on desktop */}
           <div className="w-full lg:w-1/2 relative z-10 flex justify-center order-first lg:order-last">
-            <div className="w-[420px]">
+            <div >
               <Image
-                src="/finder-2.svg"
+                src="/images/img-23.png"
                 alt="Department pattern UI"
-                width={420}
-                height={300}
+                width={2344}
+                height={1916}
                 className="w-full h-auto object-contain rounded-lg"
               />
             </div>

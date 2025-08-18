@@ -29,7 +29,7 @@ export default function LeadDiscoveryHero() {
         {/* Left: Static Image - shows first on mobile, left column on desktop */}
         <div className="w-full max-w-xl order-first lg:order-first">
           <Image
-            src="/lead-discovery/hero.png"
+            src="/images/img-1.png"
             alt="Lead Discovery Visual"
             width={800}
             height={800}

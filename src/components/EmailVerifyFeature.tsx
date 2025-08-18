@@ -19,11 +19,11 @@ export default function EmailVerifyFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/home-2.png"
+              src="/images/img-17.png"
               alt="Email Verification Feature"
-              width={500}
-              height={450}
-              className="rounded-lg shadow bg-white"
+              width={2788}
+              height={1718}
+              className="rounded-lg"
               priority
             />
           </div>

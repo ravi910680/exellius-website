@@ -14,7 +14,7 @@ export default function LeadDiscoveryStep1() {
         <div className="h-1 w-20 bg-[#6c3cbe] mt-4 mb-16 mx-auto rounded"></div>
 
         {/* Inner Card */}
-        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
+        <div className="relative bg-[#FBF8FE] rounded-xl p-6 md:p-6 flex flex-col lg:flex-row items-center  shadow-sm border border-gray-200 overflow-hidden">
           {/* Right-side background image inside the card */}
           <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
             <Image
@@ -27,14 +27,16 @@ export default function LeadDiscoveryStep1() {
 
           {/* Right: Single Image - show first on mobile */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
-            <div className="w-[520px]">
+            <div className="w-[620px]">
               <Image
-                src="/lead-discovery/img-3.svg" // Replace with appropriate image if needed
-                alt="Step visual"
-                width={420}
-                height={300}
-                className="w-full h-auto object-contain rounded-lg"
-              />
+  src="/images/img-12.png"
+  alt="Step visual"
+  width={1200}   // instead of 640
+  height={762}
+  priority
+  className="w-full h-auto object-contain rounded-lg"
+/>
+
             </div>
           </div>
 

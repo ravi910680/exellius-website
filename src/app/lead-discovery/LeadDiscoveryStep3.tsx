@@ -8,7 +8,7 @@ export default function LeadDiscoveryStep3() {
     <section className="bg-white px-6">
       <div className="max-w-7xl mx-auto">
         {/* Inner Card */}
-        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
+        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-6 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
 
           {/* Full background image inside the card */}
           <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
@@ -22,12 +22,13 @@ export default function LeadDiscoveryStep3() {
 
           {/* Right: Step 3 Visual - show first on mobile */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
-            <div className="w-[520px]">
+            <div >
               <Image
-                src="/lead-discovery/img-5.png" // Replace with appropriate image if needed
+                src="/images/img-24.png" // Replace with appropriate image if needed
                 alt="Step 3 Visual"
-                width={420}
-                height={300}
+               width={2776}   // upgraded from 520
+  height={1784}   // keeps proper aspect ratio
+  priority
                 className="w-full h-auto object-contain rounded-lg"
               />
             </div>

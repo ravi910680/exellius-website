@@ -5,10 +5,10 @@ import { CheckCircle } from "lucide-react"
 
 export default function LeadDiscoveryStep2() {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Step Card with background image behind entire content */}
-        <div className="relative rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden bg-[#FEF0EC]">
+        <div className="relative rounded-xl p-6 md:p-6 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden bg-[#FEF0EC]">
           
           {/* Background image applied to full inner section */}
           <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-40 hidden md:block z-0">
@@ -22,15 +22,17 @@ export default function LeadDiscoveryStep2() {
 
           {/* Left: Foreground image block */}
           <div className="w-full lg:w-1/2 relative z-10">
-            <div className=" rounded-lg p-2 w-full h-full flex justify-center items-center">
-              <Image
-                src="/lead-discovery/img-4.svg"
-                alt="Step 2 Visual"
-                width={520}
-                height={360}
-                className="w-full h-auto object-contain "
-              />
-            </div>
+            <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
+  <Image
+    src="/images/img-11.png"
+    alt="Step 2 Visual"
+    width={2732}   // original width
+    height={1803}  // original height
+    priority
+    className="w-full h-auto object-contain"
+  />
+</div>
+
           </div>
 
           {/* Right: Text Content */}

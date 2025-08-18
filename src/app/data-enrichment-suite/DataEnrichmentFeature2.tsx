@@ -5,10 +5,10 @@ import { CheckCircle } from "lucide-react"
 
 export default function DataEnrichmentFeature2() {
   return (
-    <section className="bg-white px-6">
+    <section className="bg-white px-2">
       <div className="max-w-7xl mx-auto">
         {/* Enrichment Feature Card */}
-        <div className="relative rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden bg-[#FEF0EC]">
+        <div className="relative rounded-xl p-6 md:p-6 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden bg-[#FEF0EC]">
           
           {/* Background Graphic (left side) */}
           <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-40 hidden md:block z-0">
@@ -24,7 +24,7 @@ export default function DataEnrichmentFeature2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
               <Image
-                src="/data-4.svg" // Replace with real visual
+                src="/images/img-4.png" // Replace with real visual
                 alt="CRM Enrichment Visual"
                 width={420}
                 height={320}

@@ -9,10 +9,10 @@ export default function DomainEmailFeature() {
         <div className="w-full lg:w-1/2 relative">
           <div className="rounded-xl overflow-hidden">
             <Image
-              src="/finder-1.svg" // replace with your actual UI asset
+              src="/images/img-2.png" // replace with your actual UI asset
               alt="Domain Search UI"
-              width={500}
-              height={400}
+              width={2904}
+              height={2496}
               className="w-full h-auto"
             />
           </div>

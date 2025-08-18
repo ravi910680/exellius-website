@@ -19,11 +19,11 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/home-7.png"
+              src="/images/img-13.png"
               alt="Email finder UI"
-              width={500}
-              height={300}
-              className="rounded-md shadow-md"
+              width={2468}
+              height={1964}
+              className="rounded-md"
             />
           </div>
         </div>

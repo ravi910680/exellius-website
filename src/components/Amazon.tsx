@@ -19,11 +19,11 @@ export default function EmailVerifyFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/home/home-6.png"
+              src="/images/img-19.png"
               alt="Email verification UI"
-              width={500}
-              height={300}
-              className="rounded-md shadow-md"
+              width={1676}
+              height={2004}
+              className="rounded-md "
             />
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function LeadDiscoveryStep3() {
     <section className="bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto text-center">
         {/* Inner Card */}
-        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
+        <div className="relative bg-[#FBF8FE] rounded-xl p-8 md:p-6 flex flex-col lg:flex-row items-center gap-10 shadow-sm border border-gray-200 overflow-hidden">
 
           {/* Background graphic on right */}
           <div className="absolute inset-y-0 right-0 w-1/2 pointer-events-none opacity-90 hidden md:block z-0">
@@ -16,15 +16,15 @@ export default function LeadDiscoveryStep3() {
               src="/grp-large.png"
               alt="Background graphic"
               fill
-              className="object-contain object-right"
+              className="object-cover object-right"
             />
           </div>
 
           {/* Right: Image - appears first on mobile, second on desktop */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
-            <div className="w-[420px]">
+            <div className="w-[520px]">
               <Image
-                src="/data-5.svg" // Replace with actual step 3 image
+                src="/images/img-5.png" // Replace with actual step 3 image
                 alt="Step 3 visual"
                 width={420}
                 height={300}

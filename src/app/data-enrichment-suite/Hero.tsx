@@ -23,21 +23,21 @@ export default function DataEnrichmentHero() {
         className="absolute bottom-0 left-0 w-full object-cover z-0"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between ">
         {/* Right: Image - show first on mobile, second on desktop */}
-        <div className="w-full max-w-lg order-first lg:order-last">
+        <div className="w-full  order-first lg:order-last">
           <Image
-            src="/data-1.svg" // Ensure this path exists
+            src="/images/img-3.png" // Ensure this path exists
             alt="Data Enrichment Visual"
-            width={800}
-            height={800}
+            width={828}
+            height={478}
             className="w-full h-auto"
           />
         </div>
 
         {/* Left: Text Content - show second on mobile, first on desktop */}
-        <div className="max-w-2xl text-left order-last lg:order-first">
-          <h1 className="text-5xl font-bold leading-snug">
+        <div className="max-w-xl text-left order-last lg:order-first">
+          <h1 className="text-4xl font-bold leading-snug">
             Boost Business Growth with{" "}
             <span className="text-[#9856F2]">Advanced</span> Data Enrichment
           </h1>

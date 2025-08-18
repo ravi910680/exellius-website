@@ -6,15 +6,15 @@ import { CheckCircle } from "lucide-react"
 export default function ProspectingHighlight() {
   return (
     <section className="bg-white py-24 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center ">
         
         {/* Right UI Image - show first on mobile, second on desktop */}
         <div className="w-full lg:w-1/2 flex justify-center order-first lg:order-last">
           <Image
-            src="/domain-5.png" // Replace with actual image
+            src="/images/img-6.png" // Replace with actual image
             alt="Prospecting UI"
-            width={560}
-            height={360}
+            width={760}
+            height={560}
             className="w-full h-auto object-contain"
           />
         </div>
