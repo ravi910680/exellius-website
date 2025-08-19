@@ -10,7 +10,7 @@ export default function EcommerceIntelligenceSection() {
         {/* Left Image */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/plate-3.svg" // replace with your actual image path
+            src="/images/img-19.svg" // replace with your actual image path
             alt="Exellius eCommerce Intelligence"
             width={600}
             height={400}

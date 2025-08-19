@@ -12,7 +12,7 @@ const featuresMenuPrimary = [
   { label: "Professional Email Finder /Email Lookup", desc: "Locate Any Work Email Instantly", href: "/professional-email-finder" },
   { label: "Advanced Email Verifier", desc: "Check the Validity of an Email Address", href: "/advanced-email-verifier" },
   { label: "Phone Number Finder", desc: "Find Any Professional/Company Phone", href: "/phone-number-finder" },
-  { label: "Website Technology Checker", desc: "Identify Technologies Used by Websites", href: "/coming-soon" },
+  { label: "Website Technology Checker", desc: "Identify Technologies Used by Websites", href: "/website-technology-checker" },
   { label: "Data Enrichment Suite", desc: "Enhance & Complete Your Lead Data", href: "/data-enrichment-suite" },
 ]
 
