@@ -1,13 +1,11 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { CheckCircle } from "lucide-react"
+import Image from "next/image";
 
-export default function TechCheckerHero() {
+export default function WebsiteTechChecker() {
   return (
-    <section className="relative w-full bg-[#F0F8FF] pt-44 pb-20 px-6 overflow-hidden">
-      {/* Top Background */}
+    <section className="relative w-full py-24 pt-60 bg-[#fcf4fc] overflow-hidden text-center">
+      {/* Background Layers */}
       <Image
         src="/bg_top.png"
         alt="Top Background"
@@ -15,8 +13,6 @@ export default function TechCheckerHero() {
         height={400}
         className="absolute top-0 left-0 w-full object-cover z-0"
       />
-
-      {/* Bottom Background */}
       <Image
         src="/bg_bottom.png"
         alt="Bottom Background"
@@ -24,60 +20,41 @@ export default function TechCheckerHero() {
         height={400}
         className="absolute bottom-0 left-0 w-full object-cover z-0"
       />
+      <div className="absolute inset-0 bg-[url('/grid-lines.svg')] bg-cover opacity-10 pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-        
-        {/* Left: Static Image */}
-        <div className="w-full max-w-md">
-          <Image
-            src="/tech_checker.png" // 🔁 Replace with a relevant illustration or screenshot
-            alt="Website Technology Checker"
-            width={600}
-            height={600}
-            className="w-full h-auto"
-          />
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <p className="text-md text-[#9856F2] font-semibold mb-2 pb-10">
+          Website Technology Checker
+        </p>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Analyze the Technology Stack <br />
+          <span className="text-[#9856F2]">Behind Any Website</span>
+        </h1>
+
+        <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+          Run a free, instant website tech stack analysis of CMS, frameworks, trackers, and security tools.
+        </p>
+
+        {/* Input + Button */}
+        <div className="flex justify-center">
+          <div className="flex w-full max-w-3xl bg-white rounded-lg shadow-sm overflow-hidden border border-[#e0d0f5]">
+            <input
+              type="text"
+              placeholder="Enter Technology (e.g., Shopify, Magento, Klaviyo)"
+              className="flex-1 py-4 px-4 text-sm outline-none text-black bg-transparent"
+            />
+            <button className="bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6">
+              Check Now
+            </button>
+          </div>
         </div>
 
-        {/* Right: Headline + Content */}
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold leading-snug">
-            Instantly Discover <span className="text-[#6c3cbe]">What Powers</span> Any Website
-          </h1>
-
-          <p className="mt-6 text-base text-gray-900">
-            Curious about what tools, platforms, or stacks your competitors are using?
-            With our Website Technology Checker, you can uncover any site&apos;s backend & frontend tools—fast.
-            Whether you&apos;re a developer, marketer, or founder, understanding tech choices gives you a strategic edge.
-          </p>
-
-          <p className="mt-4 text-base text-gray-900">
-            From CMS, frameworks, and CDNs to analytics and marketing scripts—we scan it all.
-            No setup. Just enter a domain and get full-stack visibility instantly.
-          </p>
-
-          <ul className="mt-6 space-y-2">
-            {[
-              "Detect 80+ technology types including CMS, JS libraries, and CRMs",
-              "Instant results—no signup required",
-              "Built for developers, marketers & tech analysts"
-            ].map((point, i) => (
-              <li key={i} className="flex items-start gap-2 font-medium">
-                <CheckCircle className="w-5 h-5 text-[#6c3cbe]" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="bg-[#9856F2] hover:bg-[#5a30aa] text-white text-lg">
-              Try it Free
-            </Button>
-            <Button variant="ghost" size="lg" className="text-[#6c3cbe] text-lg">
-              Explore Features
-            </Button>
-          </div>
+        {/* Trust Badges */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-10 text-gray-700 text-sm font-medium">
+          <span>✅ No registration</span>
+          <span>✅ 100% private scans</span>
         </div>
       </div>
     </section>
-  )
+  );
 }
