@@ -24,7 +24,7 @@ export default function LeadDiscoveryStep2() {
           <div className="w-full lg:w-1/2 relative z-10">
             <div className="rounded-lg p-2 w-full h-full flex justify-center items-center">
   <Image
-    src="/images/img-11.png"
+    src="/images/img-11.svg"
     alt="Step 2 Visual"
     width={2732}   // original width
     height={1803}  // original height

@@ -18,7 +18,7 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/images/img-16.png"
+              src="/images/img-16.svg"
               alt="Phone Intelligence Feature"
               width={2578}  // Adjust width and height as needed
               height={2028}

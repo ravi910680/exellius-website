@@ -11,7 +11,7 @@ export default function DomainEmailFeature() {
         <div className="w-full lg:w-1/2 relative order-first lg:order-first">
           <div className="rounded-xl overflow-hidden">
             <Image
-              src="/images/img-22.png" // Replace with your actual image path
+              src="/images/img-22.svg" // Replace with your actual image path
               alt="Domain Search UI"
               width={640}
               height={400}

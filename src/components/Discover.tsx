@@ -18,7 +18,7 @@ export default function EmailFinderFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/images/img-14.png"
+              src="/images/img-14.svg"
               alt="Email finder UI"
               width={2638}
               height={1595}

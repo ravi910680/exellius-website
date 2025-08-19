@@ -19,7 +19,7 @@ export default function EmailVerifyFeature() {
           />
           <div className="relative z-10 flex items-center justify-center h-full p-8">
             <Image
-              src="/images/img-19.png"
+              src="/images/img-19.svg"
               alt="Email verification UI"
               width={1676}
               height={2004}

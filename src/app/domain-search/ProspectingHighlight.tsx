@@ -11,7 +11,7 @@ export default function ProspectingHighlight() {
         {/* Right UI Image - show first on mobile, second on desktop */}
         <div className="w-full lg:w-1/2 flex justify-center order-first lg:order-last">
           <Image
-            src="/images/img-6.png" // Replace with actual image
+            src="/images/img-6.svg" // Replace with actual image
             alt="Prospecting UI"
             width={760}
             height={560}

@@ -27,7 +27,7 @@ export default function DataEnrichmentHero() {
         {/* Right: Image - show first on mobile, second on desktop */}
         <div className="w-full  order-first lg:order-last">
           <Image
-            src="/images/img-3.png" // Ensure this path exists
+            src="/images/img-3.svg" // Ensure this path exists
             alt="Data Enrichment Visual"
             width={828}
             height={478}

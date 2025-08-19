@@ -22,7 +22,7 @@ export default function LeadDiscoveryStep2() {
           {/* ✅ Left: UI Image */}
           <div className="w-full lg:w-1/2 relative z-10">
             <Image
-              src="/images/img-25.png" // Replace with actual image
+              src="/images/img-25.svg" // Replace with actual image
               alt="Contact Discovery UI"
               width={2416}
               height={2112}

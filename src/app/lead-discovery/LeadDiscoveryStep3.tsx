@@ -24,7 +24,7 @@ export default function LeadDiscoveryStep3() {
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
             <div >
               <Image
-                src="/images/img-24.png" // Replace with appropriate image if needed
+                src="/images/img-24.svg" // Replace with appropriate image if needed
                 alt="Step 3 Visual"
                width={2776}   // upgraded from 520
   height={1784}   // keeps proper aspect ratio

@@ -30,7 +30,7 @@ export default function LeadDiscoveryStep1() {
           <div className="w-full lg:w-1/2 relative z-10 flex justify-center order-first lg:order-last">
             <div className="w-[620px]">
               <Image
-                src="/images/img-9.png"
+                src="/images/img-9.svg"
                 alt="Step visual"
                 width={620}
                 height={500}
