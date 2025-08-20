@@ -59,19 +59,41 @@ function getPricePerCredit(typeKey: string, quantity: number) {
       return 0.01;
   }
 }
+// slider (0–100) -> value (0..1M)
 const sliderToValue = (slider: number) => {
-  const min = Math.log10(1000);     // log10(1K) = 3
-  const max = Math.log10(1000000);  // log10(1M) = 6
-  const scale = min + (slider / 100) * (max - min);
-  return Math.round(Math.pow(10, scale) / 1000) * 1000; // round to nearest 1K
-};
+  if (slider <= 0) return 0;
 
-// Convert actual value back to slider position
-const valueToSlider = (value: number) => {
+  const s = slider / 100;
+
+  if (s <= 0.25) {
+    // Linear from 0 → 1K
+    const v = (s / 0.25) * 1000;
+    return Math.round(v / 1000) * 1000;
+  }
+
+  // Log scale from 1K → 1M
   const min = Math.log10(1000);
   const max = Math.log10(1000000);
-  return ((Math.log10(value) - min) / (max - min)) * 100;
+  const scale = min + ((s - 0.25) / 0.75) * (max - min);
+  return Math.round(Math.pow(10, scale) / 1000) * 1000;
 };
+
+// value (0..1M) -> slider (0–100)
+const valueToSlider = (value: number) => {
+  if (value <= 0) return 0;
+
+  if (value <= 1000) {
+    // Linear 0 → 1K maps 0% → 25%
+    return (value / 1000) * 25;
+  }
+
+  // Log scale 1K → 1M maps 25% → 100%
+  const min = Math.log10(1000);
+  const max = Math.log10(1000000);
+  const s = (Math.log10(value) - min) / (max - min);
+  return 25 + s * 75;
+};
+
 
 
 
@@ -81,10 +103,10 @@ export default function ExelliusPricingTabs() {
 
   // ---- Credit Bundles State ----
   const [creditCounts, setCreditCounts] = useState({
-    emailFinder: 10000,
-    mobileFinder: 10000,
-    emailVerifier: 10000,
-    domainSearch: 10000,
+    emailFinder: 1000,
+    mobileFinder: 1000,
+    emailVerifier: 1000,
+    domainSearch: 1000,
   });
 
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
@@ -107,21 +129,20 @@ export default function ExelliusPricingTabs() {
     }));
   };
 
-  const handleInputChange = (
-    key: keyof typeof creditCounts,
-    value: string
-  ) => {
-    let num = parseInt(value.replace(/,/g, ""), 10);
-    if (isNaN(num)) num = 1000;
-    if (num < 1000) num = 1000;
-    if (num > 1000000) num = 1000000;
-    // Round to nearest 1K
-    num = Math.round(num / 1000) * 1000;
-    setCreditCounts((prev) => ({
-      ...prev,
-      [key]: num,
-    }));
-  };
+  // Add missing handleInputChange function
+  const handleInputChange = (key: keyof typeof creditCounts, value: string) => {
+  let num = parseInt(value, 10);
+  if (isNaN(num)) num = 0;
+
+  // clamp between 0 and 1,000,000
+  num = Math.max(0, Math.min(1000000, num));
+
+  setCreditCounts((prev) => ({
+    ...prev,
+    [key]: num,
+  }));
+};
+
 
   async function handleBuyCredits() {
     window.location.href = `https://app.exellius.com/signup?credits=${totalCredits}`;
@@ -358,8 +379,7 @@ export default function ExelliusPricingTabs() {
                 </h4>
                {creditTypes.map((type) => (
         <div key={type.key} className="mb-8">
-          {/* Label + Input box */}
-          <div className="flex items-center mb-2 gap-2">
+          <div className="flex items-center mb-2 gap-1">
             <span className="font-semibold">{type.label}</span>
             <span className="ml-2 text-gray-400 text-xs">
               {type.description}
@@ -371,12 +391,11 @@ export default function ExelliusPricingTabs() {
               </span>
             </span>
 
-            {/* Input box aligned right */}
             <input
               type="number"
-              min={1000}
+              min={0}
               max={1000000}
-              step={1000}
+              step={1}
               value={creditCounts[type.key as keyof typeof creditCounts]}
               onChange={(e) => handleInputChange(type.key as keyof typeof creditCounts, e.target.value)}
               className="ml-auto w-28 border border-gray-300 rounded px-2 py-1 text-sm"
@@ -401,11 +420,15 @@ export default function ExelliusPricingTabs() {
 
           {/* Labels at key points */}
           <div className="flex justify-between text-xs text-gray-400 mt-1">
+            <span>0</span>
+            
             <span>1K</span>
             <span>10K</span>
             <span>100K</span>
             <span>1M</span>
           </div>
+
+          
         </div>
       ))}
               </div>
