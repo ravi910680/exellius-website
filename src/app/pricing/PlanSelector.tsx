@@ -73,7 +73,7 @@ export default function PricingPlans() {
 
       <div className="mt-10 text-sm text-gray-600">
         Still unsure? <br />
-        Contact us (<span className="underline">link email</span>) to learn more about our pricing and plan options.
+        Contact us  to learn more about our pricing and plan options.
       </div>
 
       <div className="mt-6 flex justify-center gap-4">

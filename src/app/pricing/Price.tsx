@@ -103,10 +103,10 @@ export default function ExelliusPricingTabs() {
 
   // ---- Credit Bundles State ----
   const [creditCounts, setCreditCounts] = useState({
-    emailFinder: 1000,
-    mobileFinder: 1000,
-    emailVerifier: 1000,
-    domainSearch: 1000,
+    emailFinder: 0,
+    mobileFinder: 0,
+    emailVerifier: 0,
+    domainSearch: 0,
   });
 
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
@@ -364,7 +364,7 @@ export default function ExelliusPricingTabs() {
         {activeTab === "data" && (
           <div className="p-10 bg-[#FFF5FD]">
             <h2 className="text-3xl font-bold text-center mb-4">
-              Access exellius data via API.
+              Access exellius data
             </h2>
             <p className="text-center text-sm text-gray-500 max-w-2xl mx-auto mb-12">
               Exellius Data Platform is a flexible way to access our email finding and
