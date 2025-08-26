@@ -63,7 +63,7 @@ export default function Footer() {
           <h4 className="font-semibold mb-4 pb-1">Resources</h4>
           <div className="w-20 h-1 bg-white rounded mb-5" />
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="/coming-soon">Blogs</Link></li>
+            <li><Link href="/blog">Blogs</Link></li>
             <li><Link href="/customer-stories">Customer Stories</Link></li>
             <li><Link href="/templates">Templates</Link></li>
             <li><Link href="/help-center">Help Center</Link></li>
