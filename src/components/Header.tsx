@@ -25,7 +25,7 @@ const featuresMenuSecondary = [
 
 const menuData: Record<"Resources" | "Company", { label: string; href: string }[]> = {
   Resources: [
-    { label: "Blogs", href: "/coming-soon" },
+    { label: "Blogs", href: "/blog" },
     { label: "Customer Stories", href: "/customer-stories" },
     { label: "Templates", href: "/templates" },
     { label: "Help Center", href: "/help-center" },
