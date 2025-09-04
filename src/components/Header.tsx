@@ -77,18 +77,17 @@ export default function Header() {
     <>
 
   <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-LVNFDZ8STE"
+        src="https://www.googletagmanager.com/gtag/js?id=G-3B59ZB7KXM"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="ga-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-LVNFDZ8STE');
+          gtag('config', 'G-3B59ZB7KXM');
         `}
       </Script>
-
      
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-white rounded-full shadow-md px-6 py-6">
         <div className="flex items-center justify-between w-full">
