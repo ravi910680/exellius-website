@@ -74,6 +74,18 @@ export default function Header() {
 
   return (
     <>
+
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3B59ZB7KXM"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3B59ZB7KXM');
+          `,
+        }}
+      />
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-7xl bg-white rounded-full shadow-md px-6 py-6">
         <div className="flex items-center justify-between w-full">
           <Link href="/">
