@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Hero from "./Hero"
@@ -18,6 +19,13 @@ import CallToAction from "@/components/CallToAction"
 export default function LeadDiscoveryPage() {
   return (
     <>
+    <Head>
+                <title>Enhance Your Data Accuracy with Exellius’ Data Enrichment Tools</title>
+                <meta
+                  name="description"
+                  content="Discover Exellius’ advanced data enrichment services and data enrichment tools to enhance customer profiles, improve lead quality, and drive better business decisions."
+                />
+              </Head>
       <Header />
       <main className="min-h-screen bg-[#f9f7fe] ">
      

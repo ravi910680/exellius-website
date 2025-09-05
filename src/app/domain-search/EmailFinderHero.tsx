@@ -4,7 +4,31 @@ import { usePathname, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import clsx from "clsx"
 import Image from "next/image"
+import CryptoJS from "crypto-js"
 
+const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02" // must match backend
+
+// ---------- Encryption helpers ----------
+function encryptData(data: unknown): string | null {
+  try {
+    return CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString()
+  } catch (error) {
+    console.error("Encryption Error:", error)
+    return null
+  }
+}
+
+function decryptData<T>(encryptedData: string): T | null {
+  try {
+    const decryptedText = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY).toString(CryptoJS.enc.Utf8)
+    return decryptedText ? (JSON.parse(decryptedText) as T) : null
+  } catch (error) {
+    console.error("Decryption Error:", error)
+    return null
+  }
+}
+
+// ---------- Tab mapping ----------
 const tabToSlug: Record<string, string> = {
   "Search Using Domain": "domain-search",
   "Find Using Names": "professional-email-finder",
@@ -17,18 +41,16 @@ const slugToTab: Record<string, string> = {
   "advanced-email-verifier": "Get it Verified",
 }
 
-const tabs = [
-  "Search Using Domain",
-  "Find Using Names",
-  "Get it Verified",
-]
+const tabs = ["Search Using Domain", "Find Using Names", "Get it Verified"]
 
+// ---------- Component ----------
 export default function EmailFinderHero() {
   const router = useRouter()
   const pathname = usePathname()
 
   const slug = pathname?.split("/").filter(Boolean).pop() || ""
   const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
+  const [domain, setDomain] = useState("")
 
   // Sync selected tab with URL on route change
   useEffect(() => {
@@ -38,6 +60,74 @@ export default function EmailFinderHero() {
   const handleTabClick = (tab: string) => {
     const slug = tabToSlug[tab]
     router.push(`/${slug}`)
+  }
+
+  const handleSearch = async () => {
+    const filters = {
+      includeIndustry: [],
+      excludeIndustry: [],
+      includeemployeeCount: [],
+      includeRevenue: [],
+      includemanagmentRole: [],
+      includeCompany: [domain], // domain from input
+      excludeCompany: [],
+      includedepartmentKeyword: [],
+      includePersonalCountry: [],
+      excludePersonalCountry: [],
+      includecompanyLocation: [],
+      excludeCompanyLocation: [],
+      includejobTitles: [],
+      excludeJobTitles: [],
+      includetechnology: [],
+      foundingYear: [],
+      funding: [],
+      perCompany: 1,
+    }
+
+    const page = 1
+    const currentLimit = 10
+
+    console.log("Filters:", filters)
+
+    // 🔒 Encrypt request body
+    const encryptedData = encryptData({
+      ...filters,
+      page,
+      limit: currentLimit,
+      sort_by: "first_name",
+      sort_order: "asc",
+    })
+
+    const requestOptions: RequestInit = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, // keep in .env
+      },
+      body: JSON.stringify({ data: encryptedData }),
+    }
+
+    try {
+      const response = await fetch(
+        "https://app.exellius.com/api/leads/getPeopleLeads/",
+        requestOptions
+      )
+
+      console.log("Response Status:", response.status)
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log("Decrypted API Result:", decryptData<unknown>(result.data)) // decrypt with generic
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("API Error:", error.message)
+      } else {
+        console.error("Unknown API Error:", error)
+      }
+    }
   }
 
   return (
@@ -95,9 +185,14 @@ export default function EmailFinderHero() {
               <input
                 type="text"
                 placeholder="Enter a domain name..."
+                value={domain}
+                onChange={(e) => setDomain(e.target.value)}
                 className="flex-1 py-4 px-4 text-sm outline-none text-black bg-transparent"
               />
-              <button className="bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6">
+              <button
+                onClick={handleSearch}
+                className="bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6"
+              >
                 Find email addresses
               </button>
             </div>

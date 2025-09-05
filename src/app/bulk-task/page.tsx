@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Hero from "./Hero"
@@ -16,6 +17,13 @@ import CallToAction from "@/components/CallToAction"
 export default function LeadDiscoveryPage() {
   return (
     <>
+    <Head>
+                <title>Bulk B2B Data Processing | Upload & Enrich Lead Lists at Scale</title>
+                <meta
+                  name="description"
+                  content="Process data points in minutes with Exellius' bulk email verification, finding, data enrichment or phone number finder. Get 95%+ deliverability guaranteed"
+                />
+              </Head>
       <Header />
       <main className="min-h-screen bg-[#f9f7fe] ">
         <Hero />

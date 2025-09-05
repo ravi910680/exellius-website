@@ -1,5 +1,5 @@
 // app/email-finder/page.tsx (or pages/email-finder.tsx if using pages directory)
-
+import Head from "next/head"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EmailFinderHero from "./EmailFinderHero";
@@ -17,6 +17,14 @@ import CallToAction2 from "./CallToAction";
 export default function EmailFinderPage() {
   return (
     <>
+
+    <Head>
+                <title>For a Reliable Email Verification Service, use Exellius Email Verifier</title>
+                <meta
+                  name="description"
+                  content="Ensure deliverability with Exellius' email verification service. Verify professional email addresses instantly with our accurate email verifier. Try free!"
+                />
+              </Head>
       <Header />
       <EmailFinderHero />
       <EmailValidationWarning />
