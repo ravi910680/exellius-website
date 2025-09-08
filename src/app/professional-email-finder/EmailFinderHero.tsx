@@ -1,6 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { usePathname, useRouter } from "next/navigation"
+import clsx from "clsx"
 import Image from "next/image"
 import CryptoJS from "crypto-js"
 
@@ -60,8 +62,42 @@ function decryptData<T>(encryptedData: string): T | null {
   }
 }
 
+const tabToSlug: Record<string, string> = {
+  "Search Using Domain": "domain-search",
+  "Find Using Names": "professional-email-finder",
+  "Get it Verified": "advanced-email-verifier",
+}
+
+const slugToTab: Record<string, string> = {
+  "domain-search": "Search Using Domain",
+  "professional-email-finder": "Find Using Names",
+  "advanced-email-verifier": "Get it Verified",
+}
+
+const tabs = ["Search Using Domain", "Find Using Names", "Get it Verified"]
+
 // ---------- Component ----------
 export default function EmailFinderHero() {
+
+
+
+  const router = useRouter()
+    const pathname = usePathname()
+  
+    const slug = pathname?.split("/").filter(Boolean).pop() || ""
+    const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
+    const [domain, setDomain] = useState("")
+  
+    // Sync selected tab with URL on route change
+    useEffect(() => {
+      setSelectedTab(slugToTab[slug] || "Search Using Domain")
+    }, [slug])
+  
+    const handleTabClick = (tab: string) => {
+      const slug = tabToSlug[tab]
+      router.push(`/${slug}`)
+    }
+
   const [fullName, setFullName] = useState("")
   const [companyName, setCompanyName] = useState("")
   const [results, setResults] = useState<LeadResult[]>([])
@@ -105,7 +141,7 @@ export default function EmailFinderHero() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBpX2tleSIsIm5hbWUiOiJkZWZhdWx0LWFwaS1rZXkiLCJwZXJtYW5lbnQiOnRydWUsImlhdCI6MTc1NzA3Nzg0OH0.6eqmipK-0-YIJIRu_U5GGF2ksuOyZXAQ3UzzFmDCEbw`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
       },
       body: JSON.stringify({ data: encryptedData }),
     }
@@ -116,10 +152,14 @@ export default function EmailFinderHero() {
         requestOptions
       )
 
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+
+     
+      
 
       const result = await response.json()
+      
       const decrypted = decryptData<ApiResponse>(result.data)
+      
 
       setResults(decrypted?.data || [])
     } catch (error) {
@@ -159,6 +199,25 @@ export default function EmailFinderHero() {
           <span className="text-[#9856F2]">Email Address</span> of Any
           Professional
         </h1>
+
+        <div className="flex justify-center mb-8">
+                  <div className="inline-flex rounded-md shadow-sm border border-[#e0d0f5] bg-white overflow-hidden">
+                    {tabs.map((tab, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleTabClick(tab)}
+                        className={clsx(
+                          "px-6 py-3 text-sm font-medium transition-all w-[200px]",
+                          selectedTab === tab
+                            ? "text-[#9856F2] border-b-2 border-[#9856F2] bg-[#f7f0fd]"
+                            : "text-gray-600 hover:bg-gray-100"
+                        )}
+                      >
+                        {tab}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
         {/* Search Form */}
         <div className="flex justify-center mb-12">
