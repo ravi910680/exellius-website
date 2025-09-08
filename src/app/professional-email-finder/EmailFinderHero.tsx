@@ -86,7 +86,7 @@ export default function EmailFinderHero() {
   
     const slug = pathname?.split("/").filter(Boolean).pop() || ""
     const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
-    const [domain, setDomain] = useState("")
+   
   
     // Sync selected tab with URL on route change
     useEffect(() => {
