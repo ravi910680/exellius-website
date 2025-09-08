@@ -105,7 +105,7 @@ export default function EmailFinderHero() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBpX2tleSIsIm5hbWUiOiJkZWZhdWx0LWFwaS1rZXkiLCJwZXJtYW5lbnQiOnRydWUsImlhdCI6MTc1NzA3Nzg0OH0.6eqmipK-0-YIJIRu_U5GGF2ksuOyZXAQ3UzzFmDCEbw`,
       },
       body: JSON.stringify({ data: encryptedData }),
     }
