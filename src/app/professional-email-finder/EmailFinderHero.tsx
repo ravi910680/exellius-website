@@ -100,6 +100,7 @@ export default function EmailFinderHero() {
       sort_order: "asc",
     })
 
+    console.log(process.env.NEXT_PUBLIC_API_TOKEN);
     const requestOptions: RequestInit = {
       method: "POST",
       headers: {
