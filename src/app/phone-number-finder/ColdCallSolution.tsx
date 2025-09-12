@@ -70,7 +70,7 @@ export default function ColdCallSolution() {
 
         {/* CTA Button */}
        <a
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  href="https://app.exellius.com/signup"
   target="_blank"
   rel="noopener noreferrer"
   className="inline-block"

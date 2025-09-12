@@ -19,10 +19,10 @@ export default function Footer() {
             Your daily stream of fresh data on companies and professionals
           </p>
           <div className="flex gap-4">
-            <Link href="https://www.instagram.com/exelliussystems"><Instagram className="w-5 h-5 text-[#9856F2]" /></Link>
-            <Link href="https://x.com/ExelliusSystems"><XIcon /></Link>
-            <Link href="https://www.linkedin.com/company/exellius-systems"><Linkedin className="w-5 h-5 text-[#9856F2]" /></Link>
-            <Link href="https://www.facebook.com/exelliussystems/"><Facebook className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/exelliussystems"><Instagram className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link target="_blank" rel="noopener noreferrer" href="https://x.com/ExelliusSystems"><XIcon /></Link>
+            <Link target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/exellius-systems"><Linkedin className="w-5 h-5 text-[#9856F2]" /></Link>
+            <Link target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/exelliussystems/"><Facebook className="w-5 h-5 text-[#9856F2]" /></Link>
           </div>
         </div>
 

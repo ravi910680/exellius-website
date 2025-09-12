@@ -42,7 +42,7 @@ export default function CustomerSuccess() {
               <li>✔ 42% increase in sales-qualified leads</li>
               <li>✔ 28% higher email open rates</li>
             </ul>
-            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+           {/* <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button> */}
           </div>
 
           {/* Case Study 2 */}
@@ -63,7 +63,7 @@ export default function CustomerSuccess() {
               <li>✔ 3x faster market entry</li>
               <li>✔ 67% reduction in bounce rates</li>
             </ul>
-            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+          {/*   <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>*/}
           </div>
 
           {/* New Case Study 3 */}
@@ -86,7 +86,7 @@ export default function CustomerSuccess() {
               <li>✔ 82% interview completion rate</li>
               <li>✔ 5x faster project turnaround</li>
             </ul>
-            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+            {/* <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>*/}
           </div>
 
           {/* New Case Study 4 */}
@@ -113,7 +113,7 @@ export default function CustomerSuccess() {
               <li>✔ 37% shorter sales cycle for pre-qualified leads</li>
               <li>✔ 92% data accuracy on merchant financial profiles</li>
             </ul>
-            <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>
+           {/*  <Button variant="link" className="mt-4 text-[#9856F2] p-0">Read Full Story →</Button>*/}
           </div>
         </div>
 

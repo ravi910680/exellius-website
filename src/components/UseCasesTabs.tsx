@@ -20,6 +20,7 @@ const tabs = [
       { value: "25%", label: "higher conversion rates" },
     ],
     cta: "Get Sales Team Toolkit",
+    link:"https://www.exellius.com/lead-discovery",
     lineBreak: "Average customer results:",
   },
   {
@@ -36,6 +37,7 @@ const tabs = [
       { value: "65%", label: "candidate engagement rate" },
     ],
     cta: "See Recruiting Templates",
+    link:"https://www.exellius.com/templates",
     lineBreak: "Proven outcomes:",
   },
   {
@@ -52,6 +54,7 @@ const tabs = [
       { value: "$250k+", label: "avg. incremental revenue" },
     ],
     cta: "Explore Data",
+    link:"https://www.exellius.com/amazon-seller-data",
     lineBreak: "Proven outcomes:",
   },
 ]
@@ -192,9 +195,16 @@ export default function UseCasesTabs() {
               ))}
             </div>
 
+ <a
+            href={tabData.link}
+            
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
             <Button className="bg-[#9856F2] hover:bg-[#813fe0] text-white px-6 py-4 text-base font-semibold rounded-md w-[300px]">
               {tabData.cta} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </a>
           </motion.div>
         </AnimatePresence>
       </div>

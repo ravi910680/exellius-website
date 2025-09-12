@@ -49,7 +49,7 @@ export default function EcommerceIntelligenceSection() {
 
           <p className="text-base text-gray-700 mb-6">
             👉 Start your search today! Use the{" "}
-            <a href="/website-tech-analyzer" className="text-[#9856F2] underline">
+            <a href="https://www.exellius.com/website-technology-checker" className="text-[#9856F2] underline">
               Exellius Website Tech Stack Analyzer
             </a>{" "}
             to see what technologies any website is using and explore live adoption trends.

@@ -9,6 +9,7 @@ import LeadDiscoveryStep3 from "./LeadDiscoveryStep3"
 import IndustriesWeServe from "./IndustriesWeServe"
 import HowWeOutperform from "./HowWeOutperform"
 import FlexibleSolutions from "./FlexibleSolutions"
+import CallToAction from "@/components/CallToAction"
 import FAQSection from "./FaqSection"
 import type { Metadata } from "next"
 
@@ -40,6 +41,7 @@ export default function LeadDiscoveryPage() {
             <HowWeOutperform />
             <FlexibleSolutions />
             <FAQSection />
+            <CallToAction />
           {/* Add your lead discovery content/components here */}
        
       </main>

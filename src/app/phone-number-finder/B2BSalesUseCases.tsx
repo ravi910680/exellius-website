@@ -42,7 +42,7 @@ export default function B2BSalesUseCases() {
 
           <p className="text-sm sm:text-base font-medium text-gray-900">
             Enhance your leads with our{" "}
-            <a href="#" className="text-[#9856F2] underline hover:text-[#6c3cbe] transition">
+            <a href="https://www.exellius.com/data-enrichment-suite" className="text-[#9856F2] underline hover:text-[#6c3cbe] transition">
               Data Enrichment Suite
             </a>.
           </p>

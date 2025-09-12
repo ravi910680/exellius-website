@@ -57,7 +57,7 @@ export default function EmailFinderFeature() {
             })}
           </ul>
           <a
-            href="https://www.exellius.com/coming-soon"
+            href="https://www.exellius.com/website-technology-checker"
            
             rel="noopener noreferrer"
             className="inline-block"

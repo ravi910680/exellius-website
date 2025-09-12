@@ -77,12 +77,18 @@ export default function PricingPlans() {
       </div>
 
       <div className="mt-6 flex justify-center gap-4">
+        <a href="https://www.exellius.com/contact-us" 
+  className="text-[#9856F2] font-medium hover:underline">
         <button className="bg-purple-600 text-white px-6 py-2 rounded-md hover:bg-purple-700 transition">
           Contact Us
         </button>
+        </a>
+         <a href="https://www.exellius.com/" 
+  className="text-[#9856F2] font-medium hover:underline">
         <button className="border border-purple-600 text-purple-600 px-6 py-2 rounded-md hover:bg-purple-50 transition">
           Learn More
         </button>
+        </a>
       </div>
     </div>
   )

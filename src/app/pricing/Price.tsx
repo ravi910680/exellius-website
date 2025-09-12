@@ -303,7 +303,7 @@ export default function ExelliusPricingTabs() {
                     </div>
                     {plan.enterprise ? (
                       <a
-                        href="https://app.exellius.com/contact-sales"
+                        href="https://www.exellius.com/contact-us"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-[140px] bg-[#f59e0b] hover:bg-[#d97706] text-white py-2 rounded-md text-sm font-semibold mb-4 text-center inline-block"
