@@ -86,6 +86,7 @@ export default function EmailFinderHero() {
   
     const slug = pathname?.split("/").filter(Boolean).pop() || ""
     const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
+    const [loading, setLoading] = useState(false)
    
   
     // Sync selected tab with URL on route change
@@ -103,6 +104,8 @@ export default function EmailFinderHero() {
   const [results, setResults] = useState<LeadResult[]>([])
 
   const handleSearch = async () => {
+
+     setLoading(true)
     const filters: Filters = {
       includeIndustry: [],
       excludeIndustry: [],
@@ -159,7 +162,8 @@ export default function EmailFinderHero() {
       const result = await response.json()
       
       const decrypted = decryptData<ApiResponse>(result.data)
-      
+      console.log(decrypted);
+       setLoading(false)
 
       setResults(decrypted?.data || [])
     } catch (error) {
@@ -243,7 +247,7 @@ export default function EmailFinderHero() {
               onClick={handleSearch}
               className="w-[25%] bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6 whitespace-nowrap"
             >
-              Find Email
+             {loading ? "Searching...":" Find Email"}
             </button>
           </div>
         </div>

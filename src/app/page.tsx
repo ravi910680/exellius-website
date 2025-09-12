@@ -1,4 +1,4 @@
-import Head from "next/head"
+
 
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
@@ -18,17 +18,21 @@ import StatsHighlight from "@/components/StatsHighlight"
 import Footer from "@/components/Footer"
 import CallToAction from "@/components/CallToAction"
 import FAQSection from "@/components/faqs"
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Bulk Email Verifier & B2B Lead Database | Exellius",
+    description:
+      "Find high-quality B2B leads with Exellius. Email validation tool, business contact finder, and technographic intelligence in one platform.",
+  }
+}
+
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Bulk Email Verifier &amp; B2B Lead Database | Exellius</title>
-        <meta
-          name="description"
-          content="Find high-quality B2B leads with Exellius. Email validation tool, business contact finder, and technographic intelligence in one platform."
-        />
-      </Head>
+      
 
       <Header />
       <main>
