@@ -1,5 +1,5 @@
 // app/email-finder/page.tsx (or pages/email-finder.tsx if using pages directory)
-import Head from "next/head"
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EmailFinderHero from "./EmailFinderHero";
@@ -14,17 +14,20 @@ import AccurateContactSection from "./AccurateContactSection";
 import EmailFinderSteps from "./EmailFinderSteps";
 import ReviewRatings from "./ReviewRatings";
 import OptimizeOutreach from "./OptimizeOutreach";
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Get Verified Business Emails Instantly with our Professional Email Finder",
+    description:
+      "Exellius Email Lookup Service helps you Find Email Addresses by Name & Domain. Try our Professional Email Finder for accurate, verified contacts. Start free today!",
+  }
+}
 export default function EmailFinderPage() {
   return (
     <>
 
-     <Head>
-                <title>Get Verified Business Emails Instantly with our Professional Email Finder </title>
-                <meta
-                  name="description"
-                  content="Exellius Email Lookup Service helps you Find Email Addresses by Name & Domain. Try our Professional Email Finder for accurate, verified contacts. Start free today!"
-                />
-              </Head>
+     
       <Header />
       <EmailFinderHero />
       <AccurateContactSection />

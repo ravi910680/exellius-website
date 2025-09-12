@@ -5,19 +5,22 @@ import Footer from "@/components/Footer";
 import CallToAction from "@/components/CallToAction";
 import Content from "./Content";
 import FAQs from "./FAQs";
-import Head from "next/head"
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Exellius Help Center - FAQs & Product Documentation",
+    description:
+      "Find instant answers about data sourcing, API integration, account management, and troubleshooting. Average response time: 22 minutes",
+  }
+}
+
 
 
 export default function EmailFinderPage() {
   return (
     <>
-    <Head>
-                <title>Exellius Help Center - FAQs & Product Documentation</title>
-                <meta
-                  name="description"
-                  content="Find instant answers about data sourcing, API integration, account management, and troubleshooting. Average response time: 22 minutes"
-                />
-              </Head>
+    
       <Header />
       
          

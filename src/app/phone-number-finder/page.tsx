@@ -1,5 +1,5 @@
 // app/email-finder/page.tsx (or pages/email-finder.tsx if using pages directory)
-import Head from "next/head"
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PhoneFinderHero from "./PhoneFinderHero";
@@ -14,17 +14,20 @@ import CustomerTestimonials from "./CustomerTestimonials";
 import PhoneCallToAction from "./PhoneCallToAction";
 import FAQSection from "./FAQSection";
 import CallToAction from "@/components/CallToAction";
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Accurate B2B Contact Data with Phone Number Finder | Exellius",
+    description:
+      "Find phone numbers for businesses effortlessly with Exellius’ B2B phone number finder. Access verified mobile numbers & boost lead engagement",
+  }
+}
 
 export default function EmailFinderPage() {
   return (
     <>
-    <Head>
-                <title>Accurate B2B Contact Data with Phone Number Finder | Exellius</title>
-                <meta
-                  name="description"
-                  content="Find phone numbers for businesses effortlessly with Exellius’ B2B phone number finder. Access verified mobile numbers & boost lead engagement"
-                />
-              </Head>
+   
       <Header />
        
             <PhoneFinderHero />

@@ -6,19 +6,22 @@ import Content from "./Content";
 import ColdEmailHero from "./ColdEmailHero";
 import SubjectLineFormulas from "./SubjectLineFormulas";
 import CallToAction from "@/components/CallToAction";
-import Head from "next/head"
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Free B2B Outreach Templates - Optimized for Exellius Data",
+    description:
+      "Download high-converting email sequences, LinkedIn scripts, and call templates designed to work seamlessly with Exellius' verified contact data",
+  }
+}
+
 
 
 export default function EmailFinderPage() {
   return (
     <>
-    <Head>
-                <title>Free B2B Outreach Templates - Optimized for Exellius Data</title>
-                <meta
-                  name="description"
-                  content="Download high-converting email sequences, LinkedIn scripts, and call templates designed to work seamlessly with Exellius' verified contact data"
-                />
-              </Head>
+    
       <Header />
       <ColdEmailHero />
      

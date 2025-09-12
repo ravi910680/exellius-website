@@ -4,19 +4,23 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Content from "./Content";
 import CallToAction from "@/components/CallToAction";
-import Head from "next/head"
+
+
+import type { Metadata } from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "About Exellius - Trusted B2B Data Solutions Provider",
+    description:
+      "Exellius empowers businesses with 95% accurate B2B contact data. Learn about our mission, global data intelligence platform, and commitment to data protection.",
+  }
+}
 
 
 export default function EmailFinderPage() {
   return (
     <>
-     <Head>
-                <title>About Exellius - Trusted B2B Data Solutions Provider </title>
-                <meta
-                  name="description"
-                  content="Exellius empowers businesses with 95% accurate B2B contact data. Learn about our mission, global data intelligence platform, and commitment to data protection."
-                />
-              </Head>
+    
       <Header />
       
             <Content />
