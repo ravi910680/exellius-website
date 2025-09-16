@@ -314,7 +314,7 @@ export default function ExelliusPricingTabs() {
                       <a
                         href="https://app.exellius.com/signup"
                         target="_blank"
-                        rel="noopener noreferrer"
+                       
                         className="w-[140px] bg-[#9856f2] hover:bg-[#7b44ca] text-white py-2 rounded-md text-sm font-semibold mb-4 text-center inline-block"
                       >
                         Buy now

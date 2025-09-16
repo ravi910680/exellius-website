@@ -56,9 +56,9 @@ export default function AmazonSellerFeature1() {
 
           {/* Right: Image */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10">
-            <div className="w-[420px]">
+            <div className="">
               <Image
-                src="/amazon-2.jpeg" // Replace with relevant visual
+                src="/images2/image-15.svg" // Replace with relevant visual
                 alt="Amazon Sellers Map"
                 width={420}
                 height={300}

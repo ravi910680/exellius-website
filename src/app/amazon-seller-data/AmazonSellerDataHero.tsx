@@ -26,7 +26,7 @@ export default function AmazonSellerDataHero() {
         {/* Left: Visual */}
         <div className="w-full max-w-md">
           <Image
-            src="/amazon-1.jpeg"
+            src="/images2/image-14.svg"
             alt="Amazon Seller Data"
             width={600}
             height={600}

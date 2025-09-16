@@ -47,7 +47,7 @@ export default function BulkTaskHero() {
         {/* Right Image */}
         <div className="w-full ">
           <Image
-            src="/bulk-data-1.png"
+            src="/images2/image-13.svg"
             alt="Bulk Task Visual"
             width={600}
             height={600}

@@ -24,11 +24,11 @@ export default function DataPlatformHero() {
         className="absolute bottom-0 left-0 w-full object-cover z-0"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
         {/* Right: Image - show first on mobile, second on desktop */}
-        <div className="w-full max-w-lg order-first lg:order-last">
+        <div className="w-full  order-first lg:order-last">
           <Image
-            src="/plate-1.svg"
+            src="/images2/image-10.svg"
             alt="Lead Finder Login"
             width={800}
             height={600}

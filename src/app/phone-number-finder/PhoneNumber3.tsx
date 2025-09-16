@@ -22,9 +22,9 @@ export default function LeadDiscoveryStep3() {
 
           {/* Right Visual - show first on mobile, second on desktop */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
-            <div className="w-[420px]">
+            <div className="">
               <Image
-                src="/phone-4.svg"
+                src="/images2/image-8.svg"
                 alt="API Integration Visual"
                 width={420}
                 height={300}

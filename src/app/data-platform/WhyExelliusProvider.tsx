@@ -60,7 +60,7 @@ export default function WhyExelliusProvider() {
         {/* Right Image */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/plate-2.svg" // Replace with your actual image path
+            src="/images2/image-12.svg" // Replace with your actual image path
             alt="Exellius Dashboard"
             width={600}
             height={500}

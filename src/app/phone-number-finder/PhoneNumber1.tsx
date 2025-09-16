@@ -27,13 +27,13 @@ export default function LeadDiscoveryStep1() {
 
           {/* Right: Single Image - show first on mobile, last on desktop */}
           <div className="w-full lg:w-1/2 flex justify-center relative z-10 order-first lg:order-last">
-            <div className="w-[420px]">
+            <div className="">
               <Image
-                src="/phone-2.svg"
+                src="/images2/image-6.svg"
                 alt="Step visual"
-                width={420}
-                height={300}
-                className="w-full h-auto object-contain rounded-lg"
+                width={520}
+                height={340}
+                className=" object-contain rounded-lg"
               />
             </div>
           </div>

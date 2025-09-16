@@ -10,10 +10,10 @@ export default function OptimizeOutreach() {
         {/* Left Image Section */}
         <div className="w-full lg:w-1/2">
           <Image
-            src="/finder-5.svg" // Replace with your actual image path
+            src="/images2/image-4.svg" // Replace with your actual image path
             alt="Optimize outreach UI"
-            width={600}
-            height={400}
+            width={500}
+            height={300}
             className="w-full h-auto object-contain"
           />
         </div>

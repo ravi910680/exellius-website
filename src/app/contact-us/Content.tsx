@@ -33,11 +33,11 @@ export default function ContactHero() {
           <div className="flex justify-center lg:justify-start gap-4">
             <div className="bg-white shadow-md p-4 rounded-lg border border-gray-200">
               <p className="text-sm text-gray-500">📧 Email</p>
-              <p className="font-medium text-gray-800">support@mailatmars.in</p>
+              <p className="font-medium text-gray-800">contact@exellius.com</p>
             </div>
             <div className="bg-white shadow-md p-4 rounded-lg border border-gray-200">
               <p className="text-sm text-gray-500">📞 Call</p>
-              <p className="font-medium text-gray-800">+91 98765 43210</p>
+              <p className="font-medium text-gray-800">+91 93225 25763</p>
             </div>
           </div>
         </div>

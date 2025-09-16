@@ -33,7 +33,7 @@ export default function LeadDiscoveryStep1() {
           <div className="w-full lg:w-1/2 relative z-10 flex justify-center order-first lg:order-last">
             <div >
               <Image
-                src="/images/img-23.svg"
+                src="/images2/image-2.svg"
                 alt="Department pattern UI"
                 width={2344}
                 height={1916}
