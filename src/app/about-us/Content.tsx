@@ -41,7 +41,7 @@ export default function AboutUs() {
           </div>
           <div className="relative w-full h-72">
             <Image
-              src="/about-1.jpeg"
+              src="/images2/image-22.svg"
               alt="About Exellius Team"
               fill
               className="object-contain"
@@ -53,7 +53,7 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 relative w-full h-72">
             <Image
-              src="/about-2.jpeg"
+              src="/images2/image-23.svg"
               alt="Mission"
               fill
               className="object-contain"
