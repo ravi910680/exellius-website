@@ -224,7 +224,7 @@ export default function Header() {
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
-            <a href="https://app.exellius.com/signup" target="_blank" rel="noopener noreferrer" className="w-full">
+            <a href="https://calendly.com/omkars/30min" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button variant="outline" className="w-full">Book a Demo</Button>
             </a>
             <a href="https://app.exellius.com/login" target="_blank" rel="noopener noreferrer" className="w-full">
