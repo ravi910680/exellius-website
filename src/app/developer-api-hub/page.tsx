@@ -1,5 +1,6 @@
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import CallToAction from "@/components/CallToAction"
 import Hero from "./DeveloperApiHero"
 import DeveloperApiFeatures from "./DeveloperApiFeatures"
 import DeveloperApiFeature1 from "./DeveloperApiFeature1"
@@ -8,6 +9,7 @@ import DeveloperApiFeature3 from "./DeveloperApiFeature3"
 import DeveloperApiFeature4 from "./DeveloperApiFeature4"
 import IndustriesWeServe from "../lead-discovery/IndustriesWeServe"
 import DeveloperApiFaqSection from "./DeveloperApiFaqSection"
+
 
 
 
@@ -28,6 +30,7 @@ export default function LeadDiscoveryPage() {
         <DeveloperApiFeature4 />
         <IndustriesWeServe />
         <DeveloperApiFaqSection />
+        <CallToAction />
         
      
        
