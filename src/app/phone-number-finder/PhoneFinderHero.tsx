@@ -17,6 +17,32 @@ interface ApiResponse {
   data: PhoneResult[]
 }
 
+
+interface Filters {
+  includeIndustry: string[]
+  excludeIndustry: string[]
+  includeemployeeCount: string[]
+  includeRevenue: string[]
+  includemanagmentRole: string[]
+  includeCompany: string[]
+  excludeCompany: string[]
+  includedepartmentKeyword: string[]
+  includePersonalCountry: string[]
+  excludePersonalCountry: string[]
+  includecompanyLocation: string[]
+  excludeCompanyLocation: string[]
+  includejobTitles: string[]
+  excludeJobTitles: string[]
+  includetechnology: string[]
+  foundingYear: string[]
+  funding: string[]
+  perCompany: number
+  search: string[]
+  includeFirstName: string[]
+  includeLastName: string[]
+  includeLinkedinUrl: string[]
+}
+
 const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
 
 // ---------- Encryption helpers ----------
@@ -44,45 +70,90 @@ export default function PhoneFinderHero() {
   const [input, setInput] = useState("")
   const [results, setResults] = useState<PhoneResult[]>([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSearch = async () => {
-    if (!input.trim()) return
-
-    setLoading(true)
-
-    const encryptedData = encryptData({
-      includeLinkedinUrl: input,
-      page: 1,
-      limit: 1,
-      sort_by: "name",
-      sort_order: "asc",
-    })
-
-    const requestOptions: RequestInit = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-      },
-      body: JSON.stringify({ data: encryptedData }),
-    }
-
-    try {
-      const response = await fetch(
-        "https://app.exellius.com/api/leads/getPeopleLeads/",
-        requestOptions
-      )
-
-      const result = await response.json()
-      const decrypted = decryptData<ApiResponse>(result.data)
-      console.log(decrypted);
-      setResults(decrypted?.data || [])
-    } catch (error) {
-      console.error("API Error:", error)
-    } finally {
-      setLoading(false)
-    }
+  if (!input.trim()) {
+    setError("Please enter a LinkedIn profile URL.")
+    return
   }
+
+  // Basic LinkedIn URL validation
+  const linkedinRegex = /^https?:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9-_]+\/?$/;
+  if (!linkedinRegex.test(input.trim())) {
+    setError("Please enter a valid LinkedIn profile URL.")
+    return
+  }
+
+  setError("")
+  setLoading(true)
+
+  // Prepare encrypted filters
+  const filters: Filters = {
+    includeIndustry: [],
+    excludeIndustry: [],
+    includeemployeeCount: [],
+    includeRevenue: [],
+    includemanagmentRole: [],
+    includeCompany: [],
+    excludeCompany: [],
+    includedepartmentKeyword: [],
+    includePersonalCountry: [],
+    excludePersonalCountry: [],
+    includecompanyLocation: [],
+    excludeCompanyLocation: [],
+    includejobTitles: [],
+    excludeJobTitles: [],
+    includetechnology: [],
+    foundingYear: [],
+    funding: [],
+    perCompany: 1,
+    search: [],
+    includeFirstName: [],
+    includeLastName: [],
+    includeLinkedinUrl: [input.trim()],
+  }
+
+  const encryptedData = encryptData({
+    ...filters,
+    page: 1,
+    limit: 1,
+    sort_by: "first_name",
+    sort_order: "asc",
+  })
+
+  const requestOptions: RequestInit = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+    },
+    body: JSON.stringify({ data: encryptedData }),
+  }
+
+  try {
+    const response = await fetch(
+      "https://app.exellius.com/api/leads/getPeopleLeads/",
+      requestOptions
+    )
+
+    const result = await response.json()
+    const decrypted = decryptData<ApiResponse>(result.data)
+    console.log("Decrypted Response:", decrypted)
+
+    setResults(decrypted?.data || [])
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("API Error:", error.message)
+    } else {
+      console.error("Unknown API Error:", error)
+    }
+  } finally {
+    setLoading(false)
+  }
+}
+
+
 
   return (
     <section className="relative w-full bg-[#fcf4fc] pt-40 pb-24 px-6 overflow-hidden text-center">
@@ -141,7 +212,7 @@ export default function PhoneFinderHero() {
               disabled={loading}
               className="bg-[#9856F2] text-white text-sm sm:text-base px-6 h-12 rounded-r-full hover:bg-[#6c3cbe] border border-[#9856F2]"
             >
-              {loading ? "Searching..." : "FIND MOBILE NUMBER"}
+              {loading ? "Searching..." : "Find mobile number"}
             </button>
           </div>
         </div>

@@ -40,6 +40,8 @@ interface Filters {
   funding: string[]
   perCompany: number
   search: string[]
+  includeFirstName: string[]
+  includeLastName: string[]
 }
 
 // ---------- Encryption helpers ----------
@@ -102,8 +104,25 @@ export default function EmailFinderHero() {
   const [fullName, setFullName] = useState("")
   const [companyName, setCompanyName] = useState("")
   const [results, setResults] = useState<LeadResult[]>([])
+  const [error, setError] = useState("")
 
   const handleSearch = async () => {
+
+    if (!fullName.trim()) {
+    setError("Please enter the full name.")
+    return
+  }
+  if(!companyName.trim()){
+    setError("Please enter the company name.")
+    return
+  }
+
+  const nameParts = fullName.trim().split(" ")
+  if (nameParts.length < 2) {
+    setError("Please enter both first and last name.")
+    return
+  }
+setError("") // Clear previous error
 
      setLoading(true)
     const filters: Filters = {
@@ -112,7 +131,7 @@ export default function EmailFinderHero() {
       includeemployeeCount: [],
       includeRevenue: [],
       includemanagmentRole: [],
-      includeCompany: [],
+      includeCompany: [companyName],
       excludeCompany: [],
       includedepartmentKeyword: [],
       includePersonalCountry: [],
@@ -125,7 +144,10 @@ export default function EmailFinderHero() {
       foundingYear: [],
       funding: [],
       perCompany: 1,
-      search: [fullName],
+      search: [],
+      includeFirstName: [nameParts[0]],
+      includeLastName: [nameParts[1]],
+      
     }
 
     const page = 1
@@ -252,6 +274,10 @@ export default function EmailFinderHero() {
           </div>
         </div>
 
+        {error && (
+    <p className="text-red-500 text-sm mt-3">{error}</p>
+  )}
+
         {/* Results */}
         <div className="max-w-5xl mx-auto space-y-4">
           {/* First 2 results */}
@@ -264,16 +290,16 @@ export default function EmailFinderHero() {
                 {res.first_name} {res.last_name}
               </p>
               <p className="text-gray-700 text-sm">{res.email}</p>
-              <button className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded">
+              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded">
                 More Details
               </button>
             </div>
           ))}
 
           {/* CTA if more results */}
-          {results.length > 2 && (
+          {results.length > 0 && (
             <div className="flex justify-center mt-4">
-              <button className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md">
+              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md">
                 Get Free 10 Credits – Sign Up
               </button>
             </div>

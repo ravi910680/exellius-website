@@ -6,7 +6,7 @@ import clsx from "clsx"
 import Image from "next/image"
 import CryptoJS from "crypto-js"
 
-const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02" // must match backend
+const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
 
 // ---------- Encryption helpers ----------
 function encryptData(data: unknown): string | null {
@@ -28,7 +28,17 @@ function decryptData<T>(encryptedData: string): T | null {
   }
 }
 
-// ---------- Tab mapping ----------
+interface LeadResult {
+  id: string
+  first_name: string
+  last_name: string
+  email: string
+}
+
+interface ApiResponse {
+  data: LeadResult[]
+}
+
 const tabToSlug: Record<string, string> = {
   "Search Using Domain": "domain-search",
   "Find Using Names": "professional-email-finder",
@@ -43,16 +53,17 @@ const slugToTab: Record<string, string> = {
 
 const tabs = ["Search Using Domain", "Find Using Names", "Get it Verified"]
 
-// ---------- Component ----------
 export default function EmailFinderHero() {
   const router = useRouter()
   const pathname = usePathname()
-
   const slug = pathname?.split("/").filter(Boolean).pop() || ""
+
   const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
   const [domain, setDomain] = useState("")
+  const [results, setResults] = useState<LeadResult[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  // Sync selected tab with URL on route change
   useEffect(() => {
     setSelectedTab(slugToTab[slug] || "Search Using Domain")
   }, [slug])
@@ -62,14 +73,31 @@ export default function EmailFinderHero() {
     router.push(`/${slug}`)
   }
 
+  // ✅ FIX: Validation and loading should be inside handleSearch
   const handleSearch = async () => {
+    if (!domain.trim()) {
+  setError("Please enter the company domain name.")
+  return
+}
+
+// Validate domain name (e.g. example.com or sub.example.co.in)
+const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/;
+if (!domainRegex.test(domain.trim())) {
+  setError("Please enter a valid company domain (without https://).")
+  return
+}
+
+
+    setError("") // clear previous error
+    setLoading(true)
+
     const filters = {
       includeIndustry: [],
       excludeIndustry: [],
       includeemployeeCount: [],
       includeRevenue: [],
       includemanagmentRole: [],
-      includeCompany: [domain], // domain from input
+      includeCompany: [domain],
       excludeCompany: [],
       includedepartmentKeyword: [],
       includePersonalCountry: [],
@@ -87,9 +115,6 @@ export default function EmailFinderHero() {
     const page = 1
     const currentLimit = 10
 
-    console.log("Filters:", filters)
-
-    // 🔒 Encrypt request body
     const encryptedData = encryptData({
       ...filters,
       page,
@@ -102,7 +127,7 @@ export default function EmailFinderHero() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, // keep in .env
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
       },
       body: JSON.stringify({ data: encryptedData }),
     }
@@ -113,26 +138,20 @@ export default function EmailFinderHero() {
         requestOptions
       )
 
-      console.log("Response Status:", response.status)
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
       const result = await response.json()
-      console.log("Decrypted API Result:", decryptData<unknown>(result.data)) // decrypt with generic
+      const decrypted = decryptData<ApiResponse>(result.data)
+      setResults(decrypted?.data || [])
     } catch (error) {
-      if (error instanceof Error) {
-        console.error("API Error:", error.message)
-      } else {
-        console.error("Unknown API Error:", error)
-      }
+      console.error("API Error:", error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <section className="relative w-full py-24 pt-60 bg-[#fcf4fc] overflow-hidden text-center">
-      {/* Background Layers */}
       <Image
         src="/bg_top.png"
         alt="Top Background"
@@ -158,7 +177,7 @@ export default function EmailFinderHero() {
           <span className="text-[#9856F2]">Domain Instantly</span>
         </h1>
 
-        {/* Horizontal Tabs */}
+        {/* Tabs */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-md shadow-sm border border-[#e0d0f5] bg-white overflow-hidden">
             {tabs.map((tab, idx) => (
@@ -178,9 +197,9 @@ export default function EmailFinderHero() {
           </div>
         </div>
 
-        {/* Domain Input + Button (Only visible on 'Search Using Domain') */}
+        {/* Domain Input */}
         {selectedTab === "Search Using Domain" && (
-          <div className="flex justify-center">
+          <div className="flex justify-center flex-col items-center">
             <div className="flex w-full max-w-3xl bg-white rounded-lg shadow-sm overflow-hidden border border-[#e0d0f5]">
               <input
                 type="text"
@@ -193,11 +212,38 @@ export default function EmailFinderHero() {
                 onClick={handleSearch}
                 className="bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6"
               >
-                Find email addresses
+                {loading ? "Searching..." : "Find Email"}
               </button>
             </div>
+            {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
           </div>
         )}
+
+        {/* Results */}
+        <div className="max-w-5xl mx-auto space-y-4 mt-12">
+          {results.slice(0, 2).map((res) => (
+            <div
+              key={res.id}
+              className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border border-[#e0d0f5]"
+            >
+              <p className="text-gray-900 font-semibold">
+                {res.first_name} {res.last_name}
+              </p>
+              <p className="text-gray-700 text-sm">{res.email}</p>
+              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded">
+                More Details
+              </button>
+            </div>
+          ))}
+
+          {results.length > 2 && (
+            <div className="flex justify-center mt-4">
+              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md">
+                Get Free 10 Credits – Sign Up
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )
