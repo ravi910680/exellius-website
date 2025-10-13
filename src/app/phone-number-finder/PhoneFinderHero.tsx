@@ -216,6 +216,10 @@ export default function PhoneFinderHero() {
             </button>
           </div>
         </div>
+         {error && (
+    <p className="text-red-500 text-sm mt-3">{error}</p>
+  )}
+
 
         {/* Results */}
         <div className="max-w-3xl mx-auto space-y-4">
