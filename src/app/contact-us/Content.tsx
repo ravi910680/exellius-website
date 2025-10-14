@@ -1,6 +1,19 @@
 "use client"
 
 import { useState } from "react"
+import CryptoJS from "crypto-js"
+
+const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
+
+function decryptData<T>(encryptedData: string): T | null {
+  try {
+    const decryptedText = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY).toString(CryptoJS.enc.Utf8)
+    return decryptedText ? (JSON.parse(decryptedText) as T) : null
+  } catch (error) {
+    console.error("Decryption Error:", error)
+    return null
+  }
+}
 
 export default function ContactHero() {
   const [form, setForm] = useState({
@@ -8,14 +21,52 @@ export default function ContactHero() {
     subject: "",
     message: "",
   })
+  const [status, setStatus] = useState<"success" | "error" | "">("")
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(form)
+    setLoading(true)
+    setStatus("")
+
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "application/json")
+
+    const raw = JSON.stringify({
+      subject: "Contact Form Submission",
+      html: `<div style="font-family: Arial; padding: 20px;">
+              <h2>New Contact</h2>
+              <p><strong>Email:</strong> ${form.email}</p>
+              <p><strong>Subject:</strong> ${form.subject}</p>
+              <p><strong>Message:</strong> ${form.message}</p>
+            </div>`,
+      email: form.email,
+    })
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow" as RequestRedirect,
+    }
+
+    try {
+      const response = await fetch("https://app.exellius.com/api/contact/send", requestOptions)
+      const result = await response.json()
+      console.log(decryptData(result.data))
+
+      setStatus("success")
+      setForm({ email: "", subject: "", message: "" })
+    } catch (error) {
+      console.error("Error sending message:", error)
+      setStatus("error")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -45,7 +96,7 @@ export default function ContactHero() {
         {/* Right: Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-6 sm:p-8 rounded-xl shadow-lg w-full flex flex-col gap-5 items-center"
+          className="bg-white p-6 sm:p-8 rounded-xl shadow-lg w-full flex flex-col gap-5 items-center relative"
         >
           <div className="w-full sm:w-3/4 lg:w-full">
             <label className="block text-left text-gray-600 mb-1 font-medium" htmlFor="email">
@@ -97,10 +148,28 @@ export default function ContactHero() {
 
           <button
             type="submit"
-            className="mt-2 w-full sm:w-3/4 lg:w-full bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-semibold py-2 rounded transition"
+            disabled={loading}
+            className={`mt-2 w-full sm:w-3/4 lg:w-full bg-[#9856F2] hover:bg-[#6c3cbe] text-white font-semibold py-2 rounded transition ${
+              loading ? "opacity-70 cursor-not-allowed" : ""
+            }`}
           >
-            Submit
+            {loading ? "Sending..." : "Submit"}
           </button>
+
+          {/* Success/Error Message */}
+          {status && (
+            <p
+              className={`text-sm mt-3 transition-opacity duration-500 ${
+                status === "success"
+                  ? "text-green-600 opacity-100"
+                  : "text-red-600 opacity-100"
+              }`}
+            >
+              {status === "success"
+                ? "Your message has been sent successfully!"
+                : "There was an error sending your message. Please try again."}
+            </p>
+          )}
         </form>
       </div>
     </section>

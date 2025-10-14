@@ -1,6 +1,20 @@
 "use client"
 
+import { useState } from "react"
 import { CheckCircle } from "lucide-react"
+import CryptoJS from "crypto-js"
+
+const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
+
+function decryptData<T>(encryptedData: string): T | null {
+  try {
+    const decryptedText = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY).toString(CryptoJS.enc.Utf8)
+    return decryptedText ? (JSON.parse(decryptedText) as T) : null
+  } catch (error) {
+    console.error("Decryption Error:", error)
+    return null
+  }
+}
 
 const packages = [
   {
@@ -37,6 +51,68 @@ const features = [
 ]
 
 export default function AmazonLeadQuoteSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    leads: "",
+    region: "",
+    revenue: "",
+    category: "",
+  })
+  const [status, setStatus] = useState<"success" | "error" | "">("")
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email || !form.leads || !form.region) {
+      setStatus("error")
+      return
+    }
+
+    setLoading(true)
+    setStatus("")
+
+    const myHeaders = new Headers()
+    myHeaders.append("Content-Type", "application/json")
+
+    const raw = JSON.stringify({
+      subject: "Amazon Leads Quote Request",
+      html: `<div style="font-family: Arial; padding: 20px;">
+              <h2>New Amazon Lead Request</h2>
+              <p><strong>Name:</strong> ${form.name}</p>
+              <p><strong>Email:</strong> ${form.email}</p>
+              <p><strong>Number of Leads:</strong> ${form.leads}</p>
+              <p><strong>Region:</strong> ${form.region}</p>
+              <p><strong>Revenue Tier:</strong> ${form.revenue}</p>
+              <p><strong>Category:</strong> ${form.category}</p>
+            </div>`,
+      email: form.email,
+    })
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow" as RequestRedirect,
+    }
+
+    try {
+      const response = await fetch("https://app.exellius.com/api/contact/send", requestOptions)
+      const result = await response.json()
+      console.log(decryptData(result.data))
+      setStatus("success")
+      setForm({ name: "", email: "", leads: "", region: "", revenue: "", category: "" })
+    } catch (error) {
+      console.error("Error sending request:", error)
+      setStatus("error")
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <section className="bg-white px-4 py-20">
       <div className="max-w-6xl mx-auto border border-gray-200 rounded-xl overflow-hidden shadow-sm">
@@ -84,51 +160,100 @@ export default function AmazonLeadQuoteSection() {
             </div>
           </div>
 
-          {/* Right Side: Filters + Form */}
+          {/* Right Side: Form */}
           <div className="bg-[#fbf8fe] border border-gray-200 rounded-xl p-6 shadow-sm h-fit">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Customize your list</h3>
             <div className="space-y-4 text-sm">
               <input
                 type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 className="w-full border rounded-lg px-4 py-2 text-gray-700"
+                required
               />
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Your Email"
                 className="w-full border rounded-lg px-4 py-2 text-gray-700"
+                required
               />
-              <select className="w-full border rounded-lg px-4 py-2 text-gray-700">
-                <option>Number of Leads</option>
+              <select
+                name="leads"
+                value={form.leads}
+                onChange={handleChange}
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+                required
+              >
+                <option value="">Number of Leads</option>
                 <option>1,000</option>
                 <option>2,500</option>
                 <option>5,000</option>
                 <option>Custom</option>
               </select>
-              <select className="w-full border rounded-lg px-4 py-2 text-gray-700">
-                <option>Geographic Targeting</option>
+              <select
+                name="region"
+                value={form.region}
+                onChange={handleChange}
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+                required
+              >
+                <option value="">Geographic Targeting</option>
                 <option>North America</option>
                 <option>Europe</option>
                 <option>Asia</option>
                 <option>Global</option>
               </select>
-              <select className="w-full border rounded-lg px-4 py-2 text-gray-700">
-                <option>Revenue Tiers</option>
+              <select
+                name="revenue"
+                value={form.revenue}
+                onChange={handleChange}
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+              >
+                <option value="">Revenue Tiers</option>
                 <option>$100K – $1M</option>
                 <option>$1M – $5M</option>
                 <option>$5M+</option>
               </select>
-              <select className="w-full border rounded-lg px-4 py-2 text-gray-700">
-                <option>Category Specialization</option>
+              <select
+                name="category"
+                value={form.category}
+                onChange={handleChange}
+                className="w-full border rounded-lg px-4 py-2 text-gray-700"
+              >
+                <option value="">Category Specialization</option>
                 <option>Electronics</option>
                 <option>Home Goods</option>
                 <option>Beauty</option>
                 <option>All</option>
               </select>
             </div>
-            <button className="mt-6 w-full bg-[#6c3cbe] hover:bg-[#5b2da8] text-white font-semibold py-3 px-6 rounded-lg transition">
-              GENERATE MY LIST 👉
+
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className={`mt-6 w-full bg-[#6c3cbe] hover:bg-[#5b2da8] text-white font-semibold py-3 px-6 rounded-lg transition ${
+                loading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
+            >
+              {loading ? "Processing..." : "GENERATE MY LIST 👉"}
             </button>
+
+            {status && (
+              <p
+                className={`text-sm mt-3 transition-opacity duration-500 ${
+                  status === "success" ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {status === "success"
+                  ? "Your request has been received! We'll contact you shortly."
+                  : "There was an error submitting your request. Please try again."}
+              </p>
+            )}
           </div>
         </div>
       </div>
