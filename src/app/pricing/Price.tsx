@@ -53,7 +53,7 @@ function getPricePerCredit(typeKey: string, quantity: number) {
       if (quantity >= 1000000) return 0.04;
       if (quantity >= 100000) return 0.05;
       if (quantity >= 10000) return 0.055;
-      return 0.06;
+      return 0.05;
 
     default:
       return 0.01;
