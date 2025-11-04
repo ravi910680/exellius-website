@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import CryptoJS from "crypto-js";
 import TechnologyOptions from "./technologyOptions.json";
@@ -78,7 +78,7 @@ export default function WebsiteTechChecker() {
     const savedData = localStorage.getItem("techCheckerSearchData");
 
     if (savedData) {
-      const { date, count } = JSON.parse(savedData);
+      const { date } = JSON.parse(savedData);
       if (date !== today) {
         localStorage.setItem("techCheckerSearchData", JSON.stringify({ date: today, count: 0 }));
       }
