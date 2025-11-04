@@ -1,12 +1,13 @@
 "use client"
 
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import clsx from "clsx"
 import Image from "next/image"
 import CryptoJS from "crypto-js"
 
 const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
+const DAILY_LIMIT = 3 // ✅ Only 3 searches per day
 
 // ---------- Types ----------
 interface LeadResult {
@@ -80,51 +81,80 @@ const tabs = ["Search Using Domain", "Find Using Names", "Get it Verified"]
 
 // ---------- Component ----------
 export default function EmailFinderHero() {
-
-
-
   const router = useRouter()
-    const pathname = usePathname()
-  
-    const slug = pathname?.split("/").filter(Boolean).pop() || ""
-    const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
-    const [loading, setLoading] = useState(false)
-   
-  
-    // Sync selected tab with URL on route change
-    useEffect(() => {
-      setSelectedTab(slugToTab[slug] || "Search Using Domain")
-    }, [slug])
-  
-    const handleTabClick = (tab: string) => {
-      const slug = tabToSlug[tab]
-      router.push(`/${slug}`)
-    }
+  const pathname = usePathname()
+  const slug = pathname?.split("/").filter(Boolean).pop() || ""
+  const [selectedTab, setSelectedTab] = useState(slugToTab[slug] || "Search Using Domain")
+  const [loading, setLoading] = useState(false)
 
   const [fullName, setFullName] = useState("")
   const [companyName, setCompanyName] = useState("")
   const [results, setResults] = useState<LeadResult[]>([])
   const [error, setError] = useState("")
+  const [remaining, setRemaining] = useState(DAILY_LIMIT)
+
+  // --- Initialize search limit ---
+  useEffect(() => {
+    const today = new Date().toDateString()
+    const stored = localStorage.getItem("emailFinderUsage")
+    if (stored) {
+      const data = JSON.parse(stored)
+      if (data.date === today) {
+        setRemaining(Math.max(DAILY_LIMIT - data.count, 0))
+      } else {
+        localStorage.setItem("emailFinderUsage", JSON.stringify({ date: today, count: 0 }))
+        setRemaining(DAILY_LIMIT)
+      }
+    } else {
+      localStorage.setItem("emailFinderUsage", JSON.stringify({ date: today, count: 0 }))
+    }
+  }, [])
+
+  const updateUsage = () => {
+    const today = new Date().toDateString()
+    const stored = localStorage.getItem("emailFinderUsage")
+    if (stored) {
+      const data = JSON.parse(stored)
+      const newCount = data.date === today ? data.count + 1 : 1
+      localStorage.setItem("emailFinderUsage", JSON.stringify({ date: today, count: newCount }))
+      setRemaining(Math.max(DAILY_LIMIT - newCount, 0))
+    }
+  }
+
+  // --- Handle Tab Navigation ---
+  useEffect(() => {
+    setSelectedTab(slugToTab[slug] || "Search Using Domain")
+  }, [slug])
+
+  const handleTabClick = (tab: string) => {
+    const slug = tabToSlug[tab]
+    router.push(`/${slug}`)
+  }
 
   const handleSearch = async () => {
+    if (remaining <= 0) {
+      setError("You’ve reached your daily limit. Please try again tomorrow or sign up for more credits.")
+      return
+    }
 
     if (!fullName.trim()) {
-    setError("Please enter the full name.")
-    return
-  }
-  if(!companyName.trim()){
-    setError("Please enter the company name.")
-    return
-  }
+      setError("Please enter the full name.")
+      return
+    }
+    if (!companyName.trim()) {
+      setError("Please enter the company name.")
+      return
+    }
 
-  const nameParts = fullName.trim().split(" ")
-  if (nameParts.length < 2) {
-    setError("Please enter both first and last name.")
-    return
-  }
-setError("") // Clear previous error
+    const nameParts = fullName.trim().split(" ")
+    if (nameParts.length < 2) {
+      setError("Please enter both first and last name.")
+      return
+    }
 
-     setLoading(true)
+    setError("")
+    setLoading(true)
+
     const filters: Filters = {
       includeIndustry: [],
       excludeIndustry: [],
@@ -147,59 +177,41 @@ setError("") // Clear previous error
       search: [],
       includeFirstName: [nameParts[0]],
       includeLastName: [nameParts[1]],
-      
     }
-
-    const page = 1
-    const currentLimit = 10
 
     const encryptedData = encryptData({
       ...filters,
-      page,
-      limit: currentLimit,
+      page: 1,
+      limit: 10,
       sort_by: "first_name",
       sort_order: "asc",
     })
 
-    console.log(process.env.NEXT_PUBLIC_API_TOKEN);
-    const requestOptions: RequestInit = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-      },
-      body: JSON.stringify({ data: encryptedData }),
-    }
-
     try {
-      const response = await fetch(
-        "https://app.exellius.com/api/leads/getPeopleLeads/",
-        requestOptions
-      )
-
-
-     
-      
+      const response = await fetch("https://api.app.exellius.com/api/leads/getPeopleLeads/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+        body: JSON.stringify({ data: encryptedData }),
+      })
 
       const result = await response.json()
-      
       const decrypted = decryptData<ApiResponse>(result.data)
-      console.log(decrypted);
-       setLoading(false)
-
       setResults(decrypted?.data || [])
+
+      updateUsage() // ✅ Increment daily usage
     } catch (error) {
-      if (error instanceof Error) {
-        console.error("API Error:", error.message)
-      } else {
-        console.error("Unknown API Error:", error)
-      }
+      console.error("API Error:", error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <section className="relative w-full py-24 bg-[#fcf4fc] overflow-hidden text-center">
-      {/* Background Layers */}
+      {/* Background */}
       <Image
         src="/bg_top.png"
         alt="Top Background"
@@ -226,24 +238,25 @@ setError("") // Clear previous error
           Professional
         </h1>
 
+        {/* Tabs */}
         <div className="flex justify-center mb-8">
-                  <div className="inline-flex rounded-md shadow-sm border border-[#e0d0f5] bg-white overflow-hidden">
-                    {tabs.map((tab, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => handleTabClick(tab)}
-                        className={clsx(
-                          "px-6 py-3 text-sm font-medium transition-all w-[200px]",
-                          selectedTab === tab
-                            ? "text-[#9856F2] border-b-2 border-[#9856F2] bg-[#f7f0fd]"
-                            : "text-gray-600 hover:bg-gray-100"
-                        )}
-                      >
-                        {tab}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+          <div className="inline-flex rounded-md shadow-sm border border-[#e0d0f5] bg-white overflow-hidden">
+            {tabs.map((tab, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleTabClick(tab)}
+                className={clsx(
+                  "px-6 py-3 text-sm font-medium transition-all w-[200px]",
+                  selectedTab === tab
+                    ? "text-[#9856F2] border-b-2 border-[#9856F2] bg-[#f7f0fd]"
+                    : "text-gray-600 hover:bg-gray-100"
+                )}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Search Form */}
         <div className="flex justify-center mb-12">
@@ -253,7 +266,7 @@ setError("") // Clear previous error
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Full name"
-              className="w-[45%] min-w-[150px] py-4 px-4 text-sm outline-none text-black bg-transparent border-r border-[#e0d0f5]"
+              className="w-[45%] py-4 px-4 text-sm outline-none text-black bg-transparent border-r border-[#e0d0f5]"
             />
             <div className="w-[5%] flex items-center justify-center px-2 text-gray-500 border-r border-[#e0d0f5]">
               @
@@ -263,24 +276,49 @@ setError("") // Clear previous error
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
               placeholder="Company name"
-              className="w-[45%] min-w-[150px] py-4 px-4 text-sm outline-none text-black bg-transparent border-r border-[#e0d0f5]"
+              className="w-[45%] py-4 px-4 text-sm outline-none text-black bg-transparent border-r border-[#e0d0f5]"
             />
             <button
               onClick={handleSearch}
-              className="w-[25%] bg-[#9856F2] hover:bg-[#7e48d6] text-white font-semibold text-sm px-6 whitespace-nowrap"
+              disabled={remaining <= 0}
+              className={clsx(
+                "w-[25%] font-semibold text-sm px-6 whitespace-nowrap transition",
+                remaining <= 0
+                  ? "bg-gray-400 cursor-not-allowed text-white"
+                  : "bg-[#9856F2] hover:bg-[#7e48d6] text-white"
+              )}
             >
-             {loading ? "Searching...":" Find Email"}
+              {loading ? "Searching..." : "Find Email"}
             </button>
           </div>
         </div>
 
-        {error && (
-    <p className="text-red-500 text-sm mt-3">{error}</p>
-  )}
+        {/* Remaining Count */}
+        <p className="text-sm text-gray-600 mb-4">
+          {remaining > 0
+            ? ``
+            : <div className="mt-4 border border-yellow-300 bg-yellow-50 text-yellow-700 px-4 py-3 rounded-md text-sm flex items-start gap-2 max-w-3xl mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mt-0.5 text-yellow-500">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.343 3.94c.873-1.519 3.04-1.519 3.913 0l7.013 12.194A2.25 2.25 0 0119.263 19.5H4.737a2.25 2.25 0 01-1.993-3.366L9.757 3.94z" />
+                </svg>
+                <p>
+                  You reached the maximum number of trial searches today. Please{" "}
+                  <a href="https://app.exellius.com/signup" target="_blank" className="underline text-yellow-800">
+                    create a free account
+                  </a>{" "}
+                  or{" "}
+                  <a href="https://app.exellius.com/login" target="_blank" className="underline text-yellow-800">
+                    sign in
+                  </a>{" "}
+                  to continue using Exellius.
+                </p>
+              </div>}
+        </p>
+
+        {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
 
         {/* Results */}
         <div className="max-w-5xl mx-auto space-y-4">
-          {/* First 2 results */}
           {results.slice(0, 2).map((res) => (
             <div
               key={res.id}
@@ -290,16 +328,21 @@ setError("") // Clear previous error
                 {res.first_name} {res.last_name}
               </p>
               <p className="text-gray-700 text-sm">{res.email}</p>
-              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded">
+              <button
+                onClick={() => window.open("https://app.exellius.com/signup", "_blank")}
+                className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded"
+              >
                 More Details
               </button>
             </div>
           ))}
 
-          {/* CTA if more results */}
           {results.length > 0 && (
             <div className="flex justify-center mt-4">
-              <button  onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md">
+              <button
+                onClick={() => window.open("https://app.exellius.com/signup", "_blank")}
+                className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md"
+              >
                 Get Free 10 Credits – Sign Up
               </button>
             </div>

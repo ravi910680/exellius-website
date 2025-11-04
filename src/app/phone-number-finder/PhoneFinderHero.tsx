@@ -133,7 +133,7 @@ export default function PhoneFinderHero() {
 
   try {
     const response = await fetch(
-      "https://app.exellius.com/api/leads/getPeopleLeads/",
+      "https://api.app.exellius.com/api/leads/getPeopleLeads/",
       requestOptions
     )
 

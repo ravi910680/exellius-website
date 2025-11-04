@@ -114,6 +114,7 @@ export default function ExelliusPricingTabs() {
     .map((type) => {
       const qty = creditCounts[type.key as keyof typeof creditCounts];
       const pricePerCredit = getPricePerCredit(type.key, qty);
+      console.log(pricePerCredit);
       return qty * pricePerCredit;
     })
     .reduce((a, b) => a + b, 0);

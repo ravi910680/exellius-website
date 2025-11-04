@@ -100,7 +100,7 @@ export default function AmazonLeadQuoteSection() {
     }
 
     try {
-      const response = await fetch("https://app.exellius.com/api/contact/send", requestOptions)
+      const response = await fetch("https://api.app.exellius.com/api/contact/send", requestOptions)
       const result = await response.json()
       console.log(decryptData(result.data))
       setStatus("success")
