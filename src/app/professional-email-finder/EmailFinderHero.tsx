@@ -338,7 +338,8 @@ export default function EmailFinderHero() {
 }
 
 
-function LeadResultCard({ lead }: { lead: any }) {
+function LeadResultCard({ lead }: { lead: LeadResult }) {
+
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-5 text-left max-w-3xl mx-auto">
       {/* Header */}
