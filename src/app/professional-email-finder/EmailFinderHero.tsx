@@ -199,6 +199,7 @@ export default function EmailFinderHero() {
 
       const result = await response.json()
       const decrypted = decryptData<ApiResponse>(result.data)
+      console.log(decrypted?.data);
       setResults(decrypted?.data || [])
 
       updateUsage() // ✅ Increment daily usage
@@ -319,24 +320,7 @@ export default function EmailFinderHero() {
 
         {/* Results */}
         <div className="max-w-5xl mx-auto space-y-4">
-          {results.slice(0, 2).map((res) => (
-            <div
-              key={res.id}
-              className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border border-[#e0d0f5]"
-            >
-              <p className="text-gray-900 font-semibold">
-                {res.first_name} {res.last_name}
-              </p>
-              <p className="text-gray-700 text-sm">{res.email}</p>
-              <button
-                onClick={() => window.open("https://app.exellius.com/signup", "_blank")}
-                className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded"
-              >
-                More Details
-              </button>
-            </div>
-          ))}
-
+          {results.length > 0 && <LeadResultCard lead={results[0]} />}
           {results.length > 0 && (
             <div className="flex justify-center mt-4">
               <button
@@ -350,5 +334,91 @@ export default function EmailFinderHero() {
         </div>
       </div>
     </section>
+  )
+}
+
+
+function LeadResultCard({ lead }: { lead: any }) {
+  return (
+    <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-5 text-left max-w-3xl mx-auto">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-[#f2ecfd] text-[#9856F2] font-semibold flex items-center justify-center rounded-full text-lg">
+            {lead.first_name?.[0]?.toUpperCase()}{lead.last_name?.[0]?.toUpperCase()}
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              {lead.first_name} {lead.last_name}
+            </h3>
+            <p className="text-sm text-gray-600 flex items-center gap-2">
+              {lead.title && <span>{lead.title}</span>}
+              {lead.company && (
+                <>
+                  <span>•</span>
+                  <span>{lead.company}</span>
+                </>
+              )}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-end">
+          <p className="text-sm text-gray-500">{lead.email}</p>
+          {lead.email_status === "Verified" && (
+            <span className="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-md mt-1">
+              {lead.email_status}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="border-t border-gray-100 mt-4 pt-3 text-sm text-gray-700 space-y-1">
+        <p>
+          <span className="font-medium text-gray-900">Location:</span>{" "}
+          {lead.city || lead.company_city || "N/A"},{" "}
+          {lead.country || lead.company_country || ""}
+        </p>
+       
+        
+        {lead.website && (
+          <p>
+           
+            <a
+              href={lead.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9856F2] underline"
+            >
+              {lead.website.replace(/^https?:\/\//, "")}
+            </a>
+          </p>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div className="border-t border-gray-100 mt-4 pt-3 flex items-center justify-between text-sm text-gray-500">
+        <p>We used verified data sources.</p>
+        {lead.linkedin_url && (
+          <a
+            href={lead.linkedin_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#9856F2] hover:underline flex items-center gap-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-4 h-4"
+            >
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.96 0-1.73-.78-1.73-1.73s.78-1.73 1.73-1.73 1.73.78 1.73 1.73-.78 1.73-1.73 1.73zm13.5 11.27h-3v-5.36c0-1.28-.03-2.94-1.79-2.94-1.79 0-2.07 1.4-2.07 2.85v5.45h-3v-10h2.88v1.37h.04c.4-.76 1.36-1.55 2.8-1.55 3 0 3.55 1.98 3.55 4.56v5.62z" />
+            </svg>
+            LinkedIn
+          </a>
+        )}
+      </div>
+    </div>
   )
 }

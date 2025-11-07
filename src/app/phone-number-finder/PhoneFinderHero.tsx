@@ -114,6 +114,8 @@ export default function PhoneFinderHero() {
     includeLinkedinUrl: [input.trim()],
   }
 
+  console.log(filters);
+
   const encryptedData = encryptData({
     ...filters,
     page: 1,
