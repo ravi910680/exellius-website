@@ -15,6 +15,15 @@ interface LeadResult {
   first_name: string
   last_name: string
   email: string
+  title?: string
+  company?: string
+  email_status?: string
+  city?: string
+  company_city?: string
+  country?: string
+  company_country?: string
+  website?: string
+  linkedin_url?: string
 }
 
 interface ApiResponse {
