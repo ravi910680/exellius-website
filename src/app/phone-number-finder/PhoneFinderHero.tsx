@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import CryptoJS from "crypto-js"
 
@@ -37,28 +37,57 @@ interface PhoneResult {
   phone?: string | null
 }
 
-// ---------- Component ----------
 export default function PhoneFinderHero() {
   const [input, setInput] = useState("")
   const [results, setResults] = useState<PhoneResult[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [showLimitAlert, setShowLimitAlert] = useState(false)
+  const [searchCount, setSearchCount] = useState(0)
+
+  // ---------- Load and reset search limit daily ----------
+  useEffect(() => {
+    const storedData = localStorage.getItem("exellius_search_limit")
+    const today = new Date().toDateString()
+
+    if (storedData) {
+      const { count, date } = JSON.parse(storedData)
+      if (date === today) {
+        setSearchCount(count)
+      } else {
+        // reset if date changed
+        localStorage.setItem("exellius_search_limit", JSON.stringify({ count: 0, date: today }))
+      }
+    } else {
+      localStorage.setItem("exellius_search_limit", JSON.stringify({ count: 0, date: today }))
+    }
+  }, [])
+
+  const updateSearchCount = () => {
+    const today = new Date().toDateString()
+    const newCount = searchCount + 1
+    setSearchCount(newCount)
+    localStorage.setItem("exellius_search_limit", JSON.stringify({ count: newCount, date: today }))
+  }
 
   const handleSearch = async () => {
+    if (searchCount >= 3) {
+      setShowLimitAlert(true)
+      return
+    }
+
     if (!input.trim()) {
       setError("Please enter a LinkedIn profile URL.")
       return
     }
 
-    // ✅ Replace https with http
     const formattedUrl = input.trim().replace(/^https:\/\//i, "http://")
-
     setError("")
     setLoading(true)
+    setShowLimitAlert(false)
 
-    // Prepare request body
     const raw = encryptData({
-      email:[],
+      email: [],
       includeIndustry: [],
       excludeIndustry: [],
       includeemployeeCount: [],
@@ -80,7 +109,6 @@ export default function PhoneFinderHero() {
       includeLinkedinUrl: [formattedUrl],
     })
 
-    // Headers
     const myHeaders = new Headers()
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append(
@@ -104,6 +132,7 @@ export default function PhoneFinderHero() {
 
       if (decrypted?.data && Array.isArray(decrypted.data)) {
         setResults(decrypted.data)
+        updateSearchCount()
       } else {
         setResults([])
         setError("No results found.")
@@ -116,7 +145,6 @@ export default function PhoneFinderHero() {
     }
   }
 
-  // ✅ Helper to get best available phone number
   const getBestPhone = (item: PhoneResult): string | null => {
     return (
       item.mobile_phone ||
@@ -129,47 +157,21 @@ export default function PhoneFinderHero() {
 
   return (
     <section className="relative w-full bg-[#fcf4fc] pt-40 pb-24 px-6 overflow-hidden text-center">
-      {/* Top Background Image */}
-      <Image
-        src="/bg_top.png"
-        alt="Top Background"
-        width={1920}
-        height={400}
-        className="absolute top-0 left-0 w-full object-cover z-0"
-      />
-
-      {/* Bottom Background Image */}
-      <Image
-        src="/bg_bottom.png"
-        alt="Bottom Background"
-        width={1920}
-        height={400}
-        className="absolute bottom-0 left-0 w-full object-cover z-0"
-      />
-
-      {/* Grid Lines Background */}
+      <Image src="/bg_top.png" alt="Top Background" width={1920} height={400} className="absolute top-0 left-0 w-full object-cover z-0" />
+      <Image src="/bg_bottom.png" alt="Bottom Background" width={1920} height={400} className="absolute bottom-0 left-0 w-full object-cover z-0" />
       <div className="absolute inset-0 z-0 pointer-events-none bg-[url('/grid-lines.svg')] bg-cover opacity-20" />
 
-      {/* Main Content */}
       <div className="relative z-10 max-w-3xl mx-auto">
-        <p className="text-[#9856F2] font-medium mb-2 text-sm sm:text-base">
-          Phone Number Finder
-        </p>
-
+        <p className="text-[#9856F2] font-medium mb-2 text-sm sm:text-base">Phone Number Finder</p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Get Verified <span className="text-[#9856F2]">Professional</span>{" "}
-          Phone <br className="hidden sm:block" />
-          Numbers in Seconds
+          Get Verified <span className="text-[#9856F2]">Professional</span> Phone <br className="hidden sm:block" /> Numbers in Seconds
         </h1>
 
         <p className="text-base sm:text-lg text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Connecting with decision-makers quickly is crucial in the fast-moving
-          world. Exellius delivers verified mobile numbers with high accuracy,
-          ensuring your outreach efforts hit the mark.
+          Connecting with decision-makers quickly is crucial. Exellius delivers verified mobile numbers with high accuracy.
         </p>
 
-        {/* Input Form */}
-        <div className="flex justify-center w-full px-4 mb-12">
+        <div className="flex justify-center w-full px-4 mb-6">
           <div className="flex w-full max-w-2xl">
             <input
               type="text"
@@ -189,37 +191,47 @@ export default function PhoneFinderHero() {
           </div>
         </div>
 
-        {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
-        {/* Results */}
-        <div className="max-w-3xl mx-auto space-y-4">
+        {showLimitAlert && (
+          <div className="mt-4 border border-yellow-300 bg-yellow-50 text-yellow-700 px-4 py-3 rounded-md text-sm flex items-start gap-2 max-w-3xl mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mt-0.5 text-yellow-500">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.343 3.94c.873-1.519 3.04-1.519 3.913 0l7.013 12.194A2.25 2.25 0 0119.263 19.5H4.737a2.25 2.25 0 01-1.993-3.366L9.757 3.94z" />
+            </svg>
+            <p>
+              You reached the maximum number of trial searches today. Please{" "}
+              <a href="https://app.exellius.com/signup" target="_blank" className="underline text-yellow-800">
+                create a free account
+              </a>{" "}
+              or{" "}
+              <a href="https://app.exellius.com/login" target="_blank" className="underline text-yellow-800">
+                sign in
+              </a>{" "}
+              to continue using Exellius.
+            </p>
+          </div>
+        )}
+
+        <div className="max-w-3xl mx-auto space-y-4 mt-6">
           {results.slice(0, 1).map((res) => {
             const bestPhone = getBestPhone(res)
             return (
-              <div
-                key={res.id}
-                className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border border-[#e0d0f5]"
-              >
+              <div key={res.id} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border border-[#e0d0f5]">
                 <p className="text-gray-900 font-semibold">
                   {res.first_name + " " + res.last_name}
                 </p>
                 <p className="text-gray-700 text-sm">
                   {bestPhone ? bestPhone : "No number available"}
                 </p>
-                <button onClick={() => window.open("https://app.exellius.com/signup", "_blank")} className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded">
+                <button
+                  onClick={() => window.open("https://app.exellius.com/signup", "_blank")}
+                  className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-medium px-3 py-1 rounded"
+                >
                   More Details
                 </button>
               </div>
             )
           })}
-
-          {results.length > 2 && (
-            <div className="flex justify-center mt-4">
-              <button className="bg-[#9856F2] hover:bg-[#7e48d6] text-white text-sm font-semibold px-6 py-3 rounded-lg shadow-md">
-                Get Free 10 Credits – Sign Up
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </section>
