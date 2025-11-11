@@ -90,7 +90,34 @@ export default function ContactHero() {
               <p className="text-sm text-gray-500">📞 Call</p>
               <p className="font-medium text-gray-800">+91 93225 25763</p>
             </div>
+            <div className="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+              <p className="text-sm text-gray-500">📞 Call</p>
+              <p className="font-medium text-gray-800">+1 302 570 2013</p>
+            </div>
           </div>
+           <div className="flex justify-center lg:justify-start gap-4 mt-10">
+  <div className="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+    <p className="text-sm text-gray-500 flex items-center gap-2">
+      📍 <span>USA Office</span>
+    </p>
+    <p className="font-medium text-gray-800">
+      8 The Green STE 15256,<br />
+      Dover, DE 19901, USA
+    </p>
+  </div>
+
+  <div className="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+    <p className="text-sm text-gray-500 flex items-center gap-2">
+      📍 <span>India Office</span>
+    </p>
+    <p className="font-medium text-gray-800">
+      Office No. 301, Vandan Smruti, Plot No. 1, Sector 11,<br />
+      Spine Road, PCNTDA, Moshi,<br />
+      Pune, Maharashtra 411070, India
+    </p>
+  </div>
+</div>
+
         </div>
 
         {/* Right: Contact Form */}
