@@ -94,7 +94,7 @@ export default function EmailFinderHero() {
     setVerificationResult(null)
 
     try {
-      const response = await fetch("http://localhost:5000/api/bounce/check/", {
+      const response = await fetch("https://api.app.exellius.com/api/bounce/check/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

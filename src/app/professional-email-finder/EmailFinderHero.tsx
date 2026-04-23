@@ -197,7 +197,7 @@ export default function EmailFinderHero() {
     })
 
     try {
-      const response = await fetch("http://localhost:5000/api/leads/getPeopleLeads/", {
+      const response = await fetch("https://api.app.exellius.com/api/leads/getPeopleLeads/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
