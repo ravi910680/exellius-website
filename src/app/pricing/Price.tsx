@@ -111,13 +111,15 @@ export default function ExelliusPricingTabs() {
 
   const totalCredits = Object.values(creditCounts).reduce((a, b) => a + b, 0);
   const totalPrice = creditTypes
-    .map((type) => {
-      const qty = creditCounts[type.key as keyof typeof creditCounts];
-      const pricePerCredit = getPricePerCredit(type.key, qty);
-      console.log(pricePerCredit);
-      return qty * pricePerCredit;
-    })
-    .reduce((a, b) => a + b, 0);
+  .map((type) => {
+    const key = type.key as keyof typeof creditCounts;
+
+    const qty = creditCounts[key] ?? 0;  // avoids undefined
+    const pricePerCredit = getPricePerCredit(key, qty);
+
+    return qty * pricePerCredit;
+  })
+  .reduce((a, b) => a + b, 0);
 
   const handleSliderChange = (
     key: keyof typeof creditCounts,

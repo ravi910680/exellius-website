@@ -1,6 +1,7 @@
 "use client"
 
 import { CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 const timelineSteps = [
   {
@@ -67,7 +68,7 @@ export default function AmazonSellerFlexibleSolutions() {
 
                 {/* Index Badge */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center p-1 bg-white">
-                  <img
+                  <Image
                     src={`/icons/${step.id}.png`} // Replace with correct icon path
                     alt={`Step ${step.id}`}
                     className="w-full h-full object-contain block"
