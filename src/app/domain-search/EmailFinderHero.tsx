@@ -114,6 +114,7 @@ export default function EmailFinderHero() {
     setError("")
     setLoading(true)
     setShowLimitAlert(false)
+    setResults([])
 
     const filters = {
       includeIndustry: [],
@@ -157,7 +158,7 @@ export default function EmailFinderHero() {
     }
 
     try {
-      const response = await fetch("https://api.app.exellius.com/api/leads/getPeopleLeads/", requestOptions)
+      const response = await fetch("http://localhost:5000/api/leads/getPeopleLeads/", requestOptions)
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
       const result = await response.json()

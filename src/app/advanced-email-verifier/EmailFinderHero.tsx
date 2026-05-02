@@ -66,6 +66,8 @@ export default function EmailFinderHero() {
   const slug = pathname?.split("/").filter(Boolean).pop() || ""
   const [selectedTab, setSelectedTab] = useState(slugToTab[slug as keyof typeof slugToTab] || "Search Using Domain")
   const [email, setEmail] = useState("")
+  const [trialCount, setTrialCount] = useState(0)
+  const [limitMessage, setLimitMessage] = useState("")
   type VerificationResult = {
     status?: string
     score?: number
@@ -83,6 +85,17 @@ export default function EmailFinderHero() {
     setSelectedTab(slugToTab[slug as keyof typeof slugToTab] || "Search Using Domain")
   }, [slug])
 
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const storedCount = Number(sessionStorage.getItem("emailVerifierTrials") || 0)
+    setTrialCount(storedCount)
+    if (storedCount >= 3) {
+      setLimitMessage(
+        "You reached the maximum number of trial searches today. Please create a free account or sign in to continue using Exellius"
+      )
+    }
+  }, [])
+
   const handleTabClick = (tab: keyof typeof tabToSlug) => {
     const slug = tabToSlug[tab]
     router.push(`/${slug}`)
@@ -90,8 +103,21 @@ export default function EmailFinderHero() {
 
   const verifyEmail = async () => {
     if (!email) return
+
+    if (trialCount >= 3) {
+      setLimitMessage(
+        "You reached the maximum number of trial searches today. Please create a free account or sign in to continue using Exellius"
+      )
+      return
+    }
+
+    const nextCount = trialCount + 1
+    setTrialCount(nextCount)
+    sessionStorage.setItem("emailVerifierTrials", String(nextCount))
+
     setLoading(true)
     setVerificationResult(null)
+    setLimitMessage("")
 
     try {
       const response = await fetch("https://api.app.exellius.com/api/bounce/check/", {
@@ -108,8 +134,9 @@ export default function EmailFinderHero() {
 
       setVerificationResult(decrypted?.data || null)
     } catch (error) {
-  console.error(error)
-} finally {
+      console.error(error)
+      setLimitMessage("Unable to verify email. Please try again later.")
+    } finally {
       setLoading(false)
     }
   }
@@ -187,15 +214,39 @@ export default function EmailFinderHero() {
                 className="flex-1 px-4 py-4 outline-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={trialCount >= 3}
               />
               <button
                 onClick={verifyEmail}
-                disabled={loading}
-                className="bg-purple-600 text-white px-6"
+                disabled={loading || trialCount >= 3}
+                className="bg-purple-600 text-white px-6 disabled:opacity-50"
               >
                 {loading ? "Verifying..." : "Verify"}
               </button>
             </div>
+
+            {limitMessage && (
+              <p className="text-sm text-gray-600 mb-4">
+          
+           
+            <div className="mt-4 border border-yellow-300 bg-yellow-50 text-yellow-700 px-4 py-3 rounded-md text-sm flex items-start gap-2 max-w-3xl mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mt-0.5 text-yellow-500">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.343 3.94c.873-1.519 3.04-1.519 3.913 0l7.013 12.194A2.25 2.25 0 0119.263 19.5H4.737a2.25 2.25 0 01-1.993-3.366L9.757 3.94z" />
+                </svg>
+                <p>
+                  You reached the maximum number of trial searches today. Please{" "}
+                  <a href="https://app.exellius.com/signup" target="_blank" className="underline text-yellow-800">
+                    create a free account
+                  </a>{" "}
+                  or{" "}
+                  <a href="https://app.exellius.com/login" target="_blank" className="underline text-yellow-800">
+                    sign in
+                  </a>{" "}
+                  to continue using Exellius.
+                </p>
+              </div>
+        </p>
+            )}
 
             {/* Result UI */}
             {verificationResult && (

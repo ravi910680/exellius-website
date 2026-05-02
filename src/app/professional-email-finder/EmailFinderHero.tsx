@@ -7,7 +7,7 @@ import Image from "next/image"
 import CryptoJS from "crypto-js"
 
 const SECRET_KEY = "4b227777d4dd1fc61c6f884f48641d02"
-const DAILY_LIMIT = 20 // ✅ Only 3 searches per day
+const DAILY_LIMIT = 3 // ✅ Only 3 searches per day
 
 // ---------- Types ----------
 interface LeadResult {
@@ -49,7 +49,6 @@ interface Filters {
   foundingYear: string[]
   funding: string[]
   perCompany: number
-  search: string[]
   includeFirstName: string[]
   includeLastName: string[]
 }
@@ -183,7 +182,7 @@ export default function EmailFinderHero() {
       foundingYear: [],
       funding: [],
       perCompany: 1,
-      search: [],
+      
       includeFirstName: [nameParts[0]],
       includeLastName: [nameParts[1]],
     }
