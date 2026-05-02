@@ -125,7 +125,7 @@ export default function PhoneFinderHero() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/leads/getPeopleLeads", requestOptions)
+      const response = await fetch("https://api.app.exellius.com/api/leads/getPeopleLeads", requestOptions)
       const result = await response.json()
 
       const decrypted = decryptData<{ data: PhoneResult[] }>(result.data)
