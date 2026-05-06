@@ -207,7 +207,7 @@ export default function EmailFinderHero() {
 
       const result = await response.json()
       const decrypted = decryptData<ApiResponse>(result.data)
-      console.log(decrypted?.data);
+     
       setResults(decrypted?.data || [])
 
       updateUsage() // ✅ Increment daily usage

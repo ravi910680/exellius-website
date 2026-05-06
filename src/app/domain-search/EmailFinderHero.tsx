@@ -64,7 +64,7 @@ export default function EmailFinderHero() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [showLimitAlert, setShowLimitAlert] = useState(false)
-  const MAX_SEARCHES_PER_DAY = 3
+  const MAX_SEARCHES_PER_DAY = 10
 
   // ---------- Load & Reset Daily Limit ----------
   useEffect(() => {
@@ -148,6 +148,7 @@ export default function EmailFinderHero() {
       sort_order: "asc",
     })
 
+    
     const requestOptions: RequestInit = {
       method: "POST",
       headers: {

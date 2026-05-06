@@ -57,7 +57,7 @@ export default function ContactHero() {
     try {
       const response = await fetch("https://api.app.exellius.com/api/contact/send", requestOptions)
       const result = await response.json()
-      console.log(decryptData(result.data))
+      
 
       setStatus("success")
       setForm({ email: "", subject: "", message: "" })

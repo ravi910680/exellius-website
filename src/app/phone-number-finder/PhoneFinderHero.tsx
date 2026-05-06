@@ -114,7 +114,7 @@ export default function PhoneFinderHero() {
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append(
       "Authorization",
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBpX2tleSIsIm5hbWUiOiJkZWZhdWx0LWFwaS1rZXkiLCJwZXJtYW5lbnQiOnRydWUsImlhdCI6MTc1NzA3Nzg0OH0.6eqmipK-0-YIJIRu_U5GGF2ksuOyZXAQ3UzzFmDCEbw"
+      "Bearer " + process.env.NEXT_PUBLIC_API_TOKEN
     )
 
     const requestOptions: RequestInit = {
@@ -129,7 +129,7 @@ export default function PhoneFinderHero() {
       const result = await response.json()
 
       const decrypted = decryptData<{ data: PhoneResult[] }>(result.data)
-      console.log("Decrypted Response:", decrypted)
+      
 
       if (decrypted?.data && Array.isArray(decrypted.data)) {
         setResults(decrypted.data)

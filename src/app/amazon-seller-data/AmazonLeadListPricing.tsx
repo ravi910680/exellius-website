@@ -102,7 +102,7 @@ export default function AmazonLeadQuoteSection() {
     try {
       const response = await fetch("https://api.app.exellius.com/api/contact/send", requestOptions)
       const result = await response.json()
-      console.log(decryptData(result.data))
+      
       setStatus("success")
       setForm({ name: "", email: "", leads: "", region: "", revenue: "", category: "" })
     } catch (error) {
