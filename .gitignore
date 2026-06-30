@@ -11,3 +11,5 @@ dist/
 
 .DS_Store
 *.log
+deploy.tar.gz
+*.tar.gz
