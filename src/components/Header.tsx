@@ -29,7 +29,7 @@ const menuData: Record<"Resources" | "Company", { label: string; href: string }[
     { label: "Blogs", href: "/blog" },
     { label: "Customer Stories", href: "/customer-stories" },
     { label: "Templates", href: "/templates" },
-    { label: "Help Center", href: "/help-center" },
+    { label: "Help Center", href: "/en" },
   ],
   Company: [
     { label: "About Us", href: "/about-us" },
